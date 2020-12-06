@@ -1,0 +1,2 @@
+class Petsitter < ApplicationRecord
+end
