@@ -1,2 +1,37 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>ユーザー詳細画面</h1>
+<div class='nav justify-content-end'>
+  <%= link_to 'トップページへ', root_path, class:'nav-link' %>
+</div>
+
+<table class="table table-hover">
+  <tbody>
+  <tr>
+    <th><%= User.human_attribute_name(:id) %></th>
+    <td><%= @user.id %></td>
+  </tr>
+
+  <tr>
+    <th><%= User.human_attribute_name(:name) %></th>
+    <td><%= @user.name %></td>
+  </tr>
+
+  <tr>
+    <th><%= User.human_attribute_name(:email) %></th>
+    <td><%= @user.email%></td>
+  </tr>
+
+  <tr>
+    <th><%= User.human_attribute_name(:created_at) %></th>
+    <td><%= @task.created_at %></td>
+  </tr>
+
+  <tr>
+    <th><%= User.human_attribute_name(:updated_at) %></th>
+    <td><%= @task.updated_at %></td>
+  </tr>
+
+  <%= link_to "編集", edit_user_path, class: 'btn btn-primary mr-3' %>
+  <%= link_to "削除", @user, method: :delete, data: {confirm: "タスク#{@user.name}を削除します。よろしいですか？"}, class: 'btn btn-danger' %>
+
+  </tbody>
+</table>
