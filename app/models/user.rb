@@ -9,12 +9,16 @@ class User < ApplicationRecord
 
   # bcryptによるパスワード検証
   has_secure_password
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   # email用の正規表現
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  # Validation
   validates :name, { presence: true, length: { maximum: 30 }}
   validate :validate_name_not_including_comma
   validates :email, { presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
+  validates :password, presence: true
+  validates :password_digest, presence: true
 
   # email保存前に小文字に変換処理を行う
   before_save { self.email = email.downcase }

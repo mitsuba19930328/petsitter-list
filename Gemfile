@@ -33,6 +33,10 @@ group :development, :test do
   # バグ解消を簡単にするための設定
   gem 'better_errors'
   gem 'binding_of_caller'
+  # テスト用ファイル一式（chromedriver-helperはchromeでエラーが起きないようするためのgemfile）
+  gem 'rspec-rails'
+  gem 'chromedriver-helper', '~> 1.1.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
