@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <ul class="navbar-nav ml-auto">
+      <!-- ヘッダーメニュー -->
+      <% if current_user %>
+        <!-- ログイン中ユーザー用メニュー -->
+        <li claas="nav-item"><%= link_to 'トップページ', root_path, class:'nav-link' %></li>
+        <li claas="nav-item"><%= link_to 'ログイン中ユーザー用メニュー（シッター一覧など）', '#', class: 'nav-link' %></li>
+        <li claas="nav-item"><%= link_to 'ユーザー詳細', user_path(current_user.id), class: 'nav-link' %></li>
+        <li claas="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete,  class: 'nav-link' %></li>
+      <% else %>
+        <!-- 未ログインユーザー用メニュー -->
+        <li claas="nav-item"><%= link_to 'トップページ', root_path, class:'nav-link' %></li>
+        <li claas="nav-item"><%= link_to '未ログインユーザー用メニュー（一部機能）', '#', class: 'nav-link' %></li>
+        <li claas="nav-item"><%= link_to 'ペットシッター一覧', '#', class: 'nav-link' %></li>
+        <li claas="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+      <% end %>
+    </ul>
     <div class="container">
       <% if flash.notice.present? %>
         <div class="alert alert-success"><%= flash.notice %></div>
