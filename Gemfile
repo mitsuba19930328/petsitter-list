@@ -33,9 +33,8 @@ group :development, :test do
   # バグ解消を簡単にするための設定
   gem 'better_errors'
   gem 'binding_of_caller'
-  # テスト用ファイル一式（chromedriver-helperはchromeでエラーが起きないようするためのgemfile）
+  # テスト用ファイル一式
   gem 'rspec-rails'
-  gem 'chromedriver-helper', '~> 1.1.0'
   gem 'factory_bot_rails'
 end
 
@@ -46,6 +45,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
