@@ -20,7 +20,8 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "ユーザー登録が完了しました。"
     else
       # ユーザー登録失敗した場合
-      render :new, notice: "ユーザー登録が失敗しました。"
+      flash.now[:alert] = 'ユーザー登録が失敗しました。'
+      render :new
     end
   end
 
@@ -35,7 +36,8 @@ class UsersController < ApplicationController
     if user.update(user_params)
       redirect_to root_path, notice: "ユーザー情報を更新しました"
     else
-      render :edit, notice: "ユーザー情報更新に失敗しました"
+      flash.now[:alert] = 'ユーザー情報更新に失敗しました'
+      render :edit
     end
   end
 

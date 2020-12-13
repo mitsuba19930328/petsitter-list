@@ -5,32 +5,38 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- stylesheetとjavascriptを使用できるようにするためのimport文-->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
-    <ul class="navbar-nav ml-auto">
-      <!-- ヘッダーメニュー -->
-      <% if current_user %>
-        <!-- ログイン中ユーザー用メニュー -->
-        <li claas="nav-item"><%= link_to 'トップページ', root_path, class:'nav-link' %></li>
-        <li claas="nav-item"><%= link_to 'ログイン中ユーザー用メニュー（シッター一覧など）', '#', class: 'nav-link' %></li>
-        <li claas="nav-item"><%= link_to 'ユーザー詳細', user_path(current_user.id), class: 'nav-link' %></li>
-        <li claas="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete,  class: 'nav-link' %></li>
-      <% else %>
-        <!-- 未ログインユーザー用メニュー -->
-        <li claas="nav-item"><%= link_to 'トップページ', root_path, class:'nav-link' %></li>
-        <li claas="nav-item"><%= link_to '未ログインユーザー用メニュー（一部機能）', '#', class: 'nav-link' %></li>
-        <li claas="nav-item"><%= link_to 'ペットシッター一覧', '#', class: 'nav-link' %></li>
-        <li claas="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
-      <% end %>
-    </ul>
+  <!-- ヘッダーメニュー -->
+    <header class='header'>
+      <ul class="navbar-nav ml-auto">
+        <% if current_user %>
+          <!-- ログイン中ユーザー用メニュー -->
+          <li claas="nav-item"><%= link_to 'トップページ', root_path, class:'nav-link' %></li>
+          <li claas="nav-item"><%= link_to 'ログイン中ユーザー用メニュー（シッター一覧など）', '#', class: 'nav-link' %></li>
+          <li claas="nav-item"><%= link_to 'ユーザー詳細', user_path(current_user.id), class: 'nav-link' %></li>
+          <li claas="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete,  class: 'nav-link' %></li>
+        <% else %>
+          <!-- 未ログインユーザー用メニュー -->
+          <li claas="nav-item"><%= link_to 'トップページ', root_path, class:'nav-link' %></li>
+          <li claas="nav-item"><%= link_to '未ログインユーザー用メニュー（一部機能）', '#', class: 'nav-link' %></li>
+          <li claas="nav-item"><%= link_to '新規登録', new_user_path, class: 'nav-link' %></li>
+          <li claas="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </header>
+    <!-- flashメッセージの表示 -->
     <div class="container">
       <% if flash.notice.present? %>
         <div class="alert alert-success"><%= flash.notice %></div>
+      <% end %>
+      <% if flash.alert.present? %>
+        <div class="alert alert-warning"><%= flash.alert %></div>
       <% end %>
     </div>
     <%= yield %>

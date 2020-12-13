@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :login_required
+  skip_before_action :login_required, only: [:new, :create]
 
   # ログインセッション登録ページ
   def new
@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: 'ログインしました。'
     else
       # 検証失敗
-      render :new, notice: 'ログインが失敗しました。'
+      flash.now[:alert] = 'ログインに失敗しました。'
+      render :new
     end
   end
 
