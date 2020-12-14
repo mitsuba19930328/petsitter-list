@@ -17,7 +17,7 @@
   </div>
   <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control', id:'task_name' %>
+    <%= f.password_field :password, class: 'form-control', id:'user_password' %>
   </div>
   <div class="form-group">
     <%= f.label :password_confirmation %>
@@ -27,5 +27,5 @@
     <%= f.label :image_name %>
     <%= f.password_field :image_name, class: 'form-control', id:'user_image_name' %>
   </div>
-  <%= f.submit nil, class:'btn btn-primary' %>
+  <%= f.submit nil, class:'btn btn-primary', id: 'submit_btn' %>
 <% end %>
