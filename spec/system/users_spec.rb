@@ -1,6 +1,57 @@
 require 'rails_helper'
 
-RSpec.describe 'ユーザー登録機能', type: :system do
+RSpec.describe 'User', type: :system do
+  let(:user) { create(:user) }
+  let(:other_user) { create(:user) }
+
+  describe 'User新規登録' do
+    describe 'ログイン前' do
+      describe 'ユーザー新規登録' do
+        context 'フォームの入力値が正常' do
+          it 'ユーザーの新規登録が成功' do
+
+            # ユーザー新規登録画面へ移動
+            visit new_user_path
+
+            # 諸オブジェクトを入れていく
+            # nameテキストフィールドに'Watage'を入力
+            fill_in 'user_name', with: 'Watage'
+
+            # emailテキストフィールドに'watage@example.com'を入力
+            fill_in 'user_email', with: 'watage@example.com'
+
+            # passwordテキストフィールドに'password'を入力
+            fill_in 'user_password', with: 'password'
+
+            # password_confirmationテキストフィールドに'password'を入力
+            fill_in 'user_password_confirmation', with: 'password'
+
+            # image_nameテキストフィールドに'watage_image'を入力
+            fill_in 'user_image_name', with: 'watage_image'
+
+            # submitと記述のあるsubmitをクリックする
+            click_button 'submit_btn'
+
+            # root_pathへ遷移することを期待する
+            expect(current_path).to eq login_path
+
+            # 遷移されたページに'ユーザー登録が完了しました。'の文字列があることを期待する
+            expect(page).to have_content 'ユーザー登録が完了しました。'
+
+          end
+
+        end
+        context 'メールアドレス未記入' do
+
+        end
+        context '登録済メールアドレス' do
+
+        end
+      end
+
+    end
+
+  end
 
   context '新規登録' do
 
@@ -38,11 +89,6 @@ RSpec.describe 'ユーザー登録機能', type: :system do
     #   expect(FactoryBot.update(:user, name: 'Lapan', email: 'lapan@example.com', password: 'password', password_confirmation: 'password')).to be_valid
     # end
 
-
   end
-
-
-
-
 
 end
