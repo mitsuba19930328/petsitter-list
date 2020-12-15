@@ -9,11 +9,11 @@
 <%= form_with model: user, local: true do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', id:'user_name' %>
+    <%= f.text_field :name, class: 'form-control', id:'user_name', value: user&.name %>
   </div>
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', id:'user_email' %>
+    <%= f.email_field :email, class: 'form-control', id:'user_email', value: user&.email %>
   </div>
   <div class="form-group">
     <%= f.label :password %>
@@ -25,7 +25,7 @@
   </div>
   <div class="form-group">
     <%= f.label :image_name %>
-    <%= f.password_field :image_name, class: 'form-control', id:'user_image_name' %>
+    <%= f.text_field :image_name, class: 'form-control', id:'user_image_name', value: user&.image_name %>
   </div>
   <%= f.submit nil, class:'btn btn-primary', id: 'submit_btn' %>
 <% end %>
