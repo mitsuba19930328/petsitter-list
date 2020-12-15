@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # ユーザー登録成功した場合
+      session[:user_id] = @user.id
       redirect_to root_path, notice: "ユーザー登録が完了しました。"
     else
       # ユーザー登録失敗した場合

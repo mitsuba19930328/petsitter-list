@@ -16,22 +16,19 @@ RSpec.describe 'User', type: :system do
             # 諸オブジェクトを入れていく
             # nameテキストフィールドに'Watage'を入力
             fill_in 'user_name', with: 'Watage'
-
             # emailテキストフィールドに'watage@example.com'を入力
             fill_in 'user_email', with: 'watage@example.com'
-
             # passwordテキストフィールドに'password'を入力
             fill_in 'user_password', with: 'password'
-
             # password_confirmationテキストフィールドに'password'を入力
             fill_in 'user_password_confirmation', with: 'password'
-
             # image_nameテキストフィールドに'watage_image'を入力
             fill_in 'user_image_name', with: 'watage_image'
-
             # submitと記述のあるsubmitをクリックする
             click_button 'submit_btn'
 
+            # 新規登録後のテスト
+            # TODO セッションに新規登録したユーザーのIDが入っている確認
             # root_pathへ遷移することを期待する
             expect(current_path).to eq login_path
 
@@ -41,11 +38,80 @@ RSpec.describe 'User', type: :system do
           end
 
         end
-        context 'メールアドレス未記入' do
+        context 'フォームの入力値が不正' do
 
-        end
-        context '登録済メールアドレス' do
+          # 細かなフォーム入力値チェックはmodel/user_specにて確認するため、ここでは失敗時アクションを主に確認
 
+          it 'ユーザーの新規登録が失敗（複数要因）' do
+            # ユーザー新規登録画面へ移動
+            visit new_user_path
+
+            # エラーが起こる新規登録処理を行う（エラー後の挙動を確認したいから）
+            # nameテキストフィールドには今回は何も入れません
+            fill_in 'user_name', with: ''
+            # emailテキストフィールドには今回は何も入れません
+            fill_in 'user_email', with: ''
+            # passwordテキストフィールドには今回は何も入れません
+            fill_in 'user_password', with: ''
+            # password_confirmationテキストフィールドに'password'を入力
+            fill_in 'user_password_confirmation', with: 'password'
+            # image_nameテキストフィールドに'watage_image'を入力
+            fill_in 'user_image_name', with: 'watage_image'
+            # submitボタンをクリック
+            click_button 'submit_btn'
+
+            # 新規登録失敗時のテスト
+            # users_pathへ遷移することを期待する
+            expect(current_path).to eq users_path
+
+            # 以下、失敗時のメッセージ確認
+            # 新規登録ページに'ユーザー登録が完了しました。'の文字列があることを期待する
+            expect(page).to have_content 'ユーザー登録が失敗しました。'
+
+            # 新規登録ページのエラー原因が書かれていることを期待する
+            expect(page).to have_content 'パスワードを入力してください'
+            expect(page).to have_content '名称を入力してください'
+            expect(page).to have_content 'メールアドレスを入力してください'
+            expect(page).to have_content 'メールアドレスは不正な値です'
+
+            # 新規失敗時、パスワード系以外はそのままフォームに値が入っていること
+            expect(page).to have_content 'watage_image'
+
+          end
+
+          it 'ユーザーの新規登録が失敗（複数要因ver2）' do
+            # ユーザー新規登録画面へ移動
+            visit new_user_path
+
+            # エラーが起こる新規登録処理を行う（エラー後の挙動を確認したいから）
+            # nameテキストフィールドには'Watage'を入れます
+            fill_in 'user_name', with: 'Watage'
+            # emailテキストフィールドには'watage@example.com'を入れます
+            fill_in 'user_email', with: 'watage@example.com'
+            # passwordテキストフィールドには'password'
+            fill_in 'user_password', with: 'password'
+            # password_confirmationテキストフィールドに'passward'を入力
+            fill_in 'user_password_confirmation', with: 'passward'
+            # image_nameテキストフィールドには何も入れません
+            fill_in 'user_image_name', with: ''
+            # submitボタンをクリック
+            click_button 'submit_btn'
+
+            # 新規登録失敗時のテスト
+            # users_pathへ遷移することを期待する
+            expect(current_path).to eq users_path
+
+            # 以下、失敗時のメッセージ確認
+            # 新規登録ページに'ユーザー登録が完了しました。'の文字列があることを期待する
+            expect(page).to have_content 'ユーザー登録が失敗しました。'
+
+            # 新規登録ページのエラー原因が書かれていることを期待する
+            expect(page).to have_content 'パスワード（確認）とパスワードの入力が一致しません'
+
+            # 新規失敗時、パスワード系以外はそのままフォームに値が入っていること
+            expect(page).to have_content 'watage_image'
+
+          end
         end
       end
 
@@ -58,20 +124,6 @@ RSpec.describe 'User', type: :system do
     # 基本的な登録のテストに関しては、models/users_spec.rbに記載済み
     # ここではエラーメッセージが出るかや、登録後の遷移がされているかなどを確認する。
     # TODO 登録後、sessionに新規登録した人のidを入れるべきだと思うけど、未実装なんで対応する必要
-
-    it '新規登録に成功した場合、画面がトップページに遷移して、登録成功のメッセージが出現すること' do
-      #　新規登録を行う（成功パターン）
-      # トップページにいることが期待される
-      # 登録成功の旨が出現することが期待される
-      # sessionに保存済みになっていることが期待される
-    end
-
-    it '新規登録に失敗した場合、画面が新規登録画面のままで、登録失敗のメッセージが出現すること' do
-      #　新規登録を行う（失敗パターン）
-      # 新規登録画面のままであることが期待される
-      # 登録失敗の旨が出現することが期待される
-      # フォームにはさっきの失敗した入力値が入っていることが期待される
-    end
 
     # before do
     #   @user = User.create!(name: 'いとう')
