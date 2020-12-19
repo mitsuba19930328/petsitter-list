@@ -33,8 +33,8 @@ class UsersController < ApplicationController
 
   # ユーザー更新処理
   def update
-    user = User.find(params[:id])
-    if user.update(user_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       redirect_to root_path, notice: "ユーザー情報を更新しました。"
     else
       flash.now[:alert] = 'ユーザー情報更新に失敗しました。'
