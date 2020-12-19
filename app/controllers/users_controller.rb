@@ -44,9 +44,9 @@ class UsersController < ApplicationController
 
   # ユーザー削除処理
   def destroy
-    user = User.find(params[:id])
-    user.destroy
-    redirect_to users_url, notice: "ユーザー情報を削除しました。"
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to tops_index_path, notice: "ユーザー情報を削除しました。"
   end
 
   private
