@@ -218,6 +218,7 @@ RSpec.describe 'User', type: :system do
 
           # 新規登録失敗時のテスト
           # :editのままであることを確認する
+          # TODO 一旦コメントアウト
           # expect(current_path).to eq ':edit'
 
           # 以下、失敗時のメッセージ確認
@@ -232,28 +233,38 @@ RSpec.describe 'User', type: :system do
         end
       end
     end
+
+    describe 'ユーザー削除' do
+
+      before 'ログイン処理'do
+        visit login_path
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: 'password'
+        # submitボタンをクリック
+        click_button 'submit_btn'
+      end
+
+      context 'ユーザー削除' do
+        it 'ユーザーの削除が成功' do
+
+          # ユーザー詳細画面へ移動
+          visit user_path(user)
+
+          # ユーザー削除ボタンを押下する
+          click_on '削除'
+
+          # ユーザー削除確認をOK、削除完了メッセージ出現、ユーザー数が一人少なくなっていることを確認
+          expect{
+            expect(page.accept_confirm).to eq "ユーザー#{user.name}を削除します。よろしいですか？"
+            expect(page).to have_content "ユーザー情報を削除しました。"
+          }.to change{ User.count }.by(-1)
+
+          # 削除後のテスト
+          # tops_index_pathへ遷移していることを期待する
+          expect(current_path).to eq tops_index_path
+
+        end
+      end
+    end
   end
 end
-
-  # context '更新処理' do
-  #
-  #   # 基本的な登録のテストに関しては、models/users_spec.rbに記載済み
-  #   # ここではエラーメッセージが出るかや、登録後の遷移がされているかなどを確認する。
-  #
-  #   # before do
-  #   #   @user = User.create!(name: 'いとう')
-  #   # end
-  #
-  # end
-  #
-  #
-  # context '更新後の動き' do
-  #   before do
-  #     # ログインすること
-  #   end
-  #
-  #   # it "名前とメールアドレスがあり、パスワードが合っていれば更新できる" do
-  #   #   expect(FactoryBot.update(:user, name: 'Lapan', email: 'lapan@example.com', password: 'password', password_confirmation: 'password')).to be_valid
-  #   # end
-  #
-  # end
