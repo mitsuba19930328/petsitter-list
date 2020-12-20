@@ -1,5 +1,5 @@
 class PetsittersController < ApplicationController
-  skip_before_action :login_required, only: [:new, :create, :index, :show]
+  skip_before_action :login_required, only: [:index, :show]
 
   # ペットシッター一覧表示
   def index
@@ -68,6 +68,7 @@ class PetsittersController < ApplicationController
                :pet_type,
                :qualification,
                :registration_number,
-               :insurance)
+               :insurance,
+               :image)
   end
 end

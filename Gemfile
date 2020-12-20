@@ -69,3 +69,7 @@ gem 'bootstrap'
 
 # rails-i18n:国際化ファイル
 gem 'rails-i18n'
+
+# 画像投稿用ファイル
+gem 'carrierwave'
+gem 'mini_magick'

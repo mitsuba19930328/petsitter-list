@@ -16,7 +16,7 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード（確認）'
-        image_name: '画像'
+        image: '画像URL'
         created_at: '登録日時'
         updated_at: '更新日時'
       session:
@@ -36,6 +36,7 @@ ja:
         qualification: '資格'
         registration_number: '登録番号'
         insurance: '保険の有無'
+        image: '画像URL'
   date:
     abbr_day_names:
     - 日

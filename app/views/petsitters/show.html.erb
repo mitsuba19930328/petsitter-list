@@ -2,6 +2,11 @@
 
 <table class="table table-hover">
   <tbody>
+
+  <tr>
+    <%= image_tag @petsitter.image.url unless @petsitter.image.url.nil? %>
+  </tr>
+
   <tr>
     <th><%= Petsitter.human_attribute_name(:id) %></th>
     <td><%= @petsitter.id %></td>

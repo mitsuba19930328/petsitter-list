@@ -52,6 +52,6 @@ class UsersController < ApplicationController
   private
     # ストロングパラメーター（ユーザーパラメーター取得用）
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_name)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
     end
 end
