@@ -1,0 +1,15 @@
+<h1>ペットシッター新規登録</h1>
+<div class='nav justify-content-end'>
+  <%= link_to 'トップページへ', root_path, class:'nav-link' %>
+</div>
+
+<div>
+  <p>ペットシッター一覧</p>
+  <ul>
+    <% @petsitters.each do |petsitter| %>
+      <li><%= petsitter.id %></li>
+      <li><%= petsitter.name %></li>
+      <li><%= petsitter.email %></li>
+    <% end %>
+  </ul>
+</div>
