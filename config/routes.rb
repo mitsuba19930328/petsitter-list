@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   # user関連
   resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # petsitter関連
+  resources :petsitters
 end

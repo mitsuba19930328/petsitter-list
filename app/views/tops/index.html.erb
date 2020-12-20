@@ -13,10 +13,12 @@
 <div>
   <p>ユーザー一覧</p>
   <ul>
-    <% @users.each do |user| %>
-      <li><%= user.id %></li>
-      <li><%= user.name %></li>
-      <li><%= user.email %></li>
+    <% if @users %>
+      <% @users.each do |user| %>
+        <li><%= user.id %></li>
+        <li><%= user.name %></li>
+        <li><%= user.email %></li>
+      <% end %>
     <% end %>
   </ul>
 </div>

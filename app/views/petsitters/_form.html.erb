@@ -1,0 +1,59 @@
+<% if petsitter&.errors.present? %>
+  <ul id="error_explanation">
+    <% petsitter.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: petsitter, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', id:'petsitter_name', value: petsitter&.name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', id:'petsitter_email', value: petsitter&.email %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control', id:'petsitter_address', value: petsitter&.address %>
+  </div>
+  <div class="form-group">
+    <%= f.label :prefecture %>
+    <%= f.text_field :prefecture, class: 'form-control', id:'petsitter_prefecture', value: petsitter&.prefecture %>
+  </div>
+  <div class="form-group">
+    <%= f.label :town %>
+    <%= f.text_field :town, class: 'form-control', id:'petsitter_town', value: petsitter&.town %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: 'form-control', id:'petsitter_phone', value: petsitter&.phone %>
+  </div>
+  <div class="form-group">
+    <%= f.label :business_hours %>
+    <%= f.text_field :business_hours, class: 'form-control', id:'petsitter_business_hours', value: petsitter&.business_hours %>
+  </div>
+  <div class="form-group">
+    <%= f.label :regular_holiday %>
+    <%= f.text_field :regular_holiday, class: 'form-control', id:'petsitter_regular_holiday', value: petsitter&.regular_holiday %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pet_type %>
+    <%= f.text_field :pet_type, class: 'form-control', id:'petsitter_pet_type', value: petsitter&.pet_type %>
+  </div>
+  <div class="form-group">
+    <%= f.label :qualification %>
+    <%= f.text_field :qualification, class: 'form-control', id:'petsitter_qualification', value: petsitter&.qualification %>
+  </div>
+  <div class="form-group">
+    <%= f.label :registration_number %>
+    <%= f.text_field :registration_number, class: 'form-control', id:'petsitter_registration_number', value: petsitter&.registration_number %>
+  </div>
+  <div class="form-group">
+    <%= f.label :insurance %>
+    <%= f.text_field :insurance, class: 'form-control', id:'petsitter_insurance', value: petsitter&.insurance %>
+  </div>
+  <%= f.submit nil, class:'btn btn-primary', id: 'submit_btn' %>
+<% end %>

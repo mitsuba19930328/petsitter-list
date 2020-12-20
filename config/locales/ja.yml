@@ -22,6 +22,20 @@ ja:
       session:
         email: 'メールアドレス'
         password: 'パスワード'
+      petsitter:
+        id: 'ID'
+        name: '名称'
+        email: 'メールアドレス'
+        address: '住所'
+        prefecture: '都道府県'
+        town: '市町村'
+        phone: '電話番号'
+        business_hours: '営業時間'
+        regular_holiday: '定休日'
+        pet_type: '対応可能動物'
+        qualification: '資格'
+        registration_number: '登録番号'
+        insurance: '保険の有無'
   date:
     abbr_day_names:
     - 日
