@@ -2,6 +2,11 @@
 
 <table class="table table-hover">
   <tbody>
+
+  <tr>
+    <%= image_tag @petsitter.image.url unless @petsitter.image.url.nil? %>
+  </tr>
+
   <tr>
     <th><%= Petsitter.human_attribute_name(:id) %></th>
     <td><%= @petsitter.id %></td>
@@ -19,7 +24,7 @@
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:address) %></th>
-    <td><%= @petsitter.address　%></td>
+    <td><%= @petsitter.address %></td>
   </tr>
 
   <tr>
@@ -29,37 +34,37 @@
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:town) %></th>
-    <td><%= @petsitter.town　%></td>
+    <td><%= @petsitter.town %></td>
   </tr>
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:phone) %></th>
-    <td><%= @petsitter.phone　%></td>
+    <td><%= @petsitter.phone %></td>
   </tr>
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:business_hours) %></th>
-    <td><%= @petsitter.business_hours　%></td>
+    <td><%= @petsitter.business_hours %></td>
   </tr>
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:regular_holiday) %></th>
-    <td><%= @petsitter.regular_holiday　%></td>
+    <td><%= @petsitter.regular_holiday %></td>
   </tr>
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:pet_type) %></th>
-    <td><%= @petsitter.pet_type　%></td>
+    <td><%= @petsitter.pet_type %></td>
   </tr>
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:qualification) %></th>
-    <td><%= @petsitter.qualification　%></td>
+    <td><%= @petsitter.qualification %></td>
   </tr>
 
   <tr>
     <th><%= Petsitter.human_attribute_name(:registration_number) %></th>
-    <td><%= @petsitter.registration_number　%></td>
+    <td><%= @petsitter.registration_number %></td>
   </tr>
 
   <tr>
@@ -83,7 +88,7 @@
     <td><%= @petsitter.updated_at %></td>
   </tr>
 
-  <%= link_to "編集", edit_Petsitter_path, class: 'btn btn-primary mr-3' %>
+  <%= link_to "編集", edit_petsitter_path, class: 'btn btn-primary mr-3' %>
   <%= link_to "削除", @petsitter, method: :delete, data: {confirm: "ユーザー#{@petsitter.name}を削除します。よろしいですか？"}, class: 'btn btn-danger', id:'Petsitter_delete_btn' %>
 
   </tbody>

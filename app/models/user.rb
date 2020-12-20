@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   # bcryptによるパスワード検証
   has_secure_password
+  # 画像投稿用（carrierwave使用）
+  mount_uploader :image, ImageUploader
 
   # email用の正規表現
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
