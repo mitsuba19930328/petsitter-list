@@ -7,6 +7,7 @@
   <p>ペットシッター一覧</p>
   <ul>
     <% @petsitters.each do |petsitter| %>
+      <li><%= image_tag petsitter.image.url, :size => '200x150' unless petsitter.image.url.nil? %></li>
       <li><%= petsitter.id %></li>
       <li><%= petsitter.name %></li>
       <li><%= petsitter.email %></li>
