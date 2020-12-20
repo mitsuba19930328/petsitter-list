@@ -73,3 +73,6 @@ gem 'rails-i18n'
 # 画像投稿用ファイル
 gem 'carrierwave'
 gem 'mini_magick'
+
+# ページネーション機能
+gem 'kaminari'
