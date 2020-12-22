@@ -76,3 +76,6 @@ gem 'mini_magick'
 
 # ページネーション機能
 gem 'kaminari'
+
+# 検索機能
+gem 'ransack'
