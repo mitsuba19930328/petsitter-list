@@ -7,7 +7,7 @@ class TopsController < ApplicationController
     @user = current_user
     # @users = User.all
     #
-    # 検索
+    # # 検索
     @q = Petsitter.ransack(params[:q])
     @petsitters = @q.result(distinct: true)
 
