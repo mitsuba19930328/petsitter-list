@@ -3,6 +3,10 @@
   <%= link_to 'トップページへ', root_path, class:'nav-link' %>
 </div>
 
+<!--パンクズリストテスト-->
+<% breadcrumb :petsitter, @petsitter %>
+<%= breadcrumbs separator: " &rsaquo; " %>
+
 <div>
   <p>ペットシッター一覧</p>
   <ul>

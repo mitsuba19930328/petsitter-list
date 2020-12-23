@@ -79,3 +79,6 @@ gem 'kaminari'
 
 # 検索機能
 gem 'ransack'
+
+# パンクズリスト機能
+gem 'gretel'
