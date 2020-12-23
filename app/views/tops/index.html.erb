@@ -4,19 +4,23 @@
 <!-- 検索窓スペース-->
 <% if @q != nil %>
   <div class="search-place">
-    <%= search_form_for @q do |f| %>
+    <%= search_form_for(@q, url:petsitters_path) do |f| %>
       <!--キーワード検索-->
       <div class ="search-group">
-        <%= f.label :name_or_address, "Keyword" %>
-        <%= f.search_field :name_or_address_cont %>
+        <%= f.label :address, "エリア検索" %>
+        <%= f.search_field :address_cont, :placeholder => "都市エリア[例：東京]"  %>
+      </div>
+      <div class ="search-group">
+        <%= f.label :name_or_pet_type, "キーワード検索" %>
+        <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]"  %>
       </div>
       <!--対応可能ペット検索-->
-      <div class ="search-group">
-        <%= f.label :pet_type %>
-        <%= f.radio_button :pet_type_eq, '', {:checked => true} %>指定なし
-        <%= f.radio_button :pet_type_eq, '犬' %>犬
-        <%= f.radio_button :pet_type_eq, '猫' %>猫
-      </div>
+<!--      <div class ="search-group">-->
+        <%#= f.label :pet_type %>
+<!--        <%#= f.radio_button :pet_type_eq, '', {:checked => true} %>指定なし-->
+<!--        <%#= f.radio_button :pet_type_cont, '犬' %>犬-->
+<!--        <%#= f.radio_button :pet_type_cont, '猫' %>猫-->
+<!--      </div>-->
       <%= f.submit "検索" %>
     <% end %>
   </div>

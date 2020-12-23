@@ -3,7 +3,9 @@ class PetsittersController < ApplicationController
 
   # ペットシッター一覧表示
   def index
-    @petsitters = Petsitter.all
+    # 検索
+    @q = Petsitter.ransack(params[:q])
+    @petsitters = @q.result(distinct: true)
   end
 
   # ペットシッター詳細表示
