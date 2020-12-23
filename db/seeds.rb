@@ -19,7 +19,7 @@ Petsitter.create(name: "愛知秀夫",email: "sitter4@example.com",address: "埼
 
 Petsitter.create(name: "御相模ゆうき",email: "sitter5@example.com",address: "愛知県豊田市城見町828-2", prefecture: "愛知県", town: "豊田市城見町828-2",
                  phone: "080-0005-0005", business_hours: "08:30~18:30", regular_holiday: "木曜日", pet_type: "犬、猫、うさぎ",
-                 qualification: "ペットシッター士", registration_number: "000005", insurance: true, image: File.open("./public/uploads/seeds/img5.jpg"))
+                 qualification: "ペットシッター士", registration_number: "000005", insurance: true, image: File.open("./public/uploads/seeds/img5.png"))
 
 
 10.times do |i|
