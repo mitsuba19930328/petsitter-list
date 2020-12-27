@@ -58,14 +58,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #以下自分が記述
-# uglifier:JavaScriptコード軽量化
-gem 'uglifier'
-
-# jquery-rails:jQueryを使用できるようにする
-gem 'jquery-rails'
-
-# bootstrap:bootstrapを使用できるようにする
-gem 'bootstrap'
 
 # rails-i18n:国際化ファイル
 gem 'rails-i18n'

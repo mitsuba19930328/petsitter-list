@@ -7,6 +7,10 @@ class Petsitter < ApplicationRecord
   # ⑤バリデーション
   # ⑥コールバック
 
+  # 関連付け
+  has_many :reviews, dependent: :destroy
+  has_many :users, through: :reviews
+
   # 画像投稿用（carrierwave使用）
   mount_uploader :image, ImageUploader
 

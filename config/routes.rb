@@ -14,4 +14,9 @@ Rails.application.routes.draw do
 
   # petsitter関連
   resources :petsitters
+
+  # review関連
+  resources :reviews
+
+
 end
