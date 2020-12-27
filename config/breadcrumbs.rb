@@ -1,10 +1,30 @@
-crumb :root do
-  link "Home", root_path
-end
 
-crumb :petsitter do
-  link "ペットシッター一覧", petsitters_path
-end
+
+# crumb :root do
+#   link "Home", root_path
+# end
+#
+# crumb :petsitter do
+#   link "ペットシッター一覧", petsitters_path
+#   parent :root, root
+# end
+#
+# crumb :petsitter do |petsitter|
+#   link "ペットシッターの名前", petsitters_path(petsitter)
+#   parent :petsitter, petsitter
+# end
+
+# ユーザー詳細
+# crumb :user do
+#   link "ユーザー詳細", users_path
+#   parent :petsitters
+# end
+
+# # ペットシッター詳細
+# crumb :petsitterProfile do
+# link "ペットシッター詳細", petsitters_path
+# parent :petsitters
+# end
 
 # crumb :project do |project|
 #   link project.name, project_path(project)
