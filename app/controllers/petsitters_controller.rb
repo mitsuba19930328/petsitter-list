@@ -11,7 +11,7 @@ class PetsittersController < ApplicationController
   # ペットシッター詳細表示
   def show
     @petsitter = Petsitter.find(params[:id])
-    petsitter = Petsitter.find(params[:id])
+    @review = Review.new
   end
 
   # ペットシッター新規登録ページ表示

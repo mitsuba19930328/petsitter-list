@@ -3,9 +3,19 @@
 // a relevant structure within app/javascripts and only use these pack files to reference
 // that code so it'll be compiled.
 
+// import 'bootstrap'
+// import '../src/application.scss'
+
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
-require("channels")
+require("/channels")
+require('jquery')//jQueryを追加
+require('bootstrap/dist/js/bootstrap.min.js')//Bootstrapを追加
+require('raty.js')
+require('test.js')
+
+import 'bootstrap';
+import '../stylesheets/application';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

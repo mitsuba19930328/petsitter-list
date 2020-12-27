@@ -7,6 +7,10 @@ class User < ApplicationRecord
   # ⑤バリデーション
   # ⑥コールバック
 
+  # 関連付け
+  has_many :reviews, dependent: :destroy
+  has_many :petsitters, through: :reviews
+
   # bcryptによるパスワード検証
   has_secure_password
   # 画像投稿用（carrierwave使用）
