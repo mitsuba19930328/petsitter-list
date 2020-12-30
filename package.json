@@ -1,5 +1,5 @@
 {
-  "name": "petsitter_list",
+  "name": "exit",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -13,6 +13,10 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
-  }
+    "webpack-dev-server": "^3.11.1"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/mitsuba19930328/petsitter-list.git",
+  "author": "島崎塁 <mitsuba19930328@gmail.com>",
+  "license": "MIT"
 }
