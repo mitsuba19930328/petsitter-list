@@ -13,6 +13,7 @@ class PetsittersController < ApplicationController
     @petsitter = Petsitter.find(params[:id])
     @review = Review.new
     @reviews = Review.where(petsitter: @petsitter.id)
+    session[:petsitter_id] = @petsitter.id
   end
 
   # ペットシッター新規登録ページ表示
