@@ -13,7 +13,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.1"
   },
   "main": "index.js",
   "repository": "https://github.com/mitsuba19930328/petsitter-list.git",

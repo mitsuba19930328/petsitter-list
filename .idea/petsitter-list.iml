@@ -230,6 +230,21 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="autoprefixer-rails (vbundled(10.0.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-10.0.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-10.0.3.0/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-10.0.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/autoprefixer-rails-10.0.3.0/vendor" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="bcrypt (vbundled(3.1.16)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -334,6 +349,30 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/exe" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bootstrap (vbundled(4.5.3)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/assets" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/assets" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/bootstrap-4.5.3/assets" />
         </excluded>
       </library>
     </orderEntry>
@@ -542,6 +581,19 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="execjs (vbundled(2.7.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/execjs-2.7.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/execjs-2.7.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="factory_bot (vbundled(6.1.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -666,6 +718,26 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jbuilder-2.10.1/test" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jbuilder-2.10.1/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jquery-rails (vbundled(4.4.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.4.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.4.0/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.4.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.4.0/vendor" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/jquery-rails-4.4.0/test" />
         </excluded>
       </library>
     </orderEntry>
@@ -1007,6 +1079,24 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.10/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.10/ext" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.10/patches" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="popper_js (vbundled(1.16.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.16.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.16.0/assets" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.16.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.16.0/assets" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/popper_js-1.16.0/assets" />
         </excluded>
       </library>
     </orderEntry>
@@ -1643,6 +1733,24 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/tzinfo-1.2.8/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="uglifier (vbundled(4.2.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/uglifier-4.2.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/uglifier-4.2.0/.github" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/uglifier-4.2.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/uglifier-4.2.0/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/uglifier-4.2.0/.github" />
         </excluded>
       </library>
     </orderEntry>

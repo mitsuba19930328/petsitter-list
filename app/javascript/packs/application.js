@@ -3,17 +3,23 @@
 // a relevant structure within app/javascripts and only use these pack files to reference
 // that code so it'll be compiled.
 
-import 'bootstrap'
-import '../src/application.scss'
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
 
-require("@rails/ujs").start()
-require("@rails/activestorage").start()
-require("channels")
-require('bootstrap/dist/js/bootstrap.min.js')
-require('jquery')
-require("test")
-require('raty')
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
 
+// import 'bootstrap'
+// import '../src/application.scss'
+//
+// require("@rails/ujs").start()
+// require("@rails/activestorage").start()
+// require("channels")
+// require('bootstrap/dist/js/bootstrap.min.js')
+// require('jquery')
 
 // Rails.start()
 // Turbolinks.start()
