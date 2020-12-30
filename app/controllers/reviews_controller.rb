@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
 
   def create
     # ストロングパラメーターを使用してレビューインスタンス生成
-    params.require(:comment).permit(:rate)
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
