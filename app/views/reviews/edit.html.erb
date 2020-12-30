@@ -1,0 +1,6 @@
+<h1>レビュー編集</h1>
+<div class='nav justify-content-end'>
+  <%= link_to 'トップページへ', root_path, class:'nav-link' %>
+</div>
+
+<%= render partial: 'form', locals: { review: @review } %>

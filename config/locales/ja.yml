@@ -37,6 +37,10 @@ ja:
         registration_number: '登録番号'
         insurance: '保険の有無'
         image: '画像URL'
+      review:
+        title: 'タイトル'
+        content: '内容'
+        rate: '評価'
   date:
     abbr_day_names:
     - 日
