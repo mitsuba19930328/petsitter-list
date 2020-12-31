@@ -10,10 +10,20 @@ class PetsittersController < ApplicationController
 
   # ペットシッター詳細表示
   def show
+    # 該当のペットシッターを検索
     @petsitter = Petsitter.find(params[:id])
+
+    # 新規レビュー用インスタンス
     @review = Review.new
+
+    # 該当のペットシッターIDで検索できるレビューを取得
     @reviews = Review.where(petsitter: @petsitter.id)
+
+    # reviewコントローラーなどで使うため@petsitter.idをsessionに保存
     session[:petsitter_id] = @petsitter.id
+
+    # 自分のコメントがあるかチェックする
+    @is_my_review = @reviews.find_by(user_id: current_user.id)
   end
 
   # ペットシッター新規登録ページ表示
