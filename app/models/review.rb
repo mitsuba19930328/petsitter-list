@@ -17,6 +17,6 @@ class Review < ApplicationRecord
     # 一人のユーザーから、同じペットシッターへのレビューセーブはエラーにする
     # TODO テストをする必要あり（テスト未作成）
     def validate_duplicate_review_by_same_user
-      # errors.add('同じペットシッターへの2回以上のレビューはできません。') if Review.find_by(user_id: 提出されたreviewのuser_id, petsitter_id: 提出されたreviewのpetsitter_id)
+      errors.add('同じペットシッターへの2回以上のレビューはできません。') if Review.find_by(user_id: self.user_id, petsitter_id: self.petsitter_id)
     end
 end
