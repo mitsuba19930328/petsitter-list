@@ -7,21 +7,10 @@
 
     <!-- stylesheetとjavascriptを使用できるようにするためのimport文-->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%#= javascript_include_tag 'application' %>
-    <%#= stylesheet_link_tag    'application', media: 'all' %>
-<!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-<!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-<!--    <script src="/js/jquery.raty.js"></script>-->
-
-    <!-- ページネーションを綺麗にするためのbootstrapリンク（なんか文字などが小さくなってしまう現象あり）-->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <!--raty導入-->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.raty.js"></script>
   </head>
 
   <body>
