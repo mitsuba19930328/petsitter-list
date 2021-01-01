@@ -77,3 +77,9 @@ gem 'ransack'
 
 # パンクズリスト機能
 gem 'gretel'
+
+# geocoder(GoogleMapApi関連)
+gem 'geocoder'
+
+# javascriptとControllerの変数橋渡しを簡単にしてくれる
+gem 'gon'

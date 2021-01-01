@@ -15,7 +15,9 @@ class TopsController < ApplicationController
     @petsitters = Petsitter.page(params[:page]).per(5)
     # @users = User.all.page(params[:page]).per(5)
 
-
+    # 以下はGoogleMapテスト
+    @test_petsitter = Petsitter.find(1)
+    gon.address = @test_petsitter.address
 
   end
 

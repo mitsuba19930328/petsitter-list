@@ -18,5 +18,4 @@ Rails.application.routes.draw do
   # review関連
   resources :reviews
 
-
 end
