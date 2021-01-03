@@ -83,3 +83,12 @@ gem 'geocoder'
 
 # javascriptとControllerの変数橋渡しを簡単にしてくれる
 gem 'gon'
+
+# snsログインのためのツール
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+# 環境変数を使用するためのツール（githubにあげたらまずいデータをまとめる）
+gem 'dotenv-rails'
