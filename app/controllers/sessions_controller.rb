@@ -7,17 +7,26 @@ class SessionsController < ApplicationController
 
   # ログインセッション登録処理
   def create
-    user = User.find_by(email: session_params[:email])
+    # SNSログインを使った場合とそうでない場合で条件分岐
+    auth = request.env['omniauth.auth']
 
-    # emailから取得したユーザーと、bcryptによるパスワード比較が一致するか検証
-    if user&.authenticate(session_params[:password])
-      # 検証成功
+    if auth.present? # SNSログインありのケース
+      user = User.find_or_create_from_auth(request.env['omniauth.auth'])
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'ログインしました。'
-    else
-      # 検証失敗
-      flash.now[:alert] = 'ログインに失敗しました。'
-      render :new
+      # redirect_back_or user 意味がよくわかっていないため、別の遷移先に一旦する
+      redirect_to root_path, notice: "SNSログイン"
+    else # 既存のログインケース
+      user = User.find_by(email: session_params[:email])
+      # emailから取得したユーザーと、bcryptによるパスワード比較が一致するか検証
+      if user&.authenticate(session_params[:password])
+        # 検証成功
+        session[:user_id] = user.id
+        redirect_to root_path, notice: 'ログインしました。'
+      else
+        # 検証失敗
+        flash.now[:alert] = 'ログインに失敗しました。'
+        render :new
+      end
     end
   end
 
