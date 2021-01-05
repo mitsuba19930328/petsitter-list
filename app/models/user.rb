@@ -33,17 +33,30 @@ class User < ApplicationRecord
   #auth hashからユーザ情報を取得
   #データベースにユーザが存在するならユーザ取得して情報更新する；存在しないなら新しいユーザを作成する
   def self.find_or_create_from_auth(auth)
-    provider = auth[:provider]
-    uid = auth[:uid]
-    name = auth[:info][:name]
-    image = auth[:info][:image]
-    #必要に応じて情報追加してください
+    # emailが登録あれば、関連するユーザー情報を使用
+    user = User.find_by(email: auth.info.email)
 
-    #ユーザはSNSで登録情報を変更するかもしれので、毎回データベースの情報も更新する
-    self.find_or_create_by(provider: provider, uid: uid) do |user|
-      user.name = name
-      user.image = image
+    # 登録email（ユーザー）見つからない場合、api情報を基にユーザー作成
+    unless user
+      # 新規ユーザー作成のための情報
+      provider = auth[:provider]
+      uid = auth[:uid]
+      name = auth[:info][:name]
+      email = auth[:info][:email]
+      image = auth[:info][:image]
+      password = SecureRandom.hex(20)
+
+      # 新規ユーザー作成
+      user = User.create(name: name,
+                         email: email,
+                         password: password,
+                         password_confirmation: password,
+                         image: image,
+                         provider: provider,
+                         uid: uid,)
     end
+    # ユーザーを返却
+    user
   end
 
   private

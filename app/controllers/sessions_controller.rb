@@ -11,9 +11,10 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
 
     if auth.present? # SNSログインありのケース
-      user = User.find_or_create_from_auth(request.env['omniauth.auth'])
+      # user情報を見つけるか、新規作成
+      user = User.find_or_create_from_auth(auth)
+      # sessionにユーザーID保存
       session[:user_id] = user.id
-      # redirect_back_or user 意味がよくわかっていないため、別の遷移先に一旦する
       redirect_to root_path, notice: "SNSログイン"
     else # 既存のログインケース
       user = User.find_by(email: session_params[:email])

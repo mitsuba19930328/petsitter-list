@@ -3,8 +3,8 @@
   <%= link_to 'トップページへ', root_path, class:'nav-link' %>
 </div>
 
+<!-- ユーザー新規登録フォーム -->
 <%= render partial: 'form', locals: { user: @user } %>
 
-<%= link_to "Twitterアカウントでログイン", "/auth/twitter" %>
-<%= link_to "Facebookアカウントでログイン", "/auth/facebook" %>
-<%= link_to "Googleアカウントでログイン", "/auth/google_oauth2" %>
+<!-- SNSログインボタン -->
+<%= render partial: 'layouts/snsLoginBtn' %>
