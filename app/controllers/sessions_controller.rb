@@ -9,13 +9,19 @@ class SessionsController < ApplicationController
   def create
     # SNSログインを使った場合とそうでない場合で条件分岐
     auth = request.env['omniauth.auth']
+    provider = auth.provider
 
     if auth.present? # SNSログインありのケース
-      # user情報を見つけるか、新規作成
-      user = User.find_or_create_from_auth(auth)
-      # sessionにユーザーID保存
-      session[:user_id] = user.id
-      redirect_to root_path, notice: "SNSログイン"
+      if auth.info.email # emailある場合は新規登録かログインのどちらかへ進む
+        # user情報を見つけるか、新規作成
+        user = User.find_or_create_from_auth(auth)
+        # sessionにユーザーID保存
+        session[:user_id] = user.id
+        redirect_to root_path, notice: "#{provider}" + "でログインしました"
+      else # emailない場合はログイン不可
+        flash.now[:alert] = "#{provider}" + "にはemail情報が保存されていません。ログインにはemail情報が必要です。"
+        render :new
+      end
     else # 既存のログインケース
       user = User.find_by(email: session_params[:email])
       # emailから取得したユーザーと、bcryptによるパスワード比較が一致するか検証
@@ -29,6 +35,7 @@ class SessionsController < ApplicationController
         render :new
       end
     end
+
   end
 
   def destroy
