@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   # ＋SNSログイン
   get 'auth/:provider/callback', to: 'sessions#create'
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
+  get 'users/auth/google_oauth2/callback', to: 'sessions#create'
 
   # user関連
   resources :users

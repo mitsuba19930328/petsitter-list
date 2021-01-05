@@ -61,6 +61,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 
 # rails-i18n:国際化ファイル
 gem 'rails-i18n'
