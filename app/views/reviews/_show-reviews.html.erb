@@ -3,7 +3,9 @@
     <div class="row reviews">
       <div class="col-md-2 reviews-user">
         <%= link_to review.user do %>
-          <%= image_tag review.user.image.url ,width: '100px' %>
+          <% if review.user.image.url %>
+            <%= image_tag review.user.image.url ,width: '100px' %>
+          <% end %>
         <% end %>
         <p class="reviews-title"><%= link_to review.user.name, review.user %></p>
         <!--        <p class="reviews-prof"><%#= review.user.gender %> <%#= review.user.height %> <%#= review.user.weight %></p>-->

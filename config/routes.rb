@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   # petsitter関連
   resources :petsitters do
-    # like関連
+    # like(いいね)関連
     resources :likes, only: [:create, :destroy]
   end
 
