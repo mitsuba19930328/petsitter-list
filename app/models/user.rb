@@ -10,6 +10,8 @@ class User < ApplicationRecord
   # 関連付け
   has_many :reviews, dependent: :destroy
   has_many :petsitters, through: :reviews
+  has_many :likes, dependent: :destroy
+  has_many :liked_petsitters, through: :likes, source: :petsitter
 
   # bcryptによるパスワード検証
   has_secure_password
@@ -54,6 +56,11 @@ class User < ApplicationRecord
                          image: image,
                          provider: provider,
                          uid: uid,)
+    end
+
+    # いいねが既にあるかどうかを判定（petsitters/show.html.erbで使用）
+    def already_liked?(petsitter)
+      self.likes.exists?(petsitter_id: petsitter.id)
     end
 
     # 更新している場合、名前などを編集。
