@@ -11,7 +11,7 @@
       <li>id:<%= petsitter.id %></li>
       <li>名称:<%= petsitter.name %></li>
       <li>メール:<%= petsitter.email %></li>
-      <li>いいねされた数:<%= petsitter.liked_users&.count %></li>
+      <li>いいね:<%= petsitter.liked_users&.count %></li>
       <li><%= link_to '詳細', petsitter , class: 'nav-link' %></li>
     <% end %>
   </ul>
