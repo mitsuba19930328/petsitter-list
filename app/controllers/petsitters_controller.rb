@@ -24,6 +24,9 @@ class PetsittersController < ApplicationController
 
     # 自分のコメントがあるかチェックする
     @is_my_review = @reviews.find_by(user_id: current_user.id)
+
+    # 新規いいね用インスタンス
+    @like = Like.new
   end
 
   # ペットシッター新規登録ページ表示

@@ -17,9 +17,12 @@ Rails.application.routes.draw do
   resources :users
 
   # petsitter関連
-  resources :petsitters
+  resources :petsitters do
+    # like関連
+    resources :likes, only: [:create, :destroy]
+  end
 
   # review関連
-  resources :reviews
+  resources :reviews, only: [:create, :edit, :update, :destroy]
 
 end

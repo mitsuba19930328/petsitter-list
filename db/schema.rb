@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_03_195244) do
+ActiveRecord::Schema.define(version: 2021_01_06_164231) do
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "petsitter_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["petsitter_id"], name: "index_likes_on_petsitter_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "petsitters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +64,8 @@ ActiveRecord::Schema.define(version: 2021_01_03_195244) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "likes", "petsitters"
+  add_foreign_key "likes", "users"
   add_foreign_key "reviews", "petsitters"
   add_foreign_key "reviews", "users"
 end
