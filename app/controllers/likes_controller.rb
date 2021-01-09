@@ -10,7 +10,7 @@ class LikesController < ApplicationController
   # likeモデルの削除
   def destroy
     @like = Like.find_by(petsitter_id: params[:petsitter_id], user_id: current_user.id)
-    @like.destroy
+    @like&.destroy
     redirect_back(fallback_location: root_path)
   end
 

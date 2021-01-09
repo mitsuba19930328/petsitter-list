@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   def create
     # SNSログインを使った場合とそうでない場合で条件分岐
     auth = request.env['omniauth.auth']
-    provider = auth.provider
+    provider = auth&.provider
 
     if auth.present? # SNSログインありのケース
       if auth.info.email # emailある場合は新規登録かログインのどちらかへ進む

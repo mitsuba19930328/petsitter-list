@@ -32,6 +32,11 @@ class User < ApplicationRecord
   # email保存前に小文字に変換処理を行う
   before_save { self.email = email.downcase }
 
+  # いいねが既にあるかどうかを判定（petsitters/show.html.erbで使用）
+  def already_liked?(petsitter)
+    self.likes.exists?(petsitter_id: petsitter.id)
+  end
+
   #auth hashからユーザ情報を取得
   #データベースにユーザが存在するならユーザ取得して情報更新する；存在しないなら新しいユーザを作成する
   def self.find_or_create_from_auth(auth)
@@ -58,11 +63,6 @@ class User < ApplicationRecord
                          uid: uid,)
     end
 
-    # いいねが既にあるかどうかを判定（petsitters/show.html.erbで使用）
-    def already_liked?(petsitter)
-      self.likes.exists?(petsitter_id: petsitter.id)
-    end
-
     # 更新している場合、名前などを編集。
     # また、何経由でログインしたのかを表示できるように、snsログインの場合、providerも都度更新
     if provider != nil && uid != nil
@@ -72,7 +72,7 @@ class User < ApplicationRecord
     end
 
     # ユーザーを返却
-    user
+    return user
   end
 
   private

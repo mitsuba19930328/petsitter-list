@@ -31,9 +31,16 @@
     <td><%= @user.updated_at %></td>
   </tr>
 
-
   <%= link_to "編集", edit_user_path, class: 'btn btn-primary mr-3' %>
   <%= link_to "削除", @user, method: :delete, data: {confirm: "ユーザー#{@user.name}を削除します。よろしいですか？"}, class: 'btn btn-danger', id:'user_delete_btn' %>
+
+  <h3>いいねしたペットシッター</h3>
+  <% if @user.liked_petsitters %>
+    <% @user.liked_petsitters.each do |petsitter| %>
+      <%= petsitter.name %>
+      <%= petsitter.email %>
+    <% end %>
+  <% end %>
 
   </tbody>
 </table>
