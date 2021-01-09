@@ -20,11 +20,15 @@
   <%# end %>
 
   <!-- いいね機能 -->
-  <tr>いいね件数: <%= @petsitter.likes.count %>
+  <tr>いいね: <%= @petsitter.likes.count %>
     <% if current_user.already_liked?(@petsitter) %>
-      <%= link_to 'いいねを取り消す', petsitter_like_path(@petsitter.id), method: :delete %>
+      <%= link_to petsitter_like_path(@petsitter.id), method: :delete do %>
+        <%= fa_icon 'heart', id: "heart__red" %>
+      <% end %>
     <% else %>
-      <%= link_to 'いいね', petsitter_likes_path(@petsitter.id), method: :post %>
+      <%= link_to petsitter_likes_path(@petsitter.id), method: :post do %>
+        <%= fa_icon 'heart-o', id: "heart__normal" %>
+      <% end %>
     <% end %>
     <h2>いいねしたユーザー</h2>
     <% @petsitter.liked_users.each do |user| %>
