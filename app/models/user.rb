@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :petsitters, through: :reviews
   has_many :likes, dependent: :destroy
   has_many :liked_petsitters, through: :likes, source: :petsitter
+  has_many :temp_save, dependent: :destroy
+  has_many :temp_saved_petsitters, through: :temp_save, source: :petsitter
 
   # bcryptによるパスワード検証
   has_secure_password
@@ -35,6 +37,11 @@ class User < ApplicationRecord
   # いいねが既にあるかどうかを判定（petsitters/show.html.erbで使用）
   def already_liked?(petsitter)
     self.likes.exists?(petsitter_id: petsitter.id)
+  end
+
+  # 一時保存が既にされているかどうかを判定
+  def already_temp_saved?(petsitter)
+    self.temp_save.exists?(petsitter_id: petsitter.id)
   end
 
   #auth hashからユーザ情報を取得

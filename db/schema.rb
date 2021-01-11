@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_164231) do
+ActiveRecord::Schema.define(version: 2021_01_11_024812) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "petsitter_id", null: false
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 2021_01_06_164231) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "temp_saves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "petsitter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["petsitter_id"], name: "index_temp_saves_on_petsitter_id"
+    t.index ["user_id"], name: "index_temp_saves_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -68,4 +77,6 @@ ActiveRecord::Schema.define(version: 2021_01_06_164231) do
   add_foreign_key "likes", "users"
   add_foreign_key "reviews", "petsitters"
   add_foreign_key "reviews", "users"
+  add_foreign_key "temp_saves", "petsitters"
+  add_foreign_key "temp_saves", "users"
 end
