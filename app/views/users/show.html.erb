@@ -37,8 +37,20 @@
   <h3>いいねしたペットシッター</h3>
   <% if @user.liked_petsitters %>
     <% @user.liked_petsitters.each do |petsitter| %>
-      <%= petsitter.name %>
-      <%= petsitter.email %>
+      <%= link_to petsitter_path(petsitter.id) do %>
+        <%= petsitter.name %>
+      <% end %>
+      <%= petsitter.email %><br>
+    <% end %>
+  <% end %>
+
+  <h3>保存済みペットシッター</h3>
+  <% if @user.temp_saved_petsitters %>
+    <% @user.temp_saved_petsitters.each do |petsitter| %>
+      <%= link_to petsitter_path(petsitter.id) do %>
+        <%= petsitter.name %>
+      <% end %>
+      <%= petsitter.email %><br>
     <% end %>
   <% end %>
 

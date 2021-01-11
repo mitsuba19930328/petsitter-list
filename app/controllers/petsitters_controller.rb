@@ -27,6 +27,9 @@ class PetsittersController < ApplicationController
 
     # 新規いいね用インスタンス
     @like = Like.new
+
+    # 新規一時保存用インスタンス
+    @temp_save = TempSave.new
   end
 
   # ペットシッター新規登録ページ表示

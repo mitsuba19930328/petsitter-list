@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :petsitters do
     # like(いいね)関連
     resources :likes, only: [:create, :destroy]
+    # temp_save(一時保存)関連
+    resources :temp_saves, only: [:create, :destroy]
   end
 
   # review関連

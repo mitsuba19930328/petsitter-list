@@ -12,6 +12,8 @@ class Petsitter < ApplicationRecord
   has_many :users, through: :reviews
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
+  has_many :temp_save, dependent: :destroy
+  has_many :temp_saved_users, through: :temp_save, source: :user
 
   # 画像投稿用（carrierwave使用）
   mount_uploader :image, ImageUploader
