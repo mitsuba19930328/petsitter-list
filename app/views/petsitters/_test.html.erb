@@ -1,0 +1,114 @@
+<% if petsitter&.errors.present? %>
+  <ul id="error_explanation">
+    <% petsitter.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: petsitter, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', id:'petsitter_name', value: petsitter&.name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', id:'petsitter_email', value: petsitter&.email %>
+  </div>
+  <div class="form-group">
+    <%= f.label :prefecture %>
+    <%#= f.text_field :prefecture, class: 'form-control', id:'petsitter_prefecture', value: petsitter&.prefecture %>
+    <%= f.select :prefecture, ['北海道', '青森県', '秋田県', '岩手県'], { include_blank: '選択してください' }, value: petsitter&.prefecture %>
+
+    都道府県
+    ドロップダウンリスト
+
+  </div>
+  <div class="form-group">
+    <%= f.label :town %>
+    <%= f.text_field :town, class: 'form-control', id:'petsitter_town', value: petsitter&.town %>
+
+    市区町村地番
+    テキスト
+
+    ビル名・階数
+
+  </div>
+  <div class="form-group">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: 'form-control', id:'petsitter_phone', value: petsitter&.phone %>
+  </div>
+  <div class="form-group">
+    <%= f.label :business_hours %>
+    <%= f.text_field :business_hours, class: 'form-control', id:'petsitter_business_hours', value: petsitter&.business_hours,
+                     placeholder:
+                         "例：
+                         [月～金]
+                         11:00～15:00(L.O) 18:00～翌0:30(L.O.24:00)
+                         [土・日・祝]
+                         11:00～21:00" %>
+
+  </div>
+  <div class="form-group">
+    <%= f.label :regular_holiday %>
+    <%= f.text_field :regular_holiday, class: 'form-control', id:'petsitter_regular_holiday', value: petsitter&.regular_holiday %>
+
+
+    チェックボックス
+
+  </div>
+  <div class="form-group">
+    <%= f.label :pet_type %>
+    <%= f.text_field :pet_type, class: 'form-control', id:'petsitter_pet_type', value: petsitter&.pet_type %>
+    <%= f.check_box :pet_type, {multiple: true}, "犬", nil %><%= f.label :pet_type %>
+    <%= f.check_box :pet_type, {multiple: true}, "猫", nil %>猫
+    <%= f.check_box :pet_type, {multiple: true}, "うさぎ", nil %>うさぎ
+    <%= f.check_box :pet_type, {multiple: true}, "小動物", nil %>小動物
+    <%= f.check_box :pet_type, {multiple: true}, "小鳥", nil %>小鳥
+    <%= f.check_box :pet_type, {multiple: true}, "爬虫類", nil %>爬虫類
+    <%= f.check_box :pet_type, {multiple: true}, "その他動物（要相談）", nil %>その他動物（要相談）
+
+    チェックボックス
+    犬・猫・うさぎ・小動物・猿・小鳥・爬虫類・その他動物（要相談）
+
+  </div>
+  <div class="form-group">
+    <%= f.label :qualification %>
+    <%= f.text_field :qualification, class: 'form-control', id:'petsitter_qualification', value: petsitter&.qualification %>
+
+    資格：テキストエリア
+    例：愛玩動物飼養管理士,愛玩動物救命士
+
+  </div>
+  <div class="form-group">
+    <%= f.label :registration_number %>
+    <%= f.text_field :registration_number, class: 'form-control', id:'petsitter_registration_number', value: petsitter&.registration_number %>
+  </div>
+  <div class="form-group">
+    <%= f.label :insurance %>
+    <%= f.text_field :insurance, class: 'form-control', id:'petsitter_insurance', value: petsitter&.insurance %>
+
+    <label><%= f.radio_button :insurance, true %>有</label>
+    <label><%= f.radio_button :insurance, false %>無</label>
+
+    ○ペットシッター保険
+    ラジオボタン：有　無
+
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+
+    <% if petsitter&.image? %>
+      <%= image_tag petsitter.image.url %>
+    <% else %>
+      <%= image_tag "/assets/default.jpg", :size => '300x200' %>
+    <% end %>
+
+    <button type="button", class="btn btn-outline-secondary rounded-pill">
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', value: petsitter&.image %>
+    </button>
+  </div>
+
+  <%= f.submit nil, class:'btn btn-primary', id: 'submit_btn' %>
+<% end %>
