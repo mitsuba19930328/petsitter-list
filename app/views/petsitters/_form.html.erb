@@ -9,56 +9,86 @@
 <%= form_with model: petsitter, local: true do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', id:'petsitter_name', value: petsitter&.name %>
+    <%= f.text_field :name, class: 'form-control', id:'petsitter_name', value: petsitter&.name, required: true %>
   </div>
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', id:'petsitter_email', value: petsitter&.email %>
-  </div>
-  <div class="form-group">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control', id:'petsitter_address', value: petsitter&.address %>
+    <%= f.email_field :email, class: 'form-control', id:'petsitter_email', value: petsitter&.email, required: true %>
   </div>
   <div class="form-group">
     <%= f.label :prefecture %>
-    <%= f.text_field :prefecture, class: 'form-control', id:'petsitter_prefecture', value: petsitter&.prefecture %>
+    <%#= f.text_field :prefecture, class: 'form-control', id:'petsitter_prefecture', value: petsitter&.prefecture %>
+    <%= f.select :prefecture, %w[北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県
+                                 茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県
+                                 新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県
+                                 静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 奈良県
+                                 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 徳島県 香川県
+                                 愛媛県 高知県 福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県
+                                 鹿児島県 沖縄県], { include_blank: '選択してください' }, value: petsitter&.prefecture, required: true %>
   </div>
   <div class="form-group">
     <%= f.label :town %>
-    <%= f.text_field :town, class: 'form-control', id:'petsitter_town', value: petsitter&.town %>
+    <%= f.text_field :town, class: 'form-control', id:'petsitter_town', value: petsitter&.town, required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :block %>
+    <%= f.text_field :block, class: 'form-control', id:'petsitter_block', value: petsitter&.block, required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :apartment %>
+    <%= f.text_field :apartment, class: 'form-control', id:'petsitter_apartment', value: petsitter&.apartment %>
   </div>
   <div class="form-group">
     <%= f.label :phone %>
-    <%= f.text_field :phone, class: 'form-control', id:'petsitter_phone', value: petsitter&.phone %>
+    <%= f.text_field :phone, class: 'form-control', id:'petsitter_phone', value: petsitter&.phone, required: true %>
   </div>
   <div class="form-group">
     <%= f.label :business_hours %>
-    <%= f.text_field :business_hours, class: 'form-control', id:'petsitter_business_hours', value: petsitter&.business_hours %>
+    <%= f.text_area :business_hours, class: 'form-control', id:'petsitter_business_hours', value: petsitter&.business_hours,
+                     placeholder:"例：
+[月～金]
+09:00～19:00
+[土・日・祝]
+11:00～19:00", required: true %>
   </div>
   <div class="form-group">
-    <%= f.label :regular_holiday %>
-    <%= f.text_field :regular_holiday, class: 'form-control', id:'petsitter_regular_holiday', value: petsitter&.regular_holiday %>
+    <%= f.label :regular_holiday %><p></p>
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "月", nil %>月
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "火", nil %>火
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "水", nil %>水
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "木", nil %>木
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "金", nil %>金
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "土", nil %>土
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "日", nil %>日
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "祝日", nil %>祝日
+    <%= f.check_box :regular_holiday, {multiple: true, class: "regular_holiday_check_box", required: true}, "その他不定休", nil %>その他不定休
   </div>
   <div class="form-group">
     <%= f.label :pet_type %>
-    <%= f.text_field :pet_type, class: 'form-control', id:'petsitter_pet_type', value: petsitter&.pet_type %>
+    <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "犬", nil %>犬
+    <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "猫", nil %>猫
+    <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "うさぎ", nil %>うさぎ
+    <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "小動物", nil %>小動物
+    <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "小鳥", nil %>小鳥
+    <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "爬虫類", nil %>爬虫類
+    <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "その他動物（要相談）", nil %>その他動物（要相談）
   </div>
   <div class="form-group">
     <%= f.label :qualification %>
-    <%= f.text_field :qualification, class: 'form-control', id:'petsitter_qualification', value: petsitter&.qualification %>
+    <%= f.text_field :qualification, class: 'form-control', id:'petsitter_qualification', value: petsitter&.qualification, placeholder: '例：愛玩動物飼養管理士,愛玩動物救命士' %>
   </div>
   <div class="form-group">
     <%= f.label :registration_number %>
-    <%= f.text_field :registration_number, class: 'form-control', id:'petsitter_registration_number', value: petsitter&.registration_number %>
+    <%= f.text_field :registration_number, class: 'form-control', id:'petsitter_registration_number', value: petsitter&.registration_number, placeholder: '例：15東京都保 第XX号', required: true %>
   </div>
   <div class="form-group">
     <%= f.label :insurance %>
-    <%= f.text_field :insurance, class: 'form-control', id:'petsitter_insurance', value: petsitter&.insurance %>
+    <%= f.radio_button :insurance, true, required: true %>有
+    <%= f.radio_button :insurance, false, required: true %>無
   </div>
 
   <div class="form-group">
     <%= f.label :image %>
-
     <% if petsitter&.image? %>
       <%= image_tag petsitter.image.url %>
     <% else %>
@@ -72,3 +102,25 @@
 
   <%= f.submit nil, class:'btn btn-primary', id: 'submit_btn' %>
 <% end %>
+
+
+<script>
+    let checkedsum; //チェックが入っている個数
+    $('.regular_holiday_check_box').click(function() {
+        checkedsum = $('.regular_holiday_check_box:checked').length; //チェックが入っているチェックボックスの取得
+        if( checkedsum > 0 ){
+            $('.regular_holiday_check_box').prop("required",false); //required属性の解除
+        }else{
+            $('.regular_holiday_check_box').prop("required",true); //required属性の付与
+        }
+    })
+
+    $('.pet_type_check_box').click(function() {
+        checkedsum = $('.pet_type_check_box:checked').length; //チェックが入っているチェックボックスの取得
+        if( checkedsum > 0 ){
+            $('.pet_type_check_box').prop("required",false); //required属性の解除
+        }else{
+            $('.pet_type_check_box').prop("required",true); //required属性の付与
+        }
+    })
+</script>

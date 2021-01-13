@@ -1,5 +1,9 @@
 class PetsittersController < ApplicationController
+  before_action :make_address, only: [:create, :update]
+  before_action :regular_holiday_string, only: [:create, :update]
+  before_action :pet_type_string, only: [:create, :update]
   skip_before_action :login_required, only: [:index, :show]
+  include PetsittersHelper
 
   # ペットシッター一覧表示
   def index
@@ -74,6 +78,26 @@ class PetsittersController < ApplicationController
     redirect_to tops_index_path, notice: "ペットシッター情報を削除しました。"
   end
 
+  # 住所作成処理
+  def make_address
+    # パラメーターの加工
+    # 住所加工
+    prefecture = params.require(:petsitter)[:prefecture]
+    town = params.require(:petsitter)[:town]
+    apartment = params.require(:petsitter)[:apartment]
+    params.require(:petsitter)[:address] = prefecture + town + apartment
+  end
+
+  # 定休日の配列を文字列にする（/区切り）
+  def regular_holiday_string
+    params[:petsitter][:regular_holiday] = params[:petsitter][:regular_holiday]&.join("/")  || "" # to string
+  end
+
+  # 対応可能動物の配列を文字列にする（/区切り）
+  def pet_type_string
+    params[:petsitter][:pet_type] = params[:petsitter][:pet_type]&.join("/")  || "" # to string
+  end
+
   private
   # ストロングパラメーター（ペットシッターパラメーター取得用）
   def petsitter_params
@@ -83,6 +107,8 @@ class PetsittersController < ApplicationController
                :address,
                :prefecture,
                :town,
+               :block,
+               :apartment,
                :phone,
                :business_hours,
                :regular_holiday,
@@ -90,6 +116,6 @@ class PetsittersController < ApplicationController
                :qualification,
                :registration_number,
                :insurance,
-               :image)
+               :image,)
   end
 end
