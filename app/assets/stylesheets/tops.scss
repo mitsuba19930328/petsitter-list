@@ -1,3 +1,166 @@
-// Place all the styles related to the tops controller here.
-// They will automatically be included in application.scss.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* HEADER
+------------------------- */
+
+.logo {
+  width: 210px;
+  //margin-top: 140px;
+}
+
+.main-nav {
+  display: flex;
+  font-size: 1.00rem;
+  //color: #fff;
+  text-transform: uppercase;
+  margin-top: 34px;
+  list-style: none;
+}
+
+.main-nav li {
+  margin-left: 36px;
+}
+
+.main-nav a {
+  color: #fff;
+}
+
+.main-nav a:hover {
+  color: #0bd;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+/* HOME
+------------------------- */
+
+.home-content {
+  text-align: center;
+  margin-top: 10%;
+  color: #fff;
+}
+
+.home-content p {
+  font-size: 1.125rem;
+  margin: 10px 0 42px;
+}
+
+/* 見出し */
+.page-title {
+  font-size: 3rem;
+  font-family: 'Philosopher', serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+/* ボタン */
+.button {
+  font-size: 1.2rem;
+  background: #0bd;
+  color: #fff;
+  border-radius: 5px;
+  padding: 18px 32px;
+}
+
+.button:hover {
+  background: #0090aa;
+}
+
+/* 大きな背景画像 */
+.big-bg{
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+#home {
+  background-image: url(cat-and-dog.jpg);
+  min-height: 100vh;
+}
+
+#home .page-title {
+  text-transform: none;
+}
+
+/* 検索フィールド */
+
+.header-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 4%;
+
+  background-color: #fff;
+  border:1px solid #bbb;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset,
+  0 0 2px rgba(255, 255, 255, 0.3) inset,
+  0 0 10px rgba(0, 0, 0, 0.1) inset,
+  0 1px 20px rgba(0, 0, 0, 0.1);
+  margin: auto 4%;
+  //width: 1400px;
+  height: 100px;
+
+}
+
+.search-field {
+  margin: 0 0;
+  padding: 0 0;
+  display:flex;
+  flex-direction: row;
+  text-align: center;
+
+}
+
+.search-group {
+  width: 250px;
+  //display: flex;
+  //flex-direction: row;
+  //margin: 0px auto;
+}
+
+
+
+#wrap {
+  width:960px;
+  margin:0px auto;
+}
+
+//header {
+//  border:dashed 1px #999;
+//}
+
+#contents {
+  float:left;
+  width:748px;
+  height: auto;
+  border:dashed 1px #999;
+  margin:10px 0px 10px 0px;
+}
+
+#sidenavi {
+  float:left;
+  width:198px;
+  height: auto;
+  border:dashed 1px #999;
+  margin:10px 10px 10px 0px;
+}
+
+footer {
+  clear:both;
+  border:dashed 1px #999;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+

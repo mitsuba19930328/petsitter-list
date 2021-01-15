@@ -6,42 +6,94 @@
     <%= csp_meta_tag %>
 
     <!-- stylesheetとjavascriptを使用できるようにするためのimport文-->
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <!-- ヘッダーメニュー -->
-    <header class='header'>
-      <ul class="navbar-nav ml-auto">
-        <% if current_user %>
-          <!-- ログイン中ユーザー用メニュー -->
-          <li claas="nav-item"><%= link_to 'トップページ', root_path, class: 'nav-link' %></li>
-          <li claas="nav-item"><%= link_to 'ペットシッター一覧', petsitters_path, class: 'nav-link' %></li>
-          <li claas="nav-item"><%= link_to 'ペットシッター新規登録', new_petsitter_path, class: 'nav-link' %></li>
-          <li claas="nav-item"><%= link_to 'ユーザー詳細', user_path(current_user.id), class: 'nav-link' %></li>
-          <li claas="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete,  class: 'nav-link' %></li>
-        <% else %>
-          <!-- 未ログインユーザー用メニュー -->
-          <li claas="nav-item"><%= link_to 'トップページ', root_path, class: 'nav-link' %></li>
-          <li claas="nav-item"><%= link_to 'ペットシッター一覧', petsitters_path, class: 'nav-link' %></li>
-          <li claas="nav-item"><%= link_to '新規登録', new_user_path, class: 'nav-link' %></li>
-          <li claas="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
-        <% end %>
-      </ul>
-    </header>
-    <!-- flashメッセージの表示 -->
-    <div class="container">
-      <% if flash.notice.present? %>
-        <div class="alert alert-success"><%= flash.notice %></div>
-      <% end %>
-      <% if flash.alert.present? %>
-        <div class="alert alert-warning"><%= flash.alert %></div>
-      <% end %>
+    <div id="home" class="big-bg">
+      <header class="page-header wrapper">
+        <h1><%=link_to image_tag("logo.png", class: 'logo' ), root_path%></h1>
+        <nav>
+          <ul class="main-nav">
+            <% if current_user %>
+              <!-- ログイン中ユーザー用メニュー -->
+              <li><%= link_to 'トップページ', root_path %></li>
+              <li><%= link_to 'ペットシッター一覧', petsitters_path %></li>
+              <li><%= link_to 'ペットシッター新規登録', new_petsitter_path %></li>
+              <li><%= link_to 'ユーザー詳細', user_path(current_user.id) %></li>
+              <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            <% else %>
+              <!-- 未ログインユーザー用メニュー -->
+              <li><%=link_to image_tag("logo.png"), root_path %></li>
+              <li><%= link_to 'トップページ', root_path %></li>
+              <li><%= link_to 'ペットシッター一覧', petsitters_path %></li>
+              <li><%= link_to '新規登録', new_user_path %></li>
+              <li><%= link_to 'ログイン', login_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="home-content wrapper">
+        <p2 class="page-title">ペットシッターを探そう！</p2>
+        <p>評判のペットシッターに依頼をしてみよう♪</p>
+      </div>
+
+      <div class="wrapper header-bottom">
+        エリア・キーワードから探す
+          <%= search_form_for(@q, url:petsitters_path, class: 'search-field') do |f| %>
+            <!--キーワード検索-->
+            <div class ="search-group">
+              <%#= f.label :address, "エリア検索" %>
+              <%= f.search_field :address_cont, :placeholder => "エリア[例：新宿]"  %>
+            </div>
+            <div class ="search-group">
+              <%#= f.label :name_or_pet_type, "キーワード検索" %>
+              <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]"  %>
+            </div>
+            <%= f.submit "検索" %>
+          <% end %>
+      </div>
+
     </div>
-    <%= yield %>
+
+      <!-- ヘッダーメニュー -->
+  <!--    <header class='header'>-->
+  <!--      <div id="home" class="big-bg">-->
+  <!--        <div class="header">-->
+  <!--          <div class="header_menu">-->
+  <!--            <nav>-->
+
+  <!--            </nav>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </header>-->
+
+      <div id="wrap">
+        <div id="contents">
+          <h2>
+            <!-- flashメッセージの表示 -->
+            <div class="container">
+              <% if flash.notice.present? %>
+                <div class="alert alert-success"><%= flash.notice %></div>
+              <% end %>
+              <% if flash.alert.present? %>
+                <div class="alert alert-warning"><%= flash.alert %></div>
+              <% end %>
+            </div>
+            <%= yield %>
+          </h2>
+        </div>
+        <div id="sidenavi">
+          <h2>サイドナビ</h2>
+        </div>
+        <footer>
+          <h2>フッター</h2>
+        </footer>
+      </div>
   </body>
 </html>
