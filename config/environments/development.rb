@@ -59,4 +59,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.assets.digest = false
+  config.assets.compile = true #動的コンパイルを有効化
+  config.assets.css_compressor = :sass # sass-rails gemを使用している場合コメントアウトを外す
+  config.public_file_server.enabled = true # publicディレクトリ以下のアセットを返す設定
 end
