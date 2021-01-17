@@ -1,7 +1,20 @@
 
+/* トップページ背景画像
+------------------------- */
+.big-bg{
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+#home {
+  background-image: url(cat-and-dog.jpg);
+  height: 500px;
+  //min-height: 100vh;
+}
+
 /* HEADER
 ------------------------- */
-
 .logo {
   width: 210px;
   //margin-top: 140px;
@@ -59,38 +72,25 @@
   color: gray;
 }
 
-/* ボタン */
-.button {
-  font-size: 1.2rem;
-  background: #0bd;
-  color: #fff;
-  border-radius: 5px;
-  padding: 18px 32px;
-}
+///* ボタン */
+//.button {
+//  font-size: 1.2rem;
+//  background: #0bd;
+//  color: #fff;
+//  border-radius: 5px;
+//  padding: 18px 32px;
+//}
+//
+//.button:hover {
+//  background: #0090aa;
+//}
 
-.button:hover {
-  background: #0090aa;
-}
+//#home .page-title {
+//  text-transform: none;
+//}
 
-/* 大きな背景画像 */
-.big-bg{
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-
-#home {
-  background-image: url(cat-and-dog.jpg);
-  height: 500px;
-  //min-height: 100vh;
-}
-
-#home .page-title {
-  text-transform: none;
-}
-
-/* 検索フィールド */
-
+/* 検索エリア
+------------------------- */
 .header-bottom {
   display: flex;
   flex-direction: row;
@@ -116,16 +116,11 @@
   display:flex;
   flex-direction: row;
   text-align: center;
-
 }
 
 .search-group {
   width: 250px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  //display: none;
-  //display: flex;
-  //flex-direction: row;
-  //margin: 0px auto;
+  border-radius: 3px;
 }
 
 .search-form {
@@ -135,23 +130,19 @@
   border-radius: 3px; /*ボックス角の丸み*/
   border: 2px solid #ddd; /*枠線*/
   box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-
 }
 
-
+/* ボディ部分（枠組み）
+------------------------- */
 
 #wrap {
-  width:960px;
+  width:1200px;
   margin:0px auto;
 }
 
-//header {
-//  border:dashed 1px #999;
-//}
-
 #contents {
   float:left;
-  width:748px;
+  width:900px;
   height: auto;
   border:dashed 1px #999;
   margin:10px 0px 10px 0px;
@@ -159,7 +150,7 @@
 
 #sidenavi {
   float:left;
-  width:198px;
+  width:280px;
   height: auto;
   border:dashed 1px #999;
   margin:10px 10px 10px 0px;
@@ -173,4 +164,165 @@ footer {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
+
+/* コンテンツ部分
+------------------------- */
+/* エリア検索ボックス */
+.search-area {
+  width: 90%;
+  height: 300px;
+
+  &_title {
+    margin: 30px 5% 0px;
+
+  }
+
+  &_area {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #ddd; /*枠線*/
+    margin: 0% 5% 5% 5%;
+    padding: 5% 5% 5% 5%;
+    font-size: 24px;
+  }
+
+}
+
+.top-ares ul{
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.top-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  width: 114px;
+  height: 46px;
+  margin: auto 10px auto auto;
+  padding: 12px 0px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  font-size: 16px;
+}
+
+.area-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 100%;
+  height: 50px;
+}
+
+.all-area {
+  font-size: 12px;
+  margin: 10px 125px 0 0;
+
+}
+
+/* 対応可能動物検索ボックス */
+.pet-type-area {
+  width: 90%;
+  height: 300px;
+
+  &_title {
+    margin: 30px 5% 0px;
+  }
+
+  &_area {
+    background-color: #fff;
+    border-radius: 5px;
+    //margin: 5% 0 0;
+    margin: 0 5%;
+    font-size: 24px;
+  }
+}
+
+.pet-type-pics ul {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pet-type-pic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  margin: auto 10px auto auto;
+}
+
+.pet-type-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 100%;
+  height: 40px;
+}
+
+.all-pet-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 2px 4px 2px;
+  margin: auto 10px auto auto;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  font-size: 12px;
+}
+
+/* 高評価店リスト */
+.high-rate-area {
+  width: 90%;
+  height: 600px;
+
+  &_title {
+    margin: 30px 5% 0px;
+  }
+
+  &_area {
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0 5%;
+    font-size: 24px;
+  }
+}
+
+.high-rate-list ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+}
+
+.all-high-rate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  height: auto;
+  margin: 10px 0;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+
+
+
+
+
 
