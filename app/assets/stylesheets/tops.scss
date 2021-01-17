@@ -44,21 +44,19 @@
 
 .home-content {
   text-align: center;
-  margin-top: 10%;
+  margin: 3% 40% 8% 0%;
+  //margin-top: 3%;
   color: #fff;
-}
-
-.home-content p {
-  font-size: 1.125rem;
-  margin: 10px 0 42px;
+  //margin-right: 40%;
 }
 
 /* 見出し */
 .page-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: 'Philosopher', serif;
   text-transform: uppercase;
   font-weight: normal;
+  color: gray;
 }
 
 /* ボタン */
@@ -83,7 +81,8 @@
 
 #home {
   background-image: url(cat-and-dog.jpg);
-  min-height: 100vh;
+  height: 500px;
+  //min-height: 100vh;
 }
 
 #home .page-title {
@@ -98,7 +97,6 @@
   justify-content: center;
   align-items: center;
   margin: 40px 4%;
-
   background-color: #fff;
   border:1px solid #bbb;
   border-radius: 4px;
@@ -123,9 +121,21 @@
 
 .search-group {
   width: 250px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  //display: none;
   //display: flex;
   //flex-direction: row;
   //margin: 0px auto;
+}
+
+.search-form {
+  width: 100%; /*親要素いっぱい広げる*/
+  padding: 10px 15px; /*ボックスを大きくする*/
+  font-size: 16px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+
 }
 
 
