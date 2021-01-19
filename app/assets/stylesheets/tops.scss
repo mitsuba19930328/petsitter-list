@@ -189,7 +189,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 }
 
-.top-ares ul{
+.top-areas {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -244,7 +245,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   }
 }
 
-.pet-type-pics ul {
+.pet-type-pics {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -286,7 +288,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* 高評価店リスト */
 .high-rate-area {
   width: 90%;
-  height: 600px;
+  height: auto;
 
   &_title {
     margin: 30px 5% 0px;
@@ -300,18 +302,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   }
 }
 
-.high-rate-list ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.high-rate-list {
   width: 100%;
-  height: 300px;
+  height: auto;
 }
 
 .all-high-rate {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   width: auto;
   height: auto;
@@ -321,8 +320,227 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 
+/* サイドナビ部分
+------------------------- */
+.data-count-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+
+.data-count_store {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  border-right: 2px solid #ddd;
+  width: 100%;
+  height: 100%;
+  &_count {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+  }
+  &_text {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+  }
+}
+
+.data-count_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin: auto 5px;
+  border-right: 2px solid #ddd;
+  width: 100%;
+  height: 100%;
+  &_count {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+  }
+  &_text {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+  }
+}
+
+.data-count_review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin: auto 5px;
+  width: 100%;
+  height: 100%;
+  &_count {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+  }
+  &_text {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+  }
+}
+
+
+.user-info-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: peachpuff;
+}
+
+.user-info-main-area {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  padding: 5%;
+  width: 90%;
+  height: 200px;
+  background-color: white;
+  border: 2px solid #ddd;
+}
+
+.user-top-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  //padding: 10px;
+  width: 100%;
+  height: 70px;
+  //background-color: lightgray;
+}
+
+.user-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.user-action-data {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px 0;
+  width: 100%;
+  height: 80px;
+}
+
+.act-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  margin: 5px 0;
+  width: 100%;
+  height: auto;
+  border-top: 2px solid gray;
+}
+
+.user-bookmark-store {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  padding: 5%;
+  width: 90%;
+  height: 600px;
+  background-color: white;
+  border: 2px solid #ddd;
+  padding: 5%;
+
+  &_title {
+    text-align: center;
+  }
+
+  &_store {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    //background-color: blue;
+    border-top: 1px solid gray;
+  }
+
+}
+
+.store-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.bookmark_store_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  margin-left: 10px;
+
+  &_name {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &_area {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &_review {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.user_bookmark-store_footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 
 
 
+/* フッター部分
+------------------------- */
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
 
 
+  #footer01 .nav {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  #footer01 .nav a:hover {
+    color: #ca353b;
+  }
