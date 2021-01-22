@@ -1,15 +1,45 @@
-<h1>ペットシッター一覧</h1>
-
-<div>
-  <p>ペットシッター一覧</p>
-  <ul>
+<div class="petsitter-store-contents">
+  <ul class="petsitter-store-content">
     <% @petsitters.each do |petsitter| %>
-      <li><%= image_tag petsitter.image.url, :size => '200x150' unless petsitter.image.url.nil? %></li>
-      <li>id:<%= petsitter.id %></li>
-      <li>名称:<%= petsitter.name %></li>
-      <li>メール:<%= petsitter.email %></li>
-      <li>いいね:<%= petsitter.liked_users&.count %></li>
-      <li><%= link_to '詳細', petsitter , class: 'nav-link' %></li>
+      <div class="top-info">
+        <div class="top-info_name-and-area">
+          <li><%= link_to petsitter.name, petsitter , class: 'nav-link' %></li>
+<!--          <li>名称:<%#= petsitter.name %></li>-->
+          <li>名称:<%= petsitter.email %></li>
+        </div>
+        <div class="top-info_action-buttons">
+          <%=link_to image_tag("20x20.png", class:'user-count-icon'), root_path%>
+          <%=link_to image_tag("20x20.png", class:'clip-count'), root_path%>
+        </div>
+      </div>
+
+      <div class="bottom-info">
+        <div class="bottom-info_left">
+          <%=link_to image_tag("136x136.png", class:'samplesample'), root_path%>
+        </div>
+        <div class="bottom-info_right">
+          <div class="bottom-info_right_overview">
+            テストテストテストテストテストテストテスト
+          </div>
+          <div class="bottom-info_right_rating">
+            ★★★★★ 5.0 ●1件 ×1件
+          </div>
+          <div class="bottom-info_right_top_review">
+            <div class="bottom-info_right_top_review_title-and-user">
+              <div class="bottom-info_right_top_review_title-and-user_title">タイトルテスト</div>
+              <div class="bottom-info_right_top_review_title-and-user_user">ユーザーネーム</div>
+            </div>
+            <div class="bottom-info_right_top_review_content">テストテストテストテスト</div>
+          </div>
+        </div>
+      </div>
+
+<!--      <li><%#= image_tag petsitter.image.url, :size => '200x150' unless petsitter.image.url.nil? %></li>-->
+<!--      <li>id:<%#= petsitter.id %></li>-->
+<!--      <li>名称:<%#= petsitter.name %></li>-->
+<!--      <li>メール:<%#= petsitter.email %></li>-->
+<!--      <li>いいね:<%#= petsitter.liked_users&.count %></li>-->
+<!--      <li><%#= link_to '詳細', petsitter , class: 'nav-link' %></li>-->
     <% end %>
   </ul>
 </div>

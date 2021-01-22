@@ -1,3 +1,160 @@
-// Place all the styles related to the petsitters controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/* ペットシッターページのCSS
+------------------------- */
+
+/* index
+------------------------- */
+
+/*
+------------------------- */
+
+.petsitter-store-contents {
+  width: 100%;
+  height: auto;
+}
+
+
+.petsitter-store-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+}
+
+.top-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  //background-color: lightskyblue;
+
+  &_name-and-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width:auto;
+    height: 50px;
+    //background-color: #00bbdd;
+  }
+
+  &_action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    height: 50px;
+    //border-right: solid 1px black;
+    //background-color: peachpuff;
+  }
+
+  .user-count-icon {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    width: 50px;
+    border-right: solid 1px black;
+  }
+
+  .clip-icon {
+    display: flex;
+    justify-content: center;
+    //padding: 2px;
+    width: 50px;
+  }
+}
+
+.bottom-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 200px;
+  //background-color: cadetblue;
+  padding: 10px;
+
+  &_left {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 170px;
+    height: auto;
+    margin: 5px;
+    border: solid 1px orange;
+    padding: 4px;
+
+    //background-color: #bbbbbb;
+  }
+
+  &_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    width: 100%;
+
+
+    &_overview {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      //text-align: center;
+      width: 100%;
+
+    }
+
+    &_rating {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      text-align: center;
+      width: 100%;
+
+    }
+  }
+}
+
+.samplesample {
+  margin: 2px;
+  width: 136px;
+  height: 136px;
+}
+
+.bottom-info_right_top_review {
+  display: flex;
+  flex-direction: column;
+
+  &_title-and-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    &_title {
+      text-align: center;
+
+    }
+
+    &_user {
+      text-align: center;
+
+    }
+
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+  }
+
+}
+
+

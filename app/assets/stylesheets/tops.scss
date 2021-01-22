@@ -1,4 +1,7 @@
 
+/* トップページで使用するcssはこのページにまとめています。
+------------------------- */
+
 /* トップページ背景画像
 ------------------------- */
 .big-bg{
@@ -15,41 +18,33 @@
 
 /* HEADER
 ------------------------- */
-.logo {
-  width: 210px;
-  //margin-top: 140px;
-}
-
-.main-nav {
-  display: flex;
-  font-size: 1.00rem;
-  //color: #fff;
-  text-transform: uppercase;
-  margin-top: 34px;
-  list-style: none;
-}
-
-.main-nav li {
-  margin-left: 36px;
-}
-
-.main-nav a {
-  color: #fff;
-}
-
-.main-nav a:hover {
-  color: #0bd;
-}
-
 .page-header {
   display: flex;
   justify-content: space-between;
 }
 
-.wrapper {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 4%;
+.logo {
+  width: 210px;
+}
+
+.index-main-nav {
+  display: flex;
+  font-size: 1.00rem;
+  text-transform: uppercase;
+  margin-top: 34px;
+  list-style: none;
+}
+
+.index-main-nav li {
+  margin-left: 36px;
+}
+
+.index-main-nav a {
+  color: #fff;
+}
+
+.index-main-nav a:hover {
+  color: #0bd;
 }
 
 /* HOME
