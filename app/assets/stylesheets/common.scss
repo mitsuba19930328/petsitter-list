@@ -18,3 +18,11 @@ a {
 img {
   max-width: 100%
 }
+
+.wrapper {
+  max-width: 1600px;
+  min-width: 1280px;
+  margin: 0 auto;
+  padding: 0 240px 0;
+  //border-bottom: 1px solid black;
+}

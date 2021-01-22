@@ -1,0 +1,64 @@
+
+/* トップページ以外のヘッダーCSS
+------------------------- */
+
+/* HEADER
+------------------------- */
+.page-header {
+  display: flex;
+  justify-content: center;
+}
+
+.header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  max-height: 128px;
+  text-align: center;
+  //background-color: #bbbbbb;
+  margin: 0 auto;
+}
+
+.header-objects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.logo {
+  width: 210px;
+}
+
+.header-main-nav {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.00rem;
+  text-transform: uppercase;
+  margin-top: 34px;
+  list-style: none;
+}
+
+.header-main-nav li {
+  margin-left: 36px;
+}
+
+.header-main-nav a:hover {
+  color: #0bd;
+}
+
+.header-search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+

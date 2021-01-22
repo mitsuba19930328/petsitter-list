@@ -1,0 +1,68 @@
+
+<!-- トップページ用サイドナビ -->
+<div id="sidenavi">
+  <ul class="data-count-area">
+    <li class="data-count_store">
+      <div class="data-count_store_count">
+        45
+      </div>
+      <div class="data-count_store_text">
+        店舗
+      </div>
+    </li>
+    <li class="data-count_user">
+      <div class="data-count_user_count">
+        34
+      </div>
+      <div class="data-count_user_text">
+        ユーザー
+      </div>
+    </li>
+    <li class="data-count_review">
+      <div class="data-count_review_count">
+        23
+      </div>
+      <div class="data-count_review_text">
+        口コミ
+      </div>
+    </li>
+  </ul>
+  <div class="user-info-area">
+    <div class="user-info-main-area">
+      <div class="user-top-data">
+        <%=link_to image_tag("136x136.png"), root_path, class:'user-icon'%>テストユーザーさん
+      </div>
+      <ul class="user-action-data">
+        <li class="act-data"><%=link_to '利用したお店', root_path %>2</li>
+        <li class="act-data"><%=link_to '保存したお店', root_path %>2</li>
+      </ul>
+    </div>
+
+    <div class="user-bookmark-store">
+      <div class="user_bookmark-store_title">
+        保存したお店
+      </div>
+      <!-- 以下、繰り返し処理 -->
+      <div class="user-bookmark-store_store">
+        <%=link_to image_tag("136x136.png"), root_path, class:'store-icon'%>
+        <div class="bookmark_store_info">
+          <div class="bookmark_store_info_name">テスト店ABCDDOOOO</div>
+          <div class="bookmark_store_info_area">六本木</div>
+          <div class="bookmark_store_info_review">★★★★★ 4.5</div>
+        </div>
+      </div>
+      <div class="user-bookmark-store_store">
+        <%=link_to image_tag("136x136.png"), root_path, class:'store-icon'%>
+        <div class="bookmark_store_info">
+          <div class="bookmark_store_info_name">テスト店ABCDDOOOO</div>
+          <div class="bookmark_store_info_area">六本木</div>
+          <div class="bookmark_store_info_review">★★★★★ 4.5</div>
+        </div>
+      </div>
+      <div class="user_bookmark-store_footer">
+        保存したお店一覧へ
+      </div>
+    </div>
+  </div>
+</div>
+
