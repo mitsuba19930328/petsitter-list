@@ -131,24 +131,34 @@
 ------------------------- */
 
 #wrap {
-  width:1200px;
-  margin:0px auto;
+  width: 1200px;
+  margin: 0px auto;
 }
 
-#contents {
-  float:left;
-  width:900px;
+#index-contents {
+  float: left;
+  width: 900px;
+  height: auto;
+  border: dashed 1px #999;
+  margin: 10px 0px 10px 0px;
+}
+
+#body-contents {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 960px;
   height: auto;
   border:dashed 1px #999;
-  margin:10px 0px 10px 0px;
+  margin: 0 auto;
 }
 
 #sidenavi {
-  float:left;
-  width:280px;
+  float: right;
+  width: 280px;
   height: auto;
-  border:dashed 1px #999;
-  margin:10px 10px 10px 0px;
+  border: dashed 1px #999;
+  margin: 10px 10px 10px 0px;
 }
 
 footer {
@@ -165,7 +175,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 ------------------------- */
 /* エリア検索ボックス */
 .search-area {
-  width: 90%;
+  width: 80%;
   height: 300px;
 
   &_title {
@@ -224,7 +234,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* 対応可能動物検索ボックス */
 .pet-type-area {
-  width: 90%;
+  width: 80%;
   height: 300px;
 
   &_title {
@@ -282,7 +292,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* 高評価店リスト */
 .high-rate-area {
-  width: 90%;
+  width: 80%;
   height: auto;
 
   &_title {

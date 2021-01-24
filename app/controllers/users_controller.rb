@@ -3,11 +3,17 @@ class UsersController < ApplicationController
 
   # ユーザー詳細表示
   def show
+    # # 検索
+    @q = Petsitter.ransack(params[:q])
+    @petsitters = @q.result(distinct: true)
     @user = User.find(params[:id])
   end
 
   # ユーザー新規登録ページ表示
   def new
+    # # 検索
+    @q = Petsitter.ransack(params[:q])
+    @petsitters = @q.result(distinct: true)
     @user = User.new
   end
 
@@ -28,6 +34,9 @@ class UsersController < ApplicationController
 
   # ユーザー編集ページ表示
   def edit
+    # # 検索
+    @q = Petsitter.ransack(params[:q])
+    @petsitters = @q.result(distinct: true)
     @user = User.find(params[:id])
   end
 

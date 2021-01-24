@@ -21,29 +21,41 @@
       <%= render partial: 'layouts/commonSecondHeader' %>
     <% end %>
 
+    <!-- トップページ用ボディ&フッター部分 -->
+    <% if current_page?(root_path) %>
     <div id="wrap">
-      <div id="contents">
+      <div id="index-contents">
         <h2>
           <!-- flashメッセージの表示 -->
-          <div class="container">
-            <% if flash.notice.present? %>
-              <div class="alert alert-success"><%= flash.notice %></div>
-            <% end %>
-            <% if flash.alert.present? %>
-              <div class="alert alert-warning"><%= flash.alert %></div>
-            <% end %>
-          </div>
+          <%= render partial: 'layouts/errorMessage' %>
           <%= yield %>
         </h2>
       </div>
       <!-- 以下、トップページ用サイドナビ -->
-      <% if current_page?(root_path) %>
         <%= render partial: 'tops/sidenavi' %>
-      <% end %>
-
-      <!-- 以下、フッターです -->
+      <!-- 以下、フッター -->
       <%= render partial: 'layouts/footer' %>
-
     </div>
+    <% end %>
+
+    <!-- トップページ以外のボディ&フッター -->
+    <% unless current_page?(root_path) %>
+    <div id="wrap">
+      <div id="body-contents">
+        <h2>
+          <!-- flashメッセージの表示 -->
+          <%= render partial: 'layouts/errorMessage' %>
+          <%= yield %>
+        </h2>
+      </div>
+      <!-- 以下、フッター -->
+      <%= render partial: 'layouts/footer' %>
+    </div>
+    <% end %>
+
+
+
+
+
   </body>
 </html>
