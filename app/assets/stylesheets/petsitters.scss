@@ -47,26 +47,18 @@
   &_action-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: auto;
+    justify-content: space-around;
+    width: 100px;
     height: 50px;
     //border-right: solid 1px black;
     //background-color: peachpuff;
-  }
 
-  .user-count-icon {
-    display: flex;
-    justify-content: center;
-    padding: 2px;
-    width: 50px;
-    border-right: solid 1px black;
-  }
+    .user-count-icon {
+    }
 
-  .clip-icon {
-    display: flex;
-    justify-content: center;
-    //padding: 2px;
-    width: 50px;
+    .clip-icon {
+    }
+
   }
 }
 

@@ -1,58 +1,94 @@
-<h1>ユーザー詳細画面</h1>
 
-<table class="table table-hover">
-  <tbody>
-  <tr>
-    <%= image_tag @user.image.url unless @user.image.url.nil? %>
-  </tr>
 
-  <tr>
-    <th><%= User.human_attribute_name(:id) %></th>
-    <td><%= @user.id %></td>
-  </tr>
+<div class="user-body">
+  <div class="user-self-info">
+    テストの自己紹介だよー！いろいろなことをここで表示できるように。
+  </div>
 
-  <tr>
-    <th><%= User.human_attribute_name(:name) %></th>
-    <td><%= @user.name %></td>
-  </tr>
+  <div class="user-action-info">
+    <li class="user-action-wrap">
+      <div class="user-action-wrap_title">
+        口コミ数
+      </div>
+      <div class="user-action-wrap_reviews">
+        23件
+      </div>
+    </li>
+    <li class="user-action-wrap">
+      <div class="user-action-wrap_title">
+        行ったお店
+      </div>
+      <div class="user-action-wrap_histories">
+        29件
+      </div>
+    </li>
+    <li class="user-action-wrap">
+      <div class="user-action-wrap_title">
+        保存したお店
+      </div>
+      <div class="user-action-wrap_clips">
+        32件
+      </div>
+    </li>
+  </div>
+</div>
 
-  <tr>
-    <th><%= User.human_attribute_name(:email) %></th>
-    <td><%= @user.email%></td>
-  </tr>
+<!--<h1>ユーザー詳細画面</h1>-->
 
-  <tr>
-    <th><%= User.human_attribute_name(:created_at) %></th>
-    <td><%= @user.created_at %></td>
-  </tr>
+<!--<table class="table table-hover">-->
+<!--  <tbody>-->
+<!--  <tr>-->
+    <%#= image_tag @user.image.url unless @user.image.url.nil? %>
+<!--  </tr>-->
 
-  <tr>
-    <th><%= User.human_attribute_name(:updated_at) %></th>
-    <td><%= @user.updated_at %></td>
-  </tr>
+<!--  <tr>-->
+<!--    <th><%#= User.human_attribute_name(:id) %></th>-->
+<!--    <td><%#= @user.id %></td>-->
+<!--  </tr>-->
 
-  <%= link_to "編集", edit_user_path, class: 'btn btn-primary mr-3' %>
-  <%= link_to "削除", @user, method: :delete, data: {confirm: "ユーザー#{@user.name}を削除します。よろしいですか？"}, class: 'btn btn-danger', id:'user_delete_btn' %>
+<!--  <tr>-->
+<!--    <th><%#= User.human_attribute_name(:name) %></th>-->
+<!--    <td><%#= @user.name %></td>-->
+<!--  </tr>-->
 
-  <h3>いいねしたペットシッター</h3>
-  <% if @user.liked_petsitters %>
-    <% @user.liked_petsitters.each do |petsitter| %>
-      <%= link_to petsitter_path(petsitter.id) do %>
-        <%= petsitter.name %>
-      <% end %>
-      <%= petsitter.email %><br>
-    <% end %>
-  <% end %>
+<!--  <tr>-->
+<!--    <th><%#= User.human_attribute_name(:email) %></th>-->
+<!--    <td><%#= @user.email%></td>-->
+<!--  </tr>-->
 
-  <h3>保存済みペットシッター</h3>
-  <% if @user.temp_saved_petsitters %>
-    <% @user.temp_saved_petsitters.each do |petsitter| %>
-      <%= link_to petsitter_path(petsitter.id) do %>
-        <%= petsitter.name %>
-      <% end %>
-      <%= petsitter.email %><br>
-    <% end %>
-  <% end %>
+<!--  <tr>-->
+<!--    <th><%#= User.human_attribute_name(:created_at) %></th>-->
+<!--    <td><%#= @user.created_at %></td>-->
+<!--  </tr>-->
+
+<!--  <tr>-->
+<!--    <th><%#= User.human_attribute_name(:updated_at) %></th>-->
+<!--    <td><%#= @user.updated_at %></td>-->
+<!--  </tr>-->
+
+  <%#= link_to "編集", edit_user_path, class: 'btn btn-primary mr-3' %>
+  <%#= link_to "削除", @user, method: :delete, data: {confirm: "ユーザー#{@user.name}を削除します。よろしいですか？"}, class: 'btn btn-danger', id:'user_delete_btn' %>
+
+  <!-- 以下が行ったお店、保存したお店のリンクになる。 -->
+<!--  <h3>いいねしたペットシッター</h3>-->
+  <%# if @user.liked_petsitters %>
+    <%# @user.liked_petsitters.each do |petsitter| %>
+      <%#= link_to petsitter_path(petsitter.id) do %>
+        <%#= petsitter.name %>
+      <%# end %>
+<!--      <%#= petsitter.email %><br>-->
+    <%# end %>
+  <%# end %>
+
+<!--  <h3>保存済みペットシッター</h3>-->
+  <%# if @user.temp_saved_petsitters %>
+    <%# @user.temp_saved_petsitters.each do |petsitter| %>
+      <%#= link_to petsitter_path(petsitter.id) do %>
+        <%#= petsitter.name %>
+      <%# end %>
+<!--      <%#= petsitter.email %><br>-->
+    <%# end %>
+  <%# end %>
 
   </tbody>
 </table>

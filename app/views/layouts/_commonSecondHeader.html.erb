@@ -12,10 +12,10 @@
     <div class="user-content-area">
       テストさんのマイページ
       <ul class="user-content-nav">
-        <li class="user-content-nav-link">トップ</li>
+        <li class="user-content-nav-link"><%= link_to "トップ", user_path(current_user) %></li>
         <li class="user-content-nav-link">行ったお店</li>
         <li class="user-content-nav-link">保存済み</li>
-        <li class="user-content-nav-link">設定</li>
+        <li class="user-content-nav-link"><%= link_to "設定", edit_user_path(current_user) %></li>
       </ul>
     </div>
   </div>
