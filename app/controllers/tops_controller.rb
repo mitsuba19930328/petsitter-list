@@ -8,8 +8,8 @@ class TopsController < ApplicationController
     # @users = User.all
     #
     # # 検索
-    @q = Petsitter.ransack(params[:q])
-    @petsitters = @q.result(distinct: true)
+    # @q = Petsitter.ransack(params[:q])
+    # @petsitters = @q.result(distinct: true)
 
     # ペットシッター一覧＋ページネーション用設定
     @petsitters = Petsitter.page(params[:page]).per(5)
