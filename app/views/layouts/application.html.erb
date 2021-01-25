@@ -19,7 +19,9 @@
       <%= render partial: 'tops/indexHeader' %>
     <% else %>
       <%= render partial: 'layouts/commonHeader' %>
-      <%= render partial: 'layouts/commonSecondHeader' %>
+      <% if user_signed_in? %>
+        <%= render partial: 'layouts/commonSecondHeader' %>
+      <% end %>
     <% end %>
 
     <!-- トップページ用ボディ&フッター部分 -->
@@ -53,10 +55,6 @@
       <%= render partial: 'layouts/footer' %>
     </div>
     <% end %>
-
-
-
-
 
   </body>
 </html>

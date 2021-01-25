@@ -39,6 +39,10 @@
     <%= f.text_field :apartment, class: 'form-control', id:'petsitter_apartment', value: petsitter&.apartment %>
   </div>
   <div class="form-group">
+    <%= f.label :area %>
+    <%= f.text_field :area, class: 'form-control', id:'petsitter_area', value: petsitter&.area %>
+  </div>
+  <div class="form-group">
     <%= f.label :phone, class: 'required' %>
     <%= f.text_field :phone, class: 'form-control', id:'petsitter_phone', value: petsitter&.phone, required: true %>
   </div>
@@ -72,6 +76,10 @@
     <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "小鳥", nil %>小鳥
     <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "爬虫類", nil %>爬虫類
     <%= f.check_box :pet_type, {multiple: true, class: "pet_type_check_box", required: true}, "その他動物（要相談）", nil %>その他動物（要相談）
+  </div>
+  <div class="form-group">
+    <%= f.label :overview %>
+    <%= f.text_area :overview, class: 'form-control', id:'petsitter_overview', value: petsitter&.overview %>
   </div>
   <div class="form-group">
     <%= f.label :qualification %>
