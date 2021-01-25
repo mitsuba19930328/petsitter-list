@@ -3,13 +3,14 @@
     <% @petsitters.each do |petsitter| %>
       <div class="top-info">
         <div class="top-info_name-and-area">
-          <li><%= link_to petsitter.name, petsitter , class: 'nav-link' %></li>
-<!--          <li>名称:<%#= petsitter.name %></li>-->
-          <li>名称:<%= petsitter.email %></li>
+          <li class= 'top-info_name-and-area_name'><%= link_to petsitter.name, petsitter %></li>
+          <li class='top-info_name-and-area_area'>名称:<%= petsitter.email %></li>
         </div>
         <div class="top-info_action-buttons">
-          <%=link_to image_tag("20x20.png", class:'user-count-icon'), root_path%>
-          <%=link_to image_tag("20x20.png", class:'clip-count'), root_path%>
+          <i class="fas fa-user-check fa-lg user-count-0"></i>
+          <i class="fas fa-bookmark fa-lg clip-count-0"></i>
+          <%#=link_to image_tag("20x20.png", class:'user-count-icon'), root_path%>
+          <%#=link_to image_tag("20x20.png", class:'clip-count'), root_path%>
         </div>
       </div>
 
