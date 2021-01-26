@@ -1,12 +1,46 @@
-<h1>ユーザー新規登録</h1>
-<div class='nav justify-content-end'>
-  <%= link_to 'トップページへ', root_path, class:'nav-link' %>
+<div class="login-page-body">
+  <div class="login-page-body_left">
+    <h2 class="login-page-body_left_title">アカウント作成</h2>
+    <h5 class="login-page-body_left_about">新規アカウントの作成</h5>
+    <%= link_to "ログイン", login_path, class:'btn login-btn' %>
+    <div class="test-login">※アカウント登録をせずに機能を確かめたい方は</div>
+    <%= link_to "こちら", root_path, class:'btn test-login-btn' %>
+    <div class="sns-login">
+      <!-- SNSログインボタン -->
+      <%= render partial: 'layouts/snsLoginBtn' %>
+    </div>
+  </div>
+
+  <div class="login-page-body_right">
+    <%= form_with model: @user, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :name, class: 'field-label required' %>
+        <%= f.text_field :name, class: 'form-control', id:'user_name', value: @user&.name, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, class: 'field-label required' %>
+        <%= f.email_field :email, class: 'form-control', id:'user_email', value: @user&.email, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, class: 'field-label required' %>
+        <%= f.password_field :password, class: 'form-control', id:'user_password', required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, class: 'field-label required' %>
+        <%= f.password_field :password_confirmation, class: 'form-control', id:'user_password_confirmation', required: true %>
+      </div>
+      <%= f.submit 'ログインする', class: 'btn btn-primary', id: 'submit_btn' %>
+
+    <%#= form_with scope: :session, local: true do |f| %>
+<!--      <div class="form-group">-->
+        <%#= f.label :email, class: 'field-label' %>
+        <%#= f.email_field :email, class: 'form-control', id:'user_email' %>
+<!--      </div>-->
+<!--      <div class="form-group">-->
+        <%#= f.label :password, class: 'field-label' %>
+        <%#= f.password_field :password, class: 'form-control', id:'user_password' %>
+<!--      </div>-->
+      <%#= f.submit 'ログインする', class: 'btn btn-primary', id: 'submit_btn' %>
+    <% end %>
+  </div>
 </div>
-
-<!-- ユーザー新規登録フォーム -->
-<%= render partial: 'form', locals: { user: @user } %>
-
-<p></p>
-
-<!-- SNSログインボタン -->
-<%= render partial: 'layouts/snsLoginBtn' %>
