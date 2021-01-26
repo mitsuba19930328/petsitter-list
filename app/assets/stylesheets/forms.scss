@@ -15,3 +15,32 @@
   border-radius: 10px;
   display: inline-block;
 }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+}
+
+.field-label {
+  margin: 0 24px 0 0;
+  padding: 10px 0;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 200;
+
+}
+
+.form-control {
+  padding: 4px 8px;
+  letter-spacing: 1px;
+
+}
+
+
+#submit_btn {
+  display: flex;
+}
