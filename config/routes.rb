@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :temp_saves, only: [:create, :destroy]
   end
 
+  get 'petsitters/:id/details', to: 'petsitters#details', as: 'petsitter_details'
+  get 'petsitters/:id/reviews', to: 'petsitters#reviews', as: 'petsitter_reviews'
+  get 'petsitters/:id/map', to: 'petsitters#map', as: 'petsitter_map'
+
   # review関連
   resources :reviews, only: [:create, :edit, :update, :destroy]
 
