@@ -187,14 +187,64 @@
   width: 960px;
   text-align: left;
   font-size: 12px;
+  padding: 16px 0;
 
 }
 
 .shop-header {
   display: flex;
-  background-color: #f0ad4e;
-  height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  //background-color: #f0ad4e;
+  height: auto;
+  padding: 8px 0;
+  border-top: 1px solid lightgray;
 }
+
+.info-wrap {
+  width: 100%;
+
+}
+
+.shop-controller {
+  display: flex;
+  align-items: center;
+
+}
+
+.shop-top-info {
+  display: flex;
+  align-items: center;
+
+  &_rate {
+
+  }
+
+  &_reviews {
+
+  }
+
+  &_bookmarks {
+
+  }
+}
+
+.shop-bottom-ingo {
+  display: flex;
+  align-items: center;
+
+}
+
+
+.action-wrap {
+  display: flex;
+  justify-content: space-around;
+  background: #00bbdd;
+  width: 240px;
+
+}
+
+
 
 .shop-menu-bar {
   list-style: none;
