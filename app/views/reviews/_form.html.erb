@@ -1,4 +1,4 @@
-<% unless @is_my_review %>
+<%# unless @is_my_review %>
 
   <!-- 口コミ入力フォーム -->
   <%= form_with model: review, local: true do |f| %>
@@ -6,34 +6,34 @@
     <!--エラーメッセージ-->
 
     <!--ペットシッターIDの送信-->
-    <%= f.hidden_field :petsitter_id, { value: @petsitter.id } %>
+    <%#= f.hidden_field :petsitter_id, { value: @petsitter.id } %>
 
     <!-- タイトル -->
-    <div class="form-group row">
-      <%= f.label :title, class:'col-md-3 col-form-label' %>
-      <div class="col-md-9">
-        <%= f.text_field :title, class: "form-control", id:'review_title', value: review&.title %>
-      </div>
-    </div>
+<!--    <div class="rate-group row">-->
+      <%#= f.label :title, class:'col-md-3 col-form-label' %>
+<!--      <div class="col-md-9">-->
+        <%#= f.text_field :title, class: "form-control", id:'review_title', value: review&.title %>
+<!--      </div>-->
+<!--    </div>-->
 
     <!-- 評価 -->
-    <div class="form-group row" id="star">
-      <%= f.label :rate, class:'col-md-3 col-form-label' %>
-      <%= f.hidden_field :rate, id: :review_star, id:'review_title', value: review&.title %>
-    </div>
+<!--    <div class="rate-group row" id="star">-->
+      <%#= f.label :rate, class:'col-md-3 col-form-label' %>
+      <%#= f.hidden_field :rate, id: :review_star, id:'review_title', value: review&.title %>
+<!--    </div>-->
 
     <!-- 評価javascript -->
-    <script>
-        $('#star').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'review[rate]',
-            half: true,
-            score: <%= review.rate unless review == nil %>
-        });
-    </script>
+<!--    <script>-->
+<!--        $('#star').raty({-->
+<!--            size     : 36,-->
+<!--            starOff:  '<%= asset_path('star-off.png') %>',-->
+<!--            starOn : '<%= asset_path('star-on.png') %>',-->
+<!--            starHalf: '<%= asset_path('star-half.png') %>',-->
+<!--            scoreName: 'review[rate]',-->
+<!--            half: true,-->
+<!--            score: <%#= review.rate unless review == nil %>-->
+<!--        });-->
+<!--    </script>-->
 
     <!-- 口コミ -->
     <div class="form-group row">
@@ -45,12 +45,12 @@
     </div>
 
     <!-- 確認ボタン -->
-    <div class="form-group row justify-content-end">
-      <div class="col-md-9">
-        <%= f.submit '投稿する', class:"btn btn-success" %>
-      </div>
-    </div>
+<!--    <div class="form-group row justify-content-end">-->
+<!--      <div class="col-md-9">-->
+        <%#= f.submit '投稿する', class:"btn btn-success" %>
+<!--      </div>-->
+<!--    </div>-->
 
   <% end %>
 
-<% end %>
+<%# end %>

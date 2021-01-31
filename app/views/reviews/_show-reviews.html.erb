@@ -26,6 +26,7 @@
                   half: true,
                   readOnly: true,
                   score: <%= review.rate %>,
+                  // score: "reviews.average(:rate).to_f.round(1)",
               });
           </script>
           <!--/星評価-->

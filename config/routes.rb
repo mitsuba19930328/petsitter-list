@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'petsitters/:id/details', to: 'petsitters#details', as: 'petsitter_details'
   get 'petsitters/:id/reviews', to: 'petsitters#reviews', as: 'petsitter_reviews'
   get 'petsitters/:id/map', to: 'petsitters#map', as: 'petsitter_map'
+  get 'petsitters/:id/reviewsample', to: 'petsitters#reviewsample', as: 'petsitter_reviewsample'
 
   # review関連
   resources :reviews, only: [:create, :edit, :update, :destroy]

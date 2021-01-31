@@ -25,7 +25,7 @@
         mouseover:    undefined,
         noRatedMsg:   'Not rated yet!',
         number:       5,
-        numberMax:    20,
+        numberMax:    5,
         path:         undefined,
         precision:    false,
         readOnly:     false,
