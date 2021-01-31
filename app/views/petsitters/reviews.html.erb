@@ -1,1 +1,69 @@
-ここは企業のレビューを書く
+
+
+<%= render partial: 'petsitters/shopHeader' %>
+<ul class="shop-menu-bar">
+  <li class="shop-menu-link selected-menu"><%= link_to "店舗トップ", petsitter_path %></li>
+  <li class="shop-menu-link"><%= link_to "詳細", petsitter_details_path %></li>
+  <li class="shop-menu-link"><%= link_to "口コミ", petsitter_reviews_path %></li>
+  <li class="shop-menu-link"><%= link_to "地図", petsitter_map_path %></li>
+</ul>
+<div class="shop-content">
+
+  <!-- 口コミ -->
+  <div class="shop-content_reviews">
+    <%# if current_page?(user_path) %>
+    <div class="reviews-header">
+      <div class="reviews-header_count">全 3 件</div>
+      <%= link_to "口コミを投稿する", root_path, class: 'reviews-header_post' %>
+    </div>
+    <!-- 口コミ投稿内容 -->
+    <div class="reviews-box">
+      <div class="reviews-box_reviews-info">
+        <div class="reviews-box-user-info">
+          <%= image_tag @petsitter.image.url, class:'reviews-box-user-info_photo' unless @petsitter.image.url.nil? %>
+          <div class="reviews-box-user-info_name">
+            テストさんの口コミ
+          </div>
+        </div>
+      </div>
+      <div class="reviews-box_reviews-rate">
+        <div class="rate-container">
+          ★★★★★ 3.5
+        </div>
+      </div>
+      <div class="reviews-box_reviews-body">
+        <div class="reviews-box_reviews-body_date">2021/01利用</div>
+        <div class="reviews-box_reviews-body_title">素晴らしいペットシッター</div>
+        <div class="reviews-box_reviews-body_text">とても親切に対応していただきました！ありがとうございます！</div>
+      </div>
+    </div>
+
+    <div class="reviews-box">
+      <div class="reviews-box_reviews-info">
+        <div class="reviews-box-user-info">
+          <%= image_tag @petsitter.image.url, class:'reviews-box-user-info_photo' unless @petsitter.image.url.nil? %>
+          <div class="reviews-box-user-info_name">
+            テストさんの口コミ
+          </div>
+        </div>
+      </div>
+      <div class="reviews-box_reviews-rate">
+        <div class="rate-container">
+          ★★★★★ 3.5
+        </div>
+      </div>
+      <div class="reviews-box_reviews-body">
+        <div class="reviews-box_reviews-body_date">2021/01利用</div>
+        <div class="reviews-box_reviews-body_title">素晴らしいペットシッター</div>
+        <div class="reviews-box_reviews-body_text">とても親切に対応していただきました！ありがとうございます！</div>
+      </div>
+    </div>
+
+    <%# end %>
+  </div>
+</div>
+
+<!-- 口コミ投稿フォーム -->
+<%= render partial: 'reviews/form', locals: { review: @review } %>
+
+

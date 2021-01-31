@@ -1,1 +1,76 @@
-ここは企業のマップを表示させる
+
+
+<%= render partial: 'petsitters/shopHeader' %>
+<ul class="shop-menu-bar">
+  <li class="shop-menu-link selected-menu"><%= link_to "店舗トップ", petsitter_path %></li>
+  <li class="shop-menu-link"><%= link_to "詳細", petsitter_details_path %></li>
+  <li class="shop-menu-link"><%= link_to "口コミ", petsitter_reviews_path %></li>
+  <li class="shop-menu-link"><%= link_to "地図", petsitter_map_path %></li>
+</ul>
+<div class="shop-content">
+  <!-- 地図 -->
+  <div class="shop-content_map">
+    <%# if current_page?(user_path) %>
+    <span class="petsitter-address"><%= @petsitter.address %></span>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
+    <%# end %>
+  </div>
+</div>
+
+
+<!-- googlemapテスト -->
+<!--<h2>gmap</h2>-->
+
+<div id='map'>
+</div>
+
+<style>
+    #map{
+        height: 400px;
+        width: 600px;
+    }
+</style>
+
+<script>
+
+    let map
+    let geocoder
+    let marker
+    let center
+    let position
+
+    function initMap(){
+
+        // geocoderを初期化
+        geocoder = new google.maps.Geocoder()
+
+        // 入力を取得
+        let address = gon.address;
+
+        // geocoderを使って位置情報（緯度、軽度）を取得できるようにする
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            // マップ中心とマップの場所指定を設定
+            center = results[0].geometry.location;
+            position = results[0].geometry.location;
+
+            // マップ情報を設定
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                position: position,
+                zoom: 16,
+            });
+
+            // マーカーの場所情報を設定
+            let markerOptions = {
+                map: map,
+                center: center,
+                position: position,
+            };
+
+            // マーカー情報を確定
+            let marker = new google.maps.Marker(markerOptions);
+
+        });
+    }
+
+</script>

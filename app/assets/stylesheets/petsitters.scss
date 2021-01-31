@@ -195,54 +195,113 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  //background-color: #f0ad4e;
-  height: auto;
   padding: 8px 0;
-  border-top: 1px solid lightgray;
+  border-top: solid 1px lightgray;
 }
 
 .info-wrap {
   width: 100%;
-
 }
 
 .shop-controller {
   display: flex;
   align-items: center;
+}
 
+.shop-name {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .shop-top-info {
   display: flex;
   align-items: center;
+  border-bottom: dotted 1px lightgray;
+  color: gray;
+  font-size: 12px;
 
   &_rate {
-
+    display: flex;
+    align-items: center;
   }
 
   &_reviews {
-
+    padding: 0 8px;
   }
 
   &_bookmarks {
-
+    padding: 0 8px;
   }
 }
 
-.shop-bottom-ingo {
-  display: flex;
-  align-items: center;
+.star-rating {
+  display: inline-block;
+  position: relative;
+}
 
+
+.shop-bottom-info {
+  display: flex;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+.shop-bottom-info-show {
+  color: gray;
+  margin-right: 16px;
+}
+
+.pet-types {
+  display: inline-block;
+}
+
+.pet-type-list {
+  display: flex;
 }
 
 
 .action-wrap {
-  display: flex;
-  justify-content: space-around;
-  background: #00bbdd;
-  width: 240px;
+  padding: 12px 16px 8px 16px;
+  background-color: ivory;
 
+  &_app {
+    display: flex;
+    align-items: center;
+  }
 }
+
+.action-btn {
+  width: 96px;
+  height: 32px;
+  margin: 4px;
+  border: solid 1px orange;
+  border-radius: 4px;
+  background-color: white;
+  color: orange;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.action-link {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 96px;
+  height: 32px;
+  padding: 4px;
+  text-align: center;
+}
+
+.action-name {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+
+
 
 
 
@@ -280,24 +339,24 @@
 
   &_top {
     height: auto;
-    background-color: lightseagreen;
+    //background-color: lightseagreen;
 
   }
 
   &_details {
     height: auto;
-    background-color: lightpink;
+    //background-color: lightpink;
 
   }
 
   &_reviews {
     height: auto;
-    background-color: lightyellow;
+    //background-color: lightyellow;
 
   }
 
   &_map {
-    background-color: lightsalmon;
+    background-color: white;
 
   }
 }
@@ -456,4 +515,16 @@
 }
 
 
+
+/* reviewsample
+------------------------- */
+
+.rate-group {
+  display: flex;
+  //flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+}
 

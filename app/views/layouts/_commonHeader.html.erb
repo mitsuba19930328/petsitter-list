@@ -1,6 +1,5 @@
 
 <!-- トップページ以外のヘッダー -->
-
 <header class="header">
   <div class="header_border">
     <div class="header-wrapper">
@@ -46,42 +45,3 @@
     </div>
   </div>
 </header>
-
-<!--<header class="page-header header-wrapper">-->
-<!--  <div class="header-logo">-->
-<!--    <h1><%#=link_to image_tag("logo.png", class: 'logo' ), root_path%></h1>-->
-<!--  </div>-->
-<!--  <div class="header-objects">-->
-<!--    <nav>-->
-<!--      <ul class="header-main-nav">-->
-        <%# if current_user %>
-          <!-- ログイン中ユーザー用メニュー -->
-<!--          <li><%#= link_to 'トップページ', root_path %></li>-->
-<!--          <li><%#= link_to 'ペットシッター一覧', petsitters_path %></li>-->
-<!--          <li><%#= link_to 'ペットシッター新規登録', new_petsitter_path %></li>-->
-<!--          <li><%#= link_to 'ユーザー詳細', user_path(current_user.id) %></li>-->
-<!--          <li><%#= link_to 'ログアウト', logout_path, method: :delete %></li>-->
-        <%# else %>
-          <!-- 未ログインユーザー用メニュー -->
-<!--          <li><%#= link_to 'トップページ', root_path %></li>-->
-<!--          <li><%#= link_to 'ペットシッター一覧', petsitters_path %></li>-->
-<!--          <li><%#= link_to '新規登録', new_user_path %></li>-->
-<!--          <li><%#= link_to 'ログイン', login_path %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--      <div class="header-search-form">-->
-          <!-- ここに検索枠を入れる -->
-          <%#= search_form_for(@q, url:petsitters_path, class: 'search-field') do |f| %>
-            <!--キーワード検索-->
-<!--            <div class ="search-group">-->
-              <%#= f.search_field :address_cont, :placeholder => "エリア[例：新宿]", class: 'search-form' %>
-<!--            </div>-->
-<!--            <div class ="search-group">-->
-              <%#= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]", class: 'search-form' %>
-<!--            </div>-->
-            <%#= f.submit "検索", class:'btn' %>
-          <%# end %>
-<!--      </div>-->
-<!--    </nav>-->
-<!--  </div>-->
-<!--</header>-->

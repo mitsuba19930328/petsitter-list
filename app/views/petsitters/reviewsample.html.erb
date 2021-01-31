@@ -1,0 +1,48 @@
+
+
+<%= render partial: 'petsitters/shopHeader' %>
+
+<ul class="shop-menu-bar">
+  <li class="shop-menu-link selected-menu"><%= link_to "店舗トップ", petsitter_path %></li>
+  <li class="shop-menu-link"><%= link_to "詳細", petsitter_details_path %></li>
+  <li class="shop-menu-link"><%= link_to "口コミ", petsitter_reviews_path %></li>
+  <li class="shop-menu-link"><%= link_to "地図", petsitter_map_path %></li>
+</ul>
+
+いいね機能
+<%= @petsitter.liked_users.count %>
+<% if current_user.already_liked?(@petsitter) %>
+  <%= link_to petsitter_like_path(@petsitter.id), method: :delete, data: {"turbolinks" => false}, remote: true do %>
+    <%= fa_icon 'heart', id: "heart__red" %>
+  <% end %>
+<% else %>
+  <%= link_to petsitter_likes_path(@petsitter.id), method: :post, data: {"turbolinks" => false}, remote: true do %>
+    <%= fa_icon 'heart', id: "heart__normal" %>
+  <% end %>
+<% end %>
+
+<div class="like">
+  <!-- いいね機能 -->
+  <tr>いいね: <%= @petsitter.likes.count %>
+    <% if current_user.already_liked?(@petsitter) %>
+      <%= link_to petsitter_like_path(@petsitter.id), method: :delete do %>
+        <%= fa_icon 'heart', id: "heart__red" %>
+      <% end %>
+    <% else %>
+      <%= link_to petsitter_likes_path(@petsitter.id), method: :post do %>
+        <%= fa_icon 'heart-o', id: "heart__normal" %>
+      <% end %>
+    <% end %>
+    <p>いいねしたユーザー</p>
+    <% @petsitter.liked_users.each do |user| %>
+      <li><%= user.email %></li>
+    <% end %>
+  </tr>
+</div>
+
+
+<!-- 口コミ投稿フォーム -->
+<%= render partial: 'reviews/form', locals: { review: @review } %>
+
+<!-- 口コミ表示フォーム -->
+<%#= render partial: 'reviews/show-reviews', locals: {reviews: @reviews} %>
