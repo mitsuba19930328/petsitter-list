@@ -14,6 +14,10 @@ class TopsController < ApplicationController
     # ペットシッター一覧＋ページネーション用設定
     @petsitters = Petsitter.page(params[:page]).per(5)
     # @users = User.all.page(params[:page]).per(5)
+    #
+    @all_petsitters = Petsitter.all
+    @all_users = User.all
+    @all_reviews = Review.all
 
     # 以下はGoogleMapテスト
     #  @test_petsitter = Petsitter.find(1)

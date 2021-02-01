@@ -10,61 +10,34 @@
     </div>
     <div class="shop-top-info">
       <div class="shop-top-info_rate">
-        <!--星評価-->
-        <div id="star-rate-<%= @petsitter.id %>"></div>
-        <script>
-            $('#star-rate-<%= @petsitter.id %>').raty({
-                size: 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                // half: true,
-                readOnly: true,
-                score: "<%= @reviews.average(:rate).to_f.round(2) %>",
-            });
-        </script>
-
-        <%= @reviews.average(:rate).to_f.round(2) %>
-        <!--/星評価-->
-
-
-<!--        <div class='star-rating' id='star-rate-44'></div>-->
-<!--        <div class='shop-rating'>-->
-<!--          3.75-->
-<!--        </div>-->
-<!--        <script>-->
-<!--            $('#star-rate-44').raty({-->
-<!--                size: 36,-->
-<!--                starOff: "/assets/star-off-6aaeebdaab93d594c005d366ce0d94fba02e7a07fd03557dbee8482f04a91c22.png",-->
-<!--                starOn: "/assets/star-on-fd26bf0ea0990cfd808f7540f958eed324b86fc609bf56ec2b3a5612cdfde5f5.png",-->
-<!--                starHalf: "/assets/star-half-db15fb9b3561d5c741d8aea9ef4f0957bd9bc51aa1caa6d7a5c316e083c1abd5.png",-->
-<!--                half: true,-->
-<!--                readOnly: true,-->
-<!--                score: "3.75",-->
-<!--            });-->
-<!--        </script>-->
-
-
+        <%= render partial: 'layouts/rate' %>
       </div>
       <div class='shop-top-info_reviews'>
-        <%= link_to root_path do %>
-          <i class='fas fa-comment-dots'></i>2 件
+        <%= link_to petsitter_reviews_path do %>
+          <i class='fas fa-comment-dots'></i><% if @petsitter.liked_users %><%= @petsitter.liked_users.count %><% else %>0<% end %> 件
         <% end %>
       </div>
       <div class='shop-top-info_bookmarks'>
-        <%= link_to root_path do %>
-          <i class='fas fa-bookmark'></i>4 件
+        <% if current_user.already_liked?(@petsitter) %>
+          <%= link_to petsitter_like_path(@petsitter.id), method: :delete do %>
+            <i class='fas fa-bookmark'></i><% if @petsitter.liked_users %><%= @petsitter.liked_users.count %><% else %>0<% end %> 件
+          <% end %>
+        <% else %>
+          <%= link_to petsitter_likes_path(@petsitter.id), method: :post do %>
+            <i class='fas fa-bookmark'></i><% if @petsitter.liked_users %><%= @petsitter.liked_users.count %><% else %>0<% end %> 件
+          <% end %>
         <% end %>
       </div>
     </div>
     <div class="shop-bottom-info">
       <span>エリア：</span>
-      <%= link_to "中野", root_path, class: 'shop-bottom-info-show' %>
+      <%= link_to @petsitter.area, petsitters_path(@q, :'q[address_cont' => "#{@petsitter.area}") %>
       <span>対応可能動物種類：</span>
       <div class='pet-types'>
         <ul class='pet-types-list'>
-          <%= link_to "犬", root_path, class:'shop-bottom-info-show' %>
-          <%= link_to "猫", root_path, class:'shop-bottom-info-show' %>
+          <% @petsitter.pet_type.split(/、/).each do |pet_type| %>
+            <%= link_to pet_type, petsitters_path(@q, :'q[name_or_pet_type_cont' => "#{pet_type}") %>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -72,14 +45,28 @@
 
   <div class='action-wrap'>
     <div class='action-wrap_app'>
+      <!-- 口コミ投稿 -->
       <div class='action-btn' id='testsample'>
-        <%= link_to root_path, class:'action-link' do %>
-          <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>
+        <% if current_user.already_liked?(@petsitter) %>
+          <%= link_to petsitter_new_reviews_path, class:'action-link', method: :delete do %>
+            <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>
+          <% end %>
+        <% else %>
+          <%= link_to petsitter_new_reviews_path, class:'action-link' do %>
+            <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>
+          <% end %>
         <% end %>
       </div>
+      <!-- bookmark -->
       <div class='action-btn' id='testsample'>
-        <%= link_to root_path, class:'action-link' do %>
-          <i class='fas fa-bookmark fa-lg'></i> <span class='action-name'>保存</span>
+        <% if current_user.already_liked?(@petsitter) %>
+          <%= link_to petsitter_like_path(@petsitter.id), class:'action-link', method: :delete do %>
+            <i class='fas fa-bookmark fa-lg'></i> <span class='action-name'>保存</span>
+          <% end %>
+        <% else %>
+          <%= link_to petsitter_likes_path(@petsitter.id), class:'action-link', method: :post do %>
+            <i class='fas fa-bookmark fa-lg'></i> <span class='action-name'>保存</span>
+          <% end %>
         <% end %>
       </div>
     </div>

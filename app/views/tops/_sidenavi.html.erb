@@ -4,7 +4,7 @@
   <ul class="data-count-area">
     <li class="data-count_store">
       <div class="data-count_store_count">
-        45
+        <%= @all_petsitters.count %>
       </div>
       <div class="data-count_store_text">
         店舗
@@ -12,7 +12,7 @@
     </li>
     <li class="data-count_user">
       <div class="data-count_user_count">
-        34
+        <%= @all_users.count %>
       </div>
       <div class="data-count_user_text">
         ユーザー
@@ -20,7 +20,7 @@
     </li>
     <li class="data-count_review">
       <div class="data-count_review_count">
-        23
+        <%= @all_reviews.count %>
       </div>
       <div class="data-count_review_text">
         口コミ
@@ -33,7 +33,7 @@
         <%=link_to image_tag("136x136.png"), root_path, class:'user-icon'%>テストユーザーさん
       </div>
       <ul class="user-action-data">
-        <li class="act-data"><%=link_to '利用したお店', root_path %>2</li>
+        <li class="act-data"><%=link_to '利用したお店', petsitter_histories_path %>2</li>
         <li class="act-data"><%=link_to '保存したお店', root_path %>2</li>
       </ul>
     </div>
