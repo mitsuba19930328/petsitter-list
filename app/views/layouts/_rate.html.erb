@@ -1,0 +1,17 @@
+
+<!--星評価-->
+<div id="star-rate-<%= @petsitter.id %>"></div>
+<script>
+    $('#star-rate-<%= @petsitter.id %>').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        // half: true,
+        readOnly: true,
+        score: "<%= @reviews.average(:rate).to_f.round(2) %>",
+    });
+</script>
+
+<div class="shop-rating"><%= @reviews.average(:rate).to_f.round(2) %></div>
+<!--/星評価-->

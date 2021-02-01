@@ -12,6 +12,14 @@ class PetsittersController < ApplicationController
     @petsitters = @q.result(distinct: true)
   end
 
+  def histories
+    # 検索
+    # @q = Petsitter.ransack(params[:q])
+    # @petsitters = @q.result(distinct: true)
+
+    # @petsitters = Petsitter.where(id: current_user.id)
+  end
+
   # ペットシッター詳細表示
   def show
     # 該当のペットシッターを検索
@@ -43,6 +51,28 @@ class PetsittersController < ApplicationController
   def details
     # 該当のペットシッターを検索
     @petsitter = Petsitter.find(params[:id])
+
+    # 新規レビュー用インスタンス
+    @review = Review.new
+
+    # reviewコントローラーなどで使うため@petsitter.idをsessionに保存
+    session[:petsitter_id] = @petsitter.id
+
+    # 該当のペットシッターIDで検索できるレビューを取得
+    @reviews = Review.where(petsitter: @petsitter.id)
+
+    # 自分のコメントがあるかチェックする
+    @is_my_review = @reviews.find_by(user_id: current_user.id)
+
+    # 新規いいね用インスタンス
+    @like = Like.new
+
+    # 新規一時保存用インスタンス
+    @temp_save = TempSave.new
+
+    # マップ（mapに移管する予定）
+    # 以下はGoogleMapテスト
+    gon.address = @petsitter.address
   end
 
   def reviews
@@ -72,9 +102,55 @@ class PetsittersController < ApplicationController
     gon.address = @petsitter.address
   end
 
+  def postReviews
+    # 該当のペットシッターを検索
+    @petsitter = Petsitter.find(params[:id])
+
+    # 新規レビュー用インスタンス
+    @review = Review.new
+
+    # reviewコントローラーなどで使うため@petsitter.idをsessionに保存
+    session[:petsitter_id] = @petsitter.id
+
+    # 該当のペットシッターIDで検索できるレビューを取得
+    @reviews = Review.where(petsitter: @petsitter.id)
+
+    # 自分のコメントがあるかチェックする
+    @is_my_review = @reviews.find_by(user_id: current_user.id)
+
+    # 新規いいね用インスタンス
+    @like = Like.new
+
+    # 新規一時保存用インスタンス
+    @temp_save = TempSave.new
+
+    # マップ（mapに移管する予定）
+    # 以下はGoogleMapテスト
+    gon.address = @petsitter.address
+  end
+
+
   def map
     # 該当のペットシッターを検索
     @petsitter = Petsitter.find(params[:id])
+
+    # 新規レビュー用インスタンス
+    @review = Review.new
+
+    # reviewコントローラーなどで使うため@petsitter.idをsessionに保存
+    session[:petsitter_id] = @petsitter.id
+
+    # 該当のペットシッターIDで検索できるレビューを取得
+    @reviews = Review.where(petsitter: @petsitter.id)
+
+    # 自分のコメントがあるかチェックする
+    @is_my_review = @reviews.find_by(user_id: current_user.id)
+
+    # 新規いいね用インスタンス
+    @like = Like.new
+
+    # 新規一時保存用インスタンス
+    @temp_save = TempSave.new
 
     # マップ（mapに移管する予定）
     # 以下はGoogleMapテスト
