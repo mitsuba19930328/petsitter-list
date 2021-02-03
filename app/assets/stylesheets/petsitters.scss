@@ -26,6 +26,20 @@
   height: 100%;
 }
 
+.shop-link {
+  text-decoration: none;
+  color: #000000;
+  &:hover {
+    color: #000000;
+    text-decoration: none;
+  }
+}
+
+a.shop-link:hover .top-info_name-and-area_name{
+  color: orange;
+
+}
+
 .top-info {
   display: flex;
   width: 100%;
@@ -43,6 +57,8 @@
     height: 50px;
 
     &_name {
+      font-weight: bold;
+      color: blue;
     }
 
     &_area {
@@ -63,24 +79,36 @@
   }
 }
 
-.user-count-0 {
+.action-icon {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 20px;
+  height: 32px;
+  line-height: 36px;
   width: 50%;
+  color: orange;
+
+  &_left {
+    border-right: solid 1px lightgray;
+  }
+}
+
+.user-count-0 {
+  //display: flex;
+  //justify-content: center;
+  //text-align: center;
   color: gray;
-  border-right: solid 1px lightgray;
   //background-color: #00bbdd;
   //border-right: ;
 }
 
 .clip-count-0 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: 20px;
-  width: 50%;
+  //display: flex;
+  //justify-content: center;
+  //text-align: center;
+  //font-size: 20px;
+  //width: 50%;
   color: gray;
   //border-right: ;
 
@@ -142,6 +170,24 @@
   }
 }
 
+//img {
+  //vertical-align: middle;
+//}
+
+.shop-star-rate {
+  //width: 50%;
+  //height: 50%;
+
+}
+
+.shop-count {
+  color: gray;
+  margin-right: 10px;
+  &_text {
+    text-decoration: underline;
+  }
+}
+
 .samplesample {
   width: 136px;
   height: 136px;
@@ -160,13 +206,15 @@
     justify-content: flex-start;
 
     &_title {
+      margin-right: 8px;
+      border-bottom: dotted 1px;
+      font-weight: bold;
       text-align: center;
-
     }
 
     &_user {
       text-align: center;
-
+      color: gray;
     }
 
   }
@@ -175,6 +223,7 @@
     display: flex;
     justify-content: flex-start;
     padding: 8px 0;
+    color: gray;
 
   }
 
