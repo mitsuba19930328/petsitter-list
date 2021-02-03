@@ -1,38 +1,91 @@
 <div class="petsitter-store-contents">
   <ul class="petsitter-store-content">
     <% @petsitters.each do |petsitter| %>
-      <div class="top-info">
-        <div class="top-info_name-and-area">
-          <li class= 'top-info_name-and-area_name'><%= link_to petsitter.name, petsitter %></li>
-          <li class='top-info_name-and-area_area'>名称:<%= petsitter.email %></li>
-        </div>
-        <div class="top-info_action-buttons">
-          <i class="fas fa-user-check fa-lg user-count-0"></i>
-          <i class="fas fa-bookmark fa-lg clip-count-0"></i>
-        </div>
-      </div>
-
-      <div class="bottom-info">
-        <div class="bottom-info_left">
-          <%=link_to image_tag("136x136.png", class:'samplesample'), root_path%>
-        </div>
-        <div class="bottom-info_right">
-          <div class="bottom-info_right_overview">
-            テストテストテストテストテストテストテスト
+      <%= link_to petsitter_path(petsitter.id), class:'shop-link' do %>
+        <div class="top-info">
+          <div class="top-info_name-and-area">
+            <li class= 'top-info_name-and-area_name'><%= petsitter.name %></li>
+            <li class='top-info_name-and-area_area'><%= petsitter.area %>／<%= petsitter.pet_type %></li>
           </div>
-          <div class="bottom-info_right_rating">
-            <%#= render partial: 'layouts/rate' %>
-            ★★★★★ ●1件 ×1件
-          </div>
-          <div class="bottom-info_right_top_review">
-            <div class="bottom-info_right_top_review_title-and-user">
-              <div class="bottom-info_right_top_review_title-and-user_title">タイトルテスト</div>
-              <div class="bottom-info_right_top_review_title-and-user_user">ユーザーネーム</div>
+          <div class="top-info_action-buttons">
+            <!-- reviewのアイコン＋レビューの数 -->
+            <div class="action-icon action-icon_left">
+              <% if petsitter.reviews.blank? %>
+                <i class="fas fa-user-check fa-lg user-count-0"></i>
+              <% else %>
+                <i class="fas fa-user-check fa-lg user-count-<%= petsitter.reviews.count %>"></i><span><%= petsitter.reviews.count %></span>
+              <% end %>
             </div>
-            <div class="bottom-info_right_top_review_content">テストテストテストテスト</div>
+            <!-- bookmarkのアイコン＋ブックマークされた数 -->
+            <div class="action-icon">
+              <% if petsitter.likes.blank? %>
+                <i class="fas fa-bookmark fa-lg clip-count-0"></i>
+              <% else %>
+                <i class="fas fa-bookmark fa-lg clip-count-<%= petsitter.likes.count %>"></i>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
+
+        <div class="bottom-info">
+          <div class="bottom-info_left">
+            <%= image_tag("136x136.png", class:'samplesample') %>
+          </div>
+
+          <div class="bottom-info_right">
+            <div class="bottom-info_right_overview">
+              <%= petsitter.overview %>
+            </div>
+            <div class="bottom-info_right_rating">
+
+              <!--星評価-->
+              <div id="sample-star-rate-<%= petsitter.id %>" class="shop-star-rate"></div>
+              <script>
+                  $('#sample-star-rate-<%= petsitter.id %>').raty({
+                      size: 16,
+                      half: true,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      // half: true,
+                      readOnly: true,
+                      score: "<%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",
+                  });
+              </script>
+              <div class="shop-rating"><%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %></div>
+              <!--/星評価-->
+
+              <!-- 口コミ投稿 -->
+              <div class="shop-count">
+                <i class='fas fa-comment-dots'></i><span class="shop-count_text"><%= petsitter.reviews.count %>件</span>
+              </div>
+              <!-- bookmark -->
+              <div class="shop-count">
+                <i class='fas fa-bookmark'></i><span class="shop-count_text"><%= petsitter.likes.count %>件</span>
+              </div>
+            </div>
+
+            <!-- レビューがない場合はデフォルト表示。あればレビューを表示。 -->
+            <% if petsitter.reviews.blank? %>
+              <div class="bottom-info_right_top_review">
+                <div class="bottom-info_right_top_review_title-and-user">
+                  <div class="bottom-info_right_top_review_title-and-user_title">口コミ未投稿</div>
+                  <div class="bottom-info_right_top_review_title-and-user_user">by</div>
+                </div>
+                <div class="bottom-info_right_top_review_content">まだ口コミが投稿されていません</div>
+              </div>
+            <% else %>
+              <div class="bottom-info_right_top_review">
+                <div class="bottom-info_right_top_review_title-and-user">
+                  <div class="bottom-info_right_top_review_title-and-user_title"><%= petsitter.reviews.last.title %></div>
+                  <div class="bottom-info_right_top_review_title-and-user_user">by <%= getUserNameByUserId(petsitter.reviews.first.user_id) %></div>
+                </div>
+                <div class="bottom-info_right_top_review_content"><%= petsitter.reviews.first.content %></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </ul>
 </div>
