@@ -33,6 +33,7 @@
         score:        undefined,
         scoreName:    'score',
         single:       false,
+        size:         12,
         space:        true,
         starHalf:     'star-half.png',
         starOff:      'star-off.png',

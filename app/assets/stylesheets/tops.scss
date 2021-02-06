@@ -181,8 +181,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 100%;
 
   &_title {
-    margin: 30px 5% 0px;
-
+    margin-top: 30px;
   }
 
   &_area {
@@ -195,13 +194,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     //padding: 5% 0 5% 8px;
     font-size: 24px;
   }
+}
 
+.top-area-name {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  &_title {
+    margin-right: 24px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &_count {
+    font-size: 16px;
+  }
 }
 
 .top-areas {
   display: flex;
   flex-direction: row;
-  padding: 8px;
+  padding: 8px 8px 8px 0;
   width: 100%;
 }
 
@@ -210,11 +223,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   align-items: center;
   height: 48px;
   margin: 4px;
-  padding: 0 16px 0;
+  padding: 0 16px;
   border: solid 1px lightgray;
   border-radius: 4px;
   box-shadow: 0 0 4px lightgrey;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  & a {
+    color: black;
+    &:hover {
+      color: orange;
+    }
+  }
+
+  &_count {
+    font-size: 12px;
+    font-weight: normal;
+  }
 
   //display: flex;
   //flex-direction: row;
@@ -231,7 +257,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 .area-list {
-  padding: 20px 8px 4px 8px;
+  padding: 0 8px 4px 8px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -248,19 +274,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 .area-list > li::before {
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 0px;
   transform: translateY(-50%);
   width: 0px;
   height: 0px;
   border: 0.3em solid transparent;
-  border-left: 0.4em solid #3388dd;
+  border-left: 0.4em solid orange;
   content: "";
 }
 
 .all-area {
+  //font-size: 12px;
+  //margin: 10px 125px 0 0;
+  float: left;
+  position: relative;
+  width: 25%;
+  height: 28px;
+  padding-left: 12px;
   font-size: 12px;
-  margin: 10px 125px 0 0;
+  cursor: pointer;
+  & a:hover {
+    color: orange;
+  }
 
 }
 
@@ -270,14 +306,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   //height: 300px;
 
   &_title {
-    margin: 30px 5% 0px;
+    margin-top: 30px;
   }
 
   &_area {
     background-color: #fff;
     border-radius: 5px;
     //margin: 5% 0 0;
-    margin: 0 5%;
+    //margin: 0 5%;
     font-size: 24px;
   }
 }
@@ -311,21 +347,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
       opacity: 0.6;
       color: black;
     }
+
+    & a:hover {
+      opacity: 1;
+      color: black;
+    }
   }
 }
 
 .pet-type-img {
-  //width: 136px;
-  //height: 136px;
   object-fit: cover;
   & :hover {
-
+    //color: black;
+    opacity: 1;
   }
 }
 
 .pet_type_name {
   position: absolute;
   top: 60%;
+
   //color: white;
 }
 
@@ -371,13 +412,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: auto;
 
   &_title {
-    margin: 30px 5% 0px;
+    margin-top: 30px;
   }
 
   &_area {
     background-color: #fff;
     border-radius: 5px;
-    margin: 0 5%;
+    //margin: 0 5%;
     font-size: 24px;
   }
 }
@@ -529,7 +570,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-top: 2px solid gray;
 }
 
-.user-bookmark-store {
+.user-bookmark {
   display: flex;
   flex-direction: column;
   margin: 5%;
@@ -544,30 +585,38 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-align: center;
   }
 
+  &_stores {
+    //display: flex;
+    //flex-direction: row;
+    //align-items: center;
+    //text-align: center;
+    width: 100%;
+    //background-color: blue;
+    border-top: 1px solid gray;
+  }
+
   &_store {
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: center;
     width: 100%;
-    height: 70px;
-    //background-color: blue;
     border-top: 1px solid gray;
+    padding: 4px 0;
   }
-
 }
 
 .store-icon {
   width: 64px;
   height: 64px;
+  object-fit: cover;
 }
 
 .bookmark_store_info {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  font-size: 0.8rem;
-  margin-left: 10px;
+  margin-left: 8px;
+  font-size: 12px;
 
   &_name {
     display: flex;
