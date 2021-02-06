@@ -64,22 +64,82 @@
   </div>
   <div class="pet-type-area_area">
     <ul class="pet-type-pics">
-      <li class="pet-type-pic"><%=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "犬") %></li>
-      <li class="pet-type-pic"><%=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "猫") %></li>
-      <li class="pet-type-pic"><%=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "うさぎ") %></li>
-      <li class="pet-type-pic"><%=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "他小動物") %></li>
-      <li class="pet-type-pic"><%=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "爬虫類") %></li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "犬"), class:'pet-type-pic_link' do %>
+          <%= image_tag("dog.jpg", class:'pet-type-img') %>
+            <span class="pet_type_name">犬</span>
+            <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%犬%').count %>件</span>
+        <% end %>
+      </li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "猫"), class:'pet-type-pic_link' do %>
+          <%= image_tag("cat.jpg", class:'pet-type-img') %>
+          <span class="pet_type_name">猫</span>
+          <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%猫%').count %>件</span>
+        <% end %>
+      </li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "ウサギ"), class:'pet-type-pic_link' do %>
+          <%= image_tag("rabbit.jpg", class:'pet-type-img') %>
+          <span class="pet_type_name">ウサギ</span>
+          <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%ウサギ%').count %>件</span>
+        <% end %>
+      </li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "他小動物"), class:'pet-type-pic_link' do %>
+          <%= image_tag("exoticanimal.jpg", class:'pet-type-img') %>
+          <span class="pet_type_name">他小動物</span>
+          <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%他小動物%').count %>件</span>
+        <% end %>
+      </li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "鳥類"), class:'pet-type-pic_link' do %>
+          <%= image_tag("bird.jpg", class:'pet-type-img') %>
+          <span class="pet_type_name">鳥類</span>
+          <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%鳥類%').count %>件</span>
+        <% end %>
+      </li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "爬虫類"), class:'pet-type-pic_link' do %>
+          <%= image_tag("lizard.jpg", class:'pet-type-img') %>
+          <span class="pet_type_name">爬虫類</span>
+          <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%爬虫類%').count %>件</span>
+        <% end %>
+      </li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "魚類"), class:'pet-type-pic_link' do %>
+          <%= image_tag("fish.jpg", class:'pet-type-img') %>
+          <span class="pet_type_name">魚類</span>
+          <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%魚類%').count %>件</span>
+        <% end %>
+      </li>
+      <li class="pet-type-pic">
+        <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "その他"), class:'pet-type-pic_link' do %>
+          <%= image_tag("exoticanimal.jpg", class:'pet-type-img') %>
+          <span class="pet_type_name">その他</span>
+          <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%その他%').count %>件</span>
+        <% end %>
+      </li>
+
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "犬") %></li>-->
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "猫") %></li>-->
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "うさぎ") %></li>-->
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "小動物") %></li>-->
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "鳥類") %></li>-->
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "爬虫類") %></li>-->
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "両生類") %></li>-->
+<!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "その他") %></li>-->
     </ul>
-    <ul class="pet-type-list">
-      <li class="all-pet-type">テスト</li>
-      <li class="all-pet-type">テスト</li>
-      <li class="all-pet-type">テスト</li>
-      <li class="all-pet-type">テスト</li>
-      <li class="all-pet-type">テスト</li>
-      <li class="all-pet-type">テスト</li>
-      <li class="all-pet-type">テスト</li>
-      <li class="all-pet-type">テスト</li>
-    </ul>
+<!--    <ul class="pet-type-list">-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--      <li class="all-pet-type">テスト</li>-->
+<!--    </ul>-->
   </div>
 </div>
 
@@ -89,16 +149,109 @@
     <h2>評判のお店をみる</h2>
   </div>
   <div class="high-rate-area_area">
-    <ul class="high-rate-list">
-      <li class="all-high-rate"><%=link_to image_tag("136x136.png"), root_path%>テスト店
-      </li>
-      <li class="all-high-rate"><%=link_to image_tag("136x136.png"), root_path%>テスト店
-      </li>
-      <li class="all-high-rate"><%=link_to image_tag("136x136.png"), root_path%>テスト店
-      </li>
-      <li class="all-high-rate"><%=link_to image_tag("136x136.png"), root_path%>テスト店
-      </li>
-    </ul>
+    <div class="petsitter-store-contents">
+      <ul class="petsitter-store-content_topindex">
+        <% @petsitters.each do |petsitter| %>
+          <%= link_to petsitter_path(petsitter.id), class:'shop-link' do %>
+            <div class="top-info">
+              <div class="top-info_name-and-area">
+                <li class= 'top-info_name-and-area_name'><%= petsitter.name %></li>
+                <li class='top-info_name-and-area_area'><%= petsitter.area %>／<%= petsitter.pet_type %></li>
+              </div>
+              <div class="top-info_action-buttons">
+                <!-- reviewのアイコン＋レビューの数 -->
+                <div class="action-icon action-icon_left">
+                  <% if petsitter.reviews.blank? %>
+                    <i class="fas fa-user-check fa-lg user-count-0"></i>
+                  <% else %>
+                    <i class="fas fa-user-check fa-lg user-count-<%= petsitter.reviews.count %>"></i><span><%= petsitter.reviews.count %></span>
+                  <% end %>
+                </div>
+                <!-- bookmarkのアイコン＋ブックマークされた数 -->
+                <div class="action-icon">
+                  <% if petsitter.likes.blank? %>
+                    <i class="fas fa-bookmark fa-lg clip-count-0"></i>
+                  <% else %>
+                    <i class="fas fa-bookmark fa-lg clip-count-<%= petsitter.likes.count %>"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-info">
+              <div class="bottom-info_left">
+                <%= image_tag("136x136.png", class:'samplesample') %>
+              </div>
+
+              <div class="bottom-info_right">
+                <div class="bottom-info_right_overview">
+                  <%= petsitter.overview %>
+                </div>
+                <div class="bottom-info_right_rating">
+
+                  <!--星評価-->
+                  <div id="sample-star-rate-<%= petsitter.id %>" class="shop-star-rate"></div>
+                  <script>
+                      $('#sample-star-rate-<%= petsitter.id %>').raty({
+                          size: 16,
+                          half: true,
+                          starOff:  '<%= asset_path('star-off.png') %>',
+                          starOn : '<%= asset_path('star-on.png') %>',
+                          starHalf: '<%= asset_path('star-half.png') %>',
+                          // half: true,
+                          readOnly: true,
+                          score: "<%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",
+                      });
+                  </script>
+                  <div class="shop-rating"><%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %></div>
+                  <!--/星評価-->
+
+                  <!-- 口コミ投稿 -->
+                  <div class="shop-count">
+                    <i class='fas fa-comment-dots'></i><span class="shop-count_text"><%= petsitter.reviews.count %>件</span>
+                  </div>
+                  <!-- bookmark -->
+                  <div class="shop-count">
+                    <i class='fas fa-bookmark'></i><span class="shop-count_text"><%= petsitter.likes.count %>件</span>
+                  </div>
+                </div>
+
+                <!-- レビューがない場合はデフォルト表示。あればレビューを表示。 -->
+                <% if petsitter.reviews.blank? %>
+                  <div class="bottom-info_right_top_review">
+                    <div class="bottom-info_right_top_review_title-and-user">
+                      <div class="bottom-info_right_top_review_title-and-user_title">口コミ未投稿</div>
+                      <div class="bottom-info_right_top_review_title-and-user_user">by</div>
+                    </div>
+                    <div class="bottom-info_right_top_review_content">まだ口コミが投稿されていません</div>
+                  </div>
+                <% else %>
+                  <div class="bottom-info_right_top_review">
+                    <div class="bottom-info_right_top_review_title-and-user">
+                      <div class="bottom-info_right_top_review_title-and-user_title"><%= petsitter.reviews.last.title %></div>
+                      <div class="bottom-info_right_top_review_title-and-user_user">by <%= getUserNameByUserId(petsitter.reviews.first.user_id) %></div>
+                    </div>
+                    <div class="bottom-info_right_top_review_content"><%= petsitter.reviews.first.content %></div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+
+<!--    <ul class="high-rate-list">-->
+<!--      <li class="all-high-rate"><%#=link_to image_tag("136x136.png"), root_path%>テスト店-->
+<!--      </li>-->
+<!--      <li class="all-high-rate"><%#=link_to image_tag("136x136.png"), root_path%>テスト店-->
+<!--      </li>-->
+<!--      <li class="all-high-rate"><%#=link_to image_tag("136x136.png"), root_path%>テスト店-->
+<!--      </li>-->
+<!--      <li class="all-high-rate"><%#=link_to image_tag("136x136.png"), root_path%>テスト店-->
+<!--      </li>-->
+<!--    </ul>-->
   </div>
 </div>
 
