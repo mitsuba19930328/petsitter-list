@@ -31,15 +31,40 @@
     <h2>エリアから探す</h2>
   </div>
   <div class="search-area_area">
-    <div class="selected-area">
-      東京 35件
+    <div class="top-area-name">
+      <span class="top-area-name_title">東京</span>
+      <span class="top-area-name_count"><%= Petsitter.where('address like ?','%東京%').count %>件</span>
     </div>
       <ul class="top-areas">
-        <li class="top-area"><%= link_to "六本木", petsitters_path(@q, :'q[address_cont' => "六本木") %></li>
-        <li class="top-area"><%= link_to "吉祥寺", petsitters_path(@q, :'q[address_cont' => "吉祥寺") %></li>
-        <li class="top-area"><%= link_to "府中", petsitters_path(@q, :'q[address_cont' => "府中") %></li>
-        <li class="top-area"><%= link_to "立川", petsitters_path(@q, :'q[address_cont' => "立川") %></li>
-        <li class="top-area"><%= link_to "新宿", petsitters_path(@q, :'q[address_cont' => "新宿") %></li>
+        <li class="top-area">
+          <%= link_to petsitters_path(@q, :'q[address_cont' => "六本木"), class:'pet-type-pic_link' do %>
+            六本木&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%六本木%').count %>件</span>
+          <% end %>
+        </li>
+        <li class="top-area">
+          <%= link_to petsitters_path(@q, :'q[address_cont' => "新宿"), class:'pet-type-pic_link' do %>
+            新宿&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%新宿%').count %>件</span>
+          <% end %>
+        </li>
+        <li class="top-area">
+          <%= link_to petsitters_path(@q, :'q[address_cont' => "吉祥寺"), class:'pet-type-pic_link' do %>
+            吉祥寺&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%吉祥寺%').count %>件</span>
+          <% end %>
+        </li>
+        <li class="top-area">
+          <%= link_to petsitters_path(@q, :'q[address_cont' => "立川"), class:'pet-type-pic_link' do %>
+            立川&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%立川%').count %>件</span>
+          <% end %>
+        </li>
+        <li class="top-area">
+          <%= link_to petsitters_path(@q, :'q[address_cont' => "吉祥寺・三鷹"), class:'pet-type-pic_link' do %>
+            吉祥寺・三鷹&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%吉祥寺・三鷹%').count %>件</span>
+          <% end %>
+        </li>
+<!--        <li class="top-area"><%#= link_to "渋谷", petsitters_path(@q, :'q[address_cont' => "吉祥寺") %> <%#= Petsitter.where('address like ?','%吉祥寺%').count %>件</li>-->
+<!--        <li class="top-area"><%#= link_to "品川", petsitters_path(@q, :'q[address_cont' => "府中") %> <%#= Petsitter.where('address like ?','%府中%').count %>件</li>-->
+<!--        <li class="top-area"><%#= link_to "五反田", petsitters_path(@q, :'q[address_cont' => "立川") %> <%#= Petsitter.where('address like ?','%立川%').count %>件</li>-->
+<!--        <li class="top-area"><%#= link_to "立川", petsitters_path(@q, :'q[address_cont' => "新宿") %> <%#= Petsitter.where('address like ?','%新宿%').count %>件</li>-->
       </ul>
     <ul class="area-list clearfix">
       <li class="all-area"><%= link_to "六本木", petsitters_path(@q, :'q[address_cont' => "六本木") %></li>
@@ -115,7 +140,7 @@
       </li>
       <li class="pet-type-pic">
         <%= link_to petsitters_path(@q, :'q[name_or_pet_type_cont' => "その他"), class:'pet-type-pic_link' do %>
-          <%= image_tag("exoticanimal.jpg", class:'pet-type-img') %>
+          <%= image_tag("egg.jpg", class:'pet-type-img') %>
           <span class="pet_type_name">その他</span>
           <span class="pet_type_count"><%= Petsitter.where('pet_type like ?','%その他%').count %>件</span>
         <% end %>
