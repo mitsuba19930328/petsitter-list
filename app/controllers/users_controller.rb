@@ -58,6 +58,34 @@ class UsersController < ApplicationController
     redirect_to tops_index_path, notice: "ユーザー情報を削除しました。"
   end
 
+  def histories
+    # 該当のペットシッターを検索
+    @petsitter = Petsitter.find(params[:id])
+
+    # 現在のユーザーがレビュー投稿したペットシッターを@petsitters配列に入れていく
+    @petsitters = []
+    current_user.reviews.each do |review|
+      petsitter = Petsitter.find(review.petsitter_id)
+      @petsitters.push(petsitter)
+    end
+
+
+  end
+
+  def clips
+    # 該当のペットシッターを検索
+    @petsitter = Petsitter.find(params[:id])
+
+    # likeされたペットシッターを@petsitters配列に入れていく
+    @petsitters = []
+    current_user.likes.each do |like|
+      petsitter = Petsitter.find(like.petsitter_id)
+      @petsitters.push(petsitter)
+    end
+  end
+
+
+
   private
     # ストロングパラメーター（ユーザーパラメーター取得用）
     def user_params

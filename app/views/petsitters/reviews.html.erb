@@ -11,59 +11,64 @@
 
   <!-- 口コミ -->
   <div class="shop-content_reviews">
-    <%# if current_page?(user_path) %>
     <div class="reviews-header">
-      <div class="reviews-header_count">全 3 件</div>
+      <div class="reviews-header_count">全 <%= @petsitter.reviews.count %> 件</div>
       <%= link_to "口コミを投稿する", petsitter_new_reviews_path, class: 'reviews-header_post' %>
     </div>
-    <!-- 口コミ投稿内容 -->
-    <div class="reviews-box">
-      <div class="reviews-box_reviews-info">
-        <div class="reviews-box-user-info">
-          <%= image_tag @petsitter.image.url, class:'reviews-box-user-info_photo' unless @petsitter.image.url.nil? %>
-          <div class="reviews-box-user-info_name">
-            テストさんの口コミ
+    <% if @petsitter.reviews %>
+      <% @petsitter.reviews.each do |review| %>
+        <!-- 口コミ投稿内容 -->
+        <div class="reviews-box">
+          <div class="reviews-box_reviews-info">
+            <div class="reviews-box-user-info">
+              <%= image_tag getUserByUserId(review.user_id).image.url, class:'reviews-box-user-info_photo' unless getPetsitterByPetistterId(review.petsitter_id)&.image.url.nil? %>
+              <div class="reviews-box-user-info_name">
+                <%= getUserByUserId(review.user_id).name %>さんの口コミ
+              </div>
+            </div>
+          </div>
+          <div class="reviews-box_reviews-rate">
+            <div class="rate-container">
+              <!--星評価-->
+              <div id="viewReview-star-rate-<%= review.id %>" class="shop-star-rate"></div>
+              <script>
+                  $('#viewReview-star-rate-<%= review.id %>').raty({
+                      size: 16,
+                      half: true,
+                      starOff:  '<%= asset_path('star-off-little.png') %>',
+                      starOn : '<%= asset_path('star-on-little.png') %>',
+                      starHalf: '<%= asset_path('star-half-little.png') %>',
+                      readOnly: true,
+                      score: "<%= review.rate %>",
+                  });
+              </script>
+              <%= review.rate %>
+<!--              ★★★★★ 3.5-->
+            </div>
+          </div>
+          <div class="reviews-box_reviews-body">
+            <div class="reviews-box_reviews-body_date">
+              <%= review.created_at %>
+<!--              2021/01投稿-->
+            </div>
+            <div class="reviews-box_reviews-body_title">
+              <%= review.title %>
+<!--              素晴らしいペットシッター-->
+            </div>
+            <div class="reviews-box_reviews-body_text">
+              <%= review.content %>
+<!--              とても親切に対応していただきました！ありがとうございます！-->
+            </div>
           </div>
         </div>
-      </div>
-      <div class="reviews-box_reviews-rate">
-        <div class="rate-container">
-          ★★★★★ 3.5
-        </div>
-      </div>
-      <div class="reviews-box_reviews-body">
-        <div class="reviews-box_reviews-body_date">2021/01利用</div>
-        <div class="reviews-box_reviews-body_title">素晴らしいペットシッター</div>
-        <div class="reviews-box_reviews-body_text">とても親切に対応していただきました！ありがとうございます！</div>
-      </div>
-    </div>
-
-    <div class="reviews-box">
-      <div class="reviews-box_reviews-info">
-        <div class="reviews-box-user-info">
-          <%= image_tag @petsitter.image.url, class:'reviews-box-user-info_photo' unless @petsitter.image.url.nil? %>
-          <div class="reviews-box-user-info_name">
-            テストさんの口コミ
-          </div>
-        </div>
-      </div>
-      <div class="reviews-box_reviews-rate">
-        <div class="rate-container">
-          ★★★★★ 3.5
-        </div>
-      </div>
-      <div class="reviews-box_reviews-body">
-        <div class="reviews-box_reviews-body_date">2021/01利用</div>
-        <div class="reviews-box_reviews-body_title">素晴らしいペットシッター</div>
-        <div class="reviews-box_reviews-body_text">とても親切に対応していただきました！ありがとうございます！</div>
-      </div>
-    </div>
-
-    <%# end %>
+      <% end %>
+    <% else %>
+      まだ口コミはありません
+    <% end %>
   </div>
 </div>
 
 <!-- 口コミ投稿フォーム -->
-<%= render partial: 'reviews/form', locals: { review: @review } %>
+<%#= render partial: 'reviews/form', locals: { review: @review } %>
 
 

@@ -155,16 +155,6 @@
 <!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "両生類") %></li>-->
 <!--      <li class="pet-type-pic"><%#=link_to image_tag("136x136.png"), petsitters_path(@q, :'q[name_or_pet_type_cont' => "その他") %></li>-->
     </ul>
-<!--    <ul class="pet-type-list">-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--      <li class="all-pet-type">テスト</li>-->
-<!--    </ul>-->
   </div>
 </div>
 
@@ -220,9 +210,9 @@
                       $('#sample-star-rate-<%= petsitter.id %>').raty({
                           size: 16,
                           half: true,
-                          starOff:  '<%= asset_path('star-off.png') %>',
-                          starOn : '<%= asset_path('star-on.png') %>',
-                          starHalf: '<%= asset_path('star-half.png') %>',
+                          starOff:  '<%= asset_path('star-off-little.png') %>',
+                          starOn : '<%= asset_path('star-on-little.png') %>',
+                          starHalf: '<%= asset_path('star-half-little.png') %>',
                           // half: true,
                           readOnly: true,
                           score: "<%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",

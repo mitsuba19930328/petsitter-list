@@ -38,8 +38,8 @@
           <% end %>
         </div>
         <ul class="user-action-data">
-          <li class="act-data"><%=link_to '利用したお店', petsitter_histories_path %>2</li>
-          <li class="act-data"><%=link_to '保存したお店', petsitter_clips_path %>2</li>
+          <li class="act-data"><%=link_to '利用したお店', user_histories_path(current_user.id) %><%= current_user.reviews.count %></li>
+          <li class="act-data"><%=link_to '保存したお店', user_clips_path(current_user.id) %><%= current_user.likes.count %></li>
         </ul>
       </div>
 
@@ -49,30 +49,51 @@
         </div>
         <!-- 以下、繰り返し処理 -->
         <ul class="user-bookmark_stores">
-          <% current_user.petsitters.each do |petsitter| %>
+          <!-- ログイン中ユーザーが過去に保存したペットシッターを表示 -->
+          <% @liked_petsitters.each do |petsitter| %>
             <%= link_to petsitter_path(petsitter.id) do %>
               <li class="user-bookmark_store">
                 <%=image_tag("136x136.png", class:'store-icon') %>
                 <div class="bookmark_store_info">
                   <div class="bookmark_store_info_name"><%= petsitter.name %></div>
                   <div class="bookmark_store_info_area"><%= petsitter.town %></div>
+
                   <!--星評価-->
-                  <div id="sidenavi-star-rate-<%= petsitter.id %>"></div>
-                  <script>
-                      $('#sidenavi-star-rate-<%= petsitter.id %>').raty({
-                          size: 12,
-                          half: true,
-                          starOff:  '<%= asset_path('star-off-little.png') %>',
-                          starOn : '<%= asset_path('star-on-little.png') %>',
-                          starHalf: '<%= asset_path('star-half-little.png') %>',
-                          // half: true,
-                          readOnly: true,
-                          number:       5,
-                          numberMax:    5,
-                          score: "<%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",
-                      });
-                  </script>
-                  <div class="shop-rating"><%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %></div>
+                  <div class="bookmark_store_info_rate">
+                    <div id="bookmark-star-rate-<%= petsitter.id %>" class="shop-star-rate"></div>
+                    <script>
+                        $('#bookmark-star-rate-<%= petsitter.id %>').raty({
+                            size: 16,
+                            half: true,
+                            starOff:  '<%= asset_path('star-off-little.png') %>',
+                            starOn : '<%= asset_path('star-on-little.png') %>',
+                            starHalf: '<%= asset_path('star-half-little.png') %>',
+                            readOnly: true,
+                            score: "<%= petsitter&.reviews.average(:rate).to_f.round(2) %>",
+                        });
+                    </script>
+                    <div class="shop-rating_sidenavi"><%= petsitter&.reviews.average(:rate).to_f.round(2) %></div>
+                  </div>
+                  <!--/星評価-->
+
+                  <!--星評価-->
+<!--                  <div class="bookmark_store_info_rate">-->
+<!--                    <div id="star-rate-<%#= petsitter.id %>"></div>-->
+<!--                    <script>-->
+<!--                        $('#star-rate-<%#= petsitter.id %>').raty({-->
+<!--                            size: 12,-->
+<!--                            half: true,-->
+<!--                            starOff:  '<%#= asset_path('star-off-little.png') %>',-->
+<!--                            starOn : '<%#= asset_path('star-on-little.png') %>',-->
+<!--                            starHalf: '<%#= asset_path('star-half-little.png') %>',-->
+<!--                            readOnly: true,-->
+<!--                            number:       5,-->
+<!--                            numberMax:    5,-->
+<!--                            score: "<%#= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",-->
+<!--                        });-->
+<!--                    </script>-->
+<!--                    <div class="shop-rating_sidenavi"><%#= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %></div>-->
+<!--                  </div>-->
                   <!--/星評価-->
                   <!--            <div class="bookmark_store_info_review"><%#= current_user.petsitters.reviews %>★★★★★ 4.5</div>-->
                 </div>
@@ -90,7 +111,7 @@
         <!--        </div>-->
         <!--      </div>-->
         <div class="user_bookmark-store_footer">
-          <%= link_to "保存したお店一覧へ" , petsitter_histories_path(current_user.id) %>
+          <%= link_to "保存したお店一覧へ" , user_clips_path(current_user.id) %>
         </div>
       </div>
     </div>

@@ -23,6 +23,14 @@ class TopsController < ApplicationController
     #  @test_petsitter = Petsitter.find(1)
     # gon.address = @test_petsitter.address
 
+
+    # likeされたペットシッターを@petsitters配列に入れていく
+    @liked_petsitters = []
+    current_user.likes.each do |like|
+      petsitter = Petsitter.find(like.petsitter_id)
+      @liked_petsitters.push(petsitter)
+    end
+
   end
 
 end

@@ -27,6 +27,7 @@
 
   &_topindex {
     width: 700px;
+    list-style: none;
   }
 
 }
@@ -295,6 +296,14 @@ a.shop-link:hover .top-info_name-and-area_name{
   color: #e60000;
   font-size: 24px;
   font-weight: bold;
+  &_sidenavi {
+    display: flex;
+    justify-content: flex-end;
+    color: #e60000;
+    font-size: 14px;
+    font-weight: bold;
+    //margin-left: 1%;
+  }
 }
 
 .shop-bottom-info {

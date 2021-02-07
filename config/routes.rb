@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     resources :temp_saves, only: [:create, :destroy]
   end
 
-  get 'petsitters/histories', to: 'petsitters#histories', as: 'petsitter_histories'
-  get 'petsitters/clips', to: 'petsitters#clips', as: 'petsitter_clips'
+  get 'users/:id/histories', to: 'users#histories', as: 'user_histories'
+  get 'users/:id/clips', to: 'users#clips', as: 'user_clips'
   get 'petsitters/:id/details', to: 'petsitters#details', as: 'petsitter_details'
   get 'petsitters/:id/reviews', to: 'petsitters#reviews', as: 'petsitter_reviews'
   get 'petsitters/:id/reviews/new', to: 'petsitters#postReviews', as: 'petsitter_new_reviews'
