@@ -1,3 +1,6 @@
+
+<%= render partial: 'layouts/commonSecondHeader' %>
+
 <div class="petsitter-store-contents">
   <ul class="petsitter-store-content">
     <% @petsitters.each do |petsitter| %>
@@ -39,9 +42,9 @@
             <div class="bottom-info_right_rating">
 
               <!--星評価-->
-              <div id="sample-star-rate-<%= petsitter.id %>" class="shop-star-rate"></div>
+              <div id="clip-star-rate-<%= petsitter.id %>" class="shop-star-rate"></div>
               <script>
-                  $('#sample-star-rate-<%= petsitter.id %>').raty({
+                  $('#clip-star-rate-<%= petsitter.id %>').raty({
                       size: 16,
                       half: true,
                       starOff:  '<%= asset_path('star-off.png') %>',

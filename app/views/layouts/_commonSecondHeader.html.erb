@@ -5,18 +5,20 @@
     ホーム › テストユーザーさん のマイページ › 〇〇一覧
   </div>
   <div class="cover-img">
-    <%= image_tag("960x65.png" ) %>
+    <%= image_tag("greenleaves.jpg" ) %><!--ここの画像は動物の更新のような画像を入れてそれをずっと使いたい-->
   </div>
   <div class="content-container">
-    <%= image_tag("136x136.png", class:'image-icon') %>
+    <%= image_tag current_user.image.url, class:'test-user' %>
+    <%#= image_tag("136x136.png", class:'image-icon') %>
     <div class="user-content-area">
-      テストさんのマイページ
+      <span class="user-content-area_title"><%= current_user.name %>さんのマイページ</span>
       <ul class="user-content-nav">
         <li class="user-content-nav-link"><%= link_to "トップ", user_path(current_user) %></li>
-        <li class="user-content-nav-link">行ったお店</li>
-        <li class="user-content-nav-link">保存済み</li>
+        <li class="user-content-nav-link"><%= link_to "行ったお店", user_histories_path(current_user.id) %></li>
+        <li class="user-content-nav-link"><%= link_to "保存済み", user_clips_path(current_user.id) %></li>
         <li class="user-content-nav-link"><%= link_to "設定", edit_user_path(current_user) %></li>
       </ul>
     </div>
   </div>
 </header>
+<div class="user-header-line"></div>
