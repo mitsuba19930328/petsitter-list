@@ -47,15 +47,15 @@
     <div class='action-wrap_app'>
       <!-- 口コミ投稿 -->
       <div class='action-btn' id='testsample'>
-        <% if current_user.already_liked?(@petsitter) %>
-          <%= link_to petsitter_new_reviews_path, class:'action-link', method: :delete do %>
-            <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>
-          <% end %>
-        <% else %>
+        <%# if current_user.already_liked?(@petsitter) %>
+          <%#= link_to '/petsitters/"#{@petsitter.id}"/reviews/new', class:'action-link', method: :delete do %>
+<!--            <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>-->
+          <%# end %>
+        <%# else %>
           <%= link_to petsitter_new_reviews_path, class:'action-link' do %>
             <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>
           <% end %>
-        <% end %>
+        <%# end %>
       </div>
       <!-- bookmark -->
       <div class='action-btn' id='testsample'>
