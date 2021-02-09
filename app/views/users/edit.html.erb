@@ -1,4 +1,16 @@
 
 <%= render partial: 'layouts/commonSecondHeader' %>
 
-<%= render partial: 'form', locals: { user: @user } %>
+<div class="account-page">
+  <div class="account-page_inner">
+    <!-- ユーザー編集画面左側（タイトルなど） -->
+    <div class="account-page_inner_left account-page_inner_header">
+      <h2>設定</h2>
+      <h5>登録情報の編集</h5>
+    </div>
+    <!-- ユーザー編集画面右側（編集部分など） -->
+    <div class="account-page_inner_right user-form">
+      <%= render partial: 'form', locals: { user: @user } %>
+    </div>
+  </div>
+</div>

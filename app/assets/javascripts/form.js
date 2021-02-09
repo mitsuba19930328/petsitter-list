@@ -7,3 +7,4 @@
 //         $('.regular_holiday_check_box').prop("required",true); //required属性の付与
 //     }
 // });
+

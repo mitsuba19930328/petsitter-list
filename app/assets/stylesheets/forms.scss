@@ -22,7 +22,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-
+  font-size: 12px;
 }
 
 .field-label {
@@ -37,10 +37,30 @@
 .form-control {
   padding: 4px 8px;
   letter-spacing: 1px;
-
+  font-size: 12px;
 }
 
+.image-btn {
+  display: block;
+  width: 100%;
+  padding: 4px 8px;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.img_prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
+}
 
 #submit_btn {
   display: flex;
+}
+
+.user-submit {
+  float: left;
+  margin-top: 20px;
+  background-color: #03A9F4;
+  color: #fff;
 }
