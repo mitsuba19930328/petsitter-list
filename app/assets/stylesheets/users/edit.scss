@@ -1,0 +1,73 @@
+
+
+/* users/editで使用するcssはこのページにまとめています。
+------------------------- */
+
+
+
+
+.account-page {
+
+  &_inner {
+    display: flex;
+    margin: 32px auto;
+    padding: 40px;
+    //background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    //height: 650px;
+
+    &_left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      //float: left;
+      width: 50%;
+
+      & h2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+        font-size: 24px;
+        &::after {
+          display: block;
+          width: 60px;
+          margin-top: 5px;
+          border-bottom: solid 1px #0f9ada;
+          content: '';
+        }
+      }
+
+      & h5 {
+        display: flex;
+        justify-content: flex-start;
+        font-size: 14px;
+      }
+    }
+
+    &_header {
+
+      & .h5 {
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: 200;
+      }
+    }
+
+    //
+    &_right {
+      display: flex;
+      //float: left;
+      width: 50%;
+    }
+
+    //& ::after {
+    //  display: block;
+    //  clear: both;
+    //  content: "";
+    //}
+  }
+}
+
+

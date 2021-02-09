@@ -27,16 +27,16 @@
   <div class="form-group">
     <%= f.label :image %>
 
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png',class:"image-btn", id: 'user_image' , value: user&.image %>
     <% if user&.image? %>
-      <%= image_tag user.image.url %>
+      <%= image_tag user.image.url, :size => '270x180' %>
     <% else %>
-      <%= image_tag "/assets/default.jpg", :size => '300x200' %>
+      <%= image_tag default.jpg, :size => '270x180' %>
     <% end %>
 
-    <button type="button", class="btn btn-outline-secondary rounded-pill">
-      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', value: user&.image %>
-    </button>
+<!--    <button type="button">-->
+<!--    </button>-->
   </div>
 
-  <%= f.submit nil, class:'btn btn-primary', id: 'submit_btn' %>
+  <%= f.submit nil, class:'btn btn-primary user-submit', id: 'submit_btn' %>
 <% end %>
