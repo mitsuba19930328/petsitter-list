@@ -1,6 +1,15 @@
-<h1>レビュー編集</h1>
-<div class='nav justify-content-end'>
-  <%= link_to 'トップページへ', root_path, class:'nav-link' %>
-</div>
 
-<%= render partial: 'form', locals: { review: @review } %>
+<%= render partial: 'petsitters/shopHeader' %>
+
+<ul class="shop-menu-bar">
+  <li class="shop-menu-link selected-menu"><%= link_to "店舗トップ", petsitter_path %></li>
+  <li class="shop-menu-link"><%= link_to "詳細", petsitter_details_path %></li>
+  <li class="shop-menu-link"><%= link_to "口コミ", petsitter_reviews_path %></li>
+  <li class="shop-menu-link"><%= link_to "地図", petsitter_map_path %></li>
+</ul>
+
+<div class="shop-content">
+
+  <%= render partial: 'form', locals: { review: @review } %>
+
+</div>

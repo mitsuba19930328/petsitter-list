@@ -28,8 +28,11 @@
             </div>
             <% if review.user.id == current_user.id %>
               <div class="user-action">
-                <%= link_to "編集", reviews_path %>
-                <%= link_to "削除", reviews_path %>
+                <%= link_to "編集", edit_review_path %>
+                <%= link_to "削除", review_path, method: :delete, data:
+                    { confirm: '本当に削除して良いですか?',
+                      cancel: 'やめる',
+                      commit: '削除する'}, title: '削除確認' %>
               </div>
             <% end %>
           </div>

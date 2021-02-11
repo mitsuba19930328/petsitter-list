@@ -32,7 +32,7 @@
     <div class="shop-bottom-info">
       <span>エリア：</span>
       <%= link_to @petsitter.area, petsitters_path(@q, :'q[address_cont' => "#{@petsitter.area}") %>
-      <span>対応可能動物種類：</span>
+      <span class="pet-type">対応可能動物種類：</span>
       <div class='pet-types'>
         <ul class='pet-types-list'>
           <% @petsitter.pet_type.split(/、/).each do |pet_type| %>

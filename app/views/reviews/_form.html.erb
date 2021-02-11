@@ -1,55 +1,65 @@
 <%# unless @is_my_review %>
 
+<!--エラーメッセージ-->
   <!-- 口コミ入力フォーム -->
   <%= form_with model: review, local: true do |f| %>
-
-    <!--エラーメッセージ-->
-
-    <!--ペットシッターIDの送信-->
-    <%= f.hidden_field :petsitter_id, { value: @petsitter.id } %>
-
-<!--     タイトル -->
-    <div class="rate-group row">
-      <%= f.label :title, class:'col-md-3 col-form-label' %>
-      <div class="col-md-9">
-        <%= f.text_field :title, class: "form-control", id:'review_title', value: review&.title %>
+    <div class="form-box">
+      <div class="form-box_title">
+        <!-- タイトル -->
+        <% if current_page?(petsitter_new_reviews_path) %>
+          口コミを投稿する
+        <% else %>
+         口コミを編集する
+        <% end %>
       </div>
-    </div>
-
-<!--     評価 -->
-    <div class="rate-group row" id="submit-star">
-      <%= f.label :rate, class:'col-md-3 col-form-label' %>
-      <%= f.hidden_field :rate, id: :review_star, id:'review_title', value: review&.title %>
-    </div>
-
-    <script>
-        $('#submit-star').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'review[rate]',
-            half: true,
-            score: <%= review.rate unless review == nil %>
-        });
-    </script>
-
-    <!-- 口コミ -->
-    <div class="form-group row">
-      <%= f.label :content, class:'col-md-3 col-form-label' %>
-      <div class="col-md-9">
-        <%= f.text_area :content, class: "form-control", rows: "8", id:'review_content', value: review&.content,
-                        placeholder:'口コミ内容がなくても、タイトルと評価のみで投稿できます。まずは投稿してみましょう！投稿してから編集もできますよ！' %>
+      <div class="form-box_review">
+        <div class="form-group-row">
+          <!-- 評価 -->
+          <div class="rate-title">
+            <%= f.label :rate , id:'test' %>
+          </div>
+          <div class="rate-count" id="submit-star">
+            <%= f.hidden_field :rate, id: :review_star, id:'review_title', value: review&.title %>
+          </div>
+          <script>
+              $('#submit-star').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'review[rate]',
+                  half: true,
+                  score: <%= review.rate unless review == nil %>
+              });
+          </script>
+        </div>
       </div>
-    </div>
+      <div class="form-box_content">
+        <!-- タイトル -->
+        <div class="form-group-row">
+          <%#= f.label :title, class:'form-label' %>
+          <%= f.text_field :title, class: "form-group-row_title", id:'review_title', value: review&.title,
+                           placeholder:'口コミのタイトルを入力してください'%>
+        </div>
 
-    <!-- 確認ボタン -->
-    <div class="form-group row justify-content-end">
-      <div class="col-md-9">
-        <%= f.submit '投稿する', class:"btn btn-success" %>
+        <!-- 口コミ -->
+        <div class="form-group-row">
+          <%#= f.label :content, class:'form-label' %>
+          <%= f.text_area :content, class: "form-group-row_field", rows: "8", id:'review_content', value: review&.content,
+                          placeholder:'口コミ本文を入力してください' %>
+        </div>
+
+        <!--ペットシッターIDの送信-->
+        <%= f.hidden_field :petsitter_id, { value: @petsitter.id } %>
+
+      </div>
+      <div class="form-box_submit">
+        <!-- 確認ボタン -->
+        <%= f.submit '投稿する', class:"btn-success" %>
       </div>
     </div>
 
   <% end %>
+
 
 <%# end %>

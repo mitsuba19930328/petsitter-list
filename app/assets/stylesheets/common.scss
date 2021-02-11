@@ -53,7 +53,14 @@ div {
   //border-bottom: 1px solid black;
 }
 
-
+.form-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10px;
+  width: 100px;
+}
 
 //.fa-lg {
 //  font-size: 1.3333333333em;
