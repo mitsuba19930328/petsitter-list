@@ -12,7 +12,7 @@
   <!-- 口コミ -->
   <div class="shop-content_reviews">
     <div class="reviews-header">
-      <div class="reviews-header_count">全 <%= @petsitter.reviews.count %> 件</div>
+      <div class="reviews-header_count">全&nbsp;<span class="number"><%= @petsitter.reviews.count %></span>&nbsp;件</div>
       <%= link_to "口コミを投稿する", petsitter_new_reviews_path, class: 'reviews-header_post' %>
     </div>
     <% if @petsitter.reviews %>
@@ -23,9 +23,15 @@
             <div class="reviews-box-user-info">
               <%= image_tag getUserByUserId(review.user_id).image.url, class:'reviews-box-user-info_photo' unless getPetsitterByPetistterId(review.petsitter_id)&.image.url.nil? %>
               <div class="reviews-box-user-info_name">
-                <%= getUserByUserId(review.user_id).name %>さんの口コミ
+                <div class="user-info"><%= getUserByUserId(review.user_id).name %>さんの口コミ</div>
               </div>
             </div>
+            <% if review.user.id == current_user.id %>
+              <div class="user-action">
+                <%= link_to "編集", reviews_path %>
+                <%= link_to "削除", reviews_path %>
+              </div>
+            <% end %>
           </div>
           <div class="reviews-box_reviews-rate">
             <div class="rate-container">
@@ -42,13 +48,13 @@
                       score: "<%= review.rate %>",
                   });
               </script>
-              <%= review.rate %>
+              <div class="shop-rating"><%= review.rate %></div>
 <!--              ★★★★★ 3.5-->
             </div>
           </div>
           <div class="reviews-box_reviews-body">
             <div class="reviews-box_reviews-body_date">
-              <%= review.created_at %>
+              <%= review.created_at.strftime('%Y/%m/%d') %>投稿
 <!--              2021/01投稿-->
             </div>
             <div class="reviews-box_reviews-body_title">

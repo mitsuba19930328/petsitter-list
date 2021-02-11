@@ -483,6 +483,10 @@ a.shop-link:hover .top-info_name-and-area_name{
     text-align: center;
     width: 10%;
     height: 40px;
+
+    & .number {
+      font-size: 16px;
+    }
   }
 
   &_post {
@@ -514,21 +518,35 @@ a.shop-link:hover .top-info_name-and-area_name{
   &_reviews-info {
     display: flex;
     flex-direction: row;
-    padding: 12px;
+    justify-content: space-between;
+    padding: 12px 12px 6px 12px;
+    border-bottom: solid 1px whitesmoke;
+
+    & .user-info {
+    }
+
+    & .user-action {
+      display: flex;
+      justify-content: space-around;
+      width: 80px;
+
+    }
 
   }
 
   &_reviews-rate {
     display: flex;
     flex-direction: row;
-    padding: 8px 0;
+    padding: 6px 12px;
+    border-bottom: solid 1px whitesmoke;
   }
 
   &_reviews-body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px;
+    padding: 6px 12px 12px 12px;
+
 
     &_date {
       font-size: 12px;
@@ -538,6 +556,7 @@ a.shop-link:hover .top-info_name-and-area_name{
     &_title {
       font-size: 20px;
       margin-bottom: 16px;
+      border-bottom: dotted 1px black;
     }
 
     &_text {
@@ -560,6 +579,9 @@ a.shop-link:hover .top-info_name-and-area_name{
   }
 
   &_name {
+    display: flex;
+    justify-content: space-between;
+
 
   }
 
