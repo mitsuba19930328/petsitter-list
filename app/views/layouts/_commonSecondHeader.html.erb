@@ -13,7 +13,7 @@
     <div class="user-content-area">
       <span class="user-content-area_title"><%= current_user.name %>さんのマイページ</span>
       <ul class="user-content-nav">
-        <li class="user-content-nav-link"><%= link_to "トップ", user_path(current_user) %></li>
+        <li class="user-content-nav-link first-nav"><%= link_to "トップ", user_path(current_user) %></li>
         <li class="user-content-nav-link"><%= link_to "行ったお店", user_histories_path(current_user.id) %></li>
         <li class="user-content-nav-link"><%= link_to "保存済み", user_clips_path(current_user.id) %></li>
         <li class="user-content-nav-link"><%= link_to "設定", edit_user_path(current_user) %></li>

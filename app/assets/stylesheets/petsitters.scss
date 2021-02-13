@@ -393,13 +393,14 @@ a.shop-link:hover .top-info_name-and-area_name{
   background: linear-gradient(to top, #f5f5f5, #FFF);
   text-align: center;
   font-size: 14px;
-
 }
 
 .selected-menu {
-  //color: white;
   border: none;
-  background-color: gray;
+  background: gray;
+  & a {
+    color: white;
+  }
 }
 
 .shop-content {

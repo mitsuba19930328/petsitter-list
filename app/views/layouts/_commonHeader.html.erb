@@ -29,13 +29,13 @@
         <div class='search-form'>
           <div id='app-icon-box'><%=link_to image_tag("logo.png", class: 'header-icon' ), root_path%></div>
           <div class='search-box'>
-            <%= search_form_for(@q, url:petsitters_path, class: 'shop-search' ) do |f| %>
+            <%= search_form_for(@q, url:petsitters_path, class:'shop-search' ) do |f| %>
               <div class="search-container">
-                <%= f.search_field :address_cont, :placeholder => "エリア[例：新宿]", class: 'search-content search-container_area' %>
-                <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]", class: 'search-content search-container_keyword' %>
+                <%= f.search_field :address_cont, :placeholder => "エリア[例：新宿]", class:'search-content search-container_area' %>
+                <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]", class:'search-content search-container_keyword' %>
                 <!-- レート検索入れられるようになったらこの部分に入れる -->
                 <%= button_tag '<i class="fas fa-search fa-2x"></i>'.html_safe, :type => "submit",
-                               :class =>"btn btn-default btn-s-md search-container_submit" %>
+                               :class=>"btn btn-default btn-s-md search-container_submit" %>
                 <%#= f.submit "検索", class:'btn', class:'search-container_submit' %>
               </div>
             <% end %>
