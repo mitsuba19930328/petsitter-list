@@ -23,22 +23,27 @@
     </nav>
   </header>
 
-  <div class="home-content wrapper">
+  <div class="home-content wrapper index-page-title-wrapper">
     <p2 class="page-title">評判のペットシッター探しなら<br>
       ペットシッターリスト</p2>
   </div>
 
-  <div class="wrapper header-bottom">
-    エリア・キーワードから探す
-    <%= search_form_for(@q, url:petsitters_path, class: 'search-field') do |f| %>
-      <!--キーワード検索-->
-      <div class ="search-group">
-        <%= f.search_field :address_cont, :placeholder => "エリア[例：新宿]", class: 'top-search-form' %>
+  <div class="search-wrapper header-bottom">
+    <div class="index-search-wrap">
+      <div class="search-explanation">
+        エリア・キーワードから探す
       </div>
-      <div class ="search-group">
-        <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]", class: 'top-search-form' %>
-      </div>
-      <%= f.submit "検索" %>
-    <% end %>
+      <%= search_form_for(@q, url:petsitters_path, class: 'search-field') do |f| %>
+        <div class="search-frame">
+          <div class="search-group">
+            <%= f.search_field :address_cont, :placeholder => "エリア[例：新宿]", class: 'top-search-form', id:'top-search-form-area' %>
+          </div>
+          <div class="search-group before-submit">
+            <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]", class: 'top-search-form', id:'top-search-form-keyword' %>
+          </div>
+          <%= f.submit "検索", class:'top-search-submit' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

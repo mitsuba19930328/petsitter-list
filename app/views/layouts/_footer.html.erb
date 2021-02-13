@@ -1,19 +1,30 @@
 
 <!-- 以下フッターです -->
-<footer id="footer01" class="footer outer-block">
-  <div class="logo">
-    <a href="https://b-risk.jp/">
-      <img src="img/logo.svg" alt="">
-    </a>
+<footer class="footer outer-block">
+  <div class="footer_wrap">
+    <div class="footer_wrap_top">
+      <ul class="footer-nav">
+        <li><%=link_to 'HOME', root_path %></li>
+        <li><%=link_to 'PETSITTERS', petsitters_path %></li>
+        <% if current_user %>
+          <li><%=link_to 'USER', user_path(current_user) %></li>
+        <% else %>
+          <li><%=link_to 'USER', login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="footer_wrap_bottom">
+      <div class="footer-logo">
+        <%= image_tag("logo.png", class: 'logo' ) %>
+      </div>
+      <ul class="footer-nav-bottom">
+        <li class="item"><%=link_to 'プライバシーポリシー', root_path %></li>
+        <li class="item"><%=link_to 'お問い合わせ', root_path %></li>
+        <li class="item"><%=link_to '作者Twitter', 'https://twitter.com/watage_lapan' %></li>
+      </ul>
+      <div class="footer-copyright">
+        COPYRIGHT ©︎ RuiShimazaki All rights Reserved.
+      </div>
+    </div>
   </div>
-  <ul class="footer-nav">
-    <li><%=link_to 'WORKS', root_path %></li>
-    <li><%=link_to 'BLOG', root_path %></li>
-    <li><%=link_to 'RECRUIT', root_path %></li>
-    <li><%=link_to 'COMPANY', root_path %></li>
-    <li><%=link_to 'CONTACT', root_path %></li>
-  </ul>
-  <p class="copyright">
-    COPYRIGHT © BRISK Inc. All rights Reserved.
-  </p>
 </footer>

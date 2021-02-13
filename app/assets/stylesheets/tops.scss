@@ -51,8 +51,9 @@
 ------------------------- */
 
 .home-content {
-  text-align: center;
-  margin: 3% 40% 8% 0%;
+  text-align: left;
+  margin: 3% 35% 4% 0%;
+  //padding-bottom: %;
   //margin-top: 3%;
   color: #fff;
   //margin-right: 40%;
@@ -60,7 +61,7 @@
 
 /* 見出し */
 .page-title {
-  font-size: 2rem;
+  font-size: 2.7rem;
   font-family: 'Philosopher', serif;
   text-transform: uppercase;
   //font-weight: normal;
@@ -88,12 +89,22 @@
 
 /* 検索エリア
 ------------------------- */
+.search-wrapper {
+  //max-width: 1472px;
+  //min-width: 960px;
+  //width: 100%;
+  //height: 96px;
+  margin: 0 auto;
+  padding: 0 0;
+}
+
+
 .header-bottom {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 40px 4%;
+  //margin: 40px 4%;
   background-color: #fff;
   border:1px solid #bbb;
   border-radius: 4px;
@@ -101,32 +112,105 @@
   0 0 2px rgba(255, 255, 255, 0.3) inset,
   0 0 10px rgba(0, 0, 0, 0.1) inset,
   0 1px 20px rgba(0, 0, 0, 0.1);
-  margin: auto 4%;
+  margin: auto 6%;
   //width: 1400px;
   height: 100px;
+  padding: 0 62px;
+}
 
+.index-search-wrap {
+  max-width: 1200px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-explanation {
+  display: flex;
+  justify-content: center;
+  //align-content: center;
+  align-items: center;
+  width: 35%;
+  height: 80px;
+  //background-color: #00bbdd;
 }
 
 .search-field {
   margin: 0 0;
-  padding: 0 0;
-  display:flex;
+  padding: 15px 0;
+  display: flex;
   flex-direction: row;
   text-align: center;
+  width: 100%;
+  height: 80px;
+  //background-color: #f0ad4e;
+}
+
+.search-frame {
+  border: solid 1px gray;
+  border-radius: 6px;
+  display: flex;
+  width: 100%;
 }
 
 .search-group {
-  width: 250px;
+  //width: 250px;
+  width: 400px;
   border-radius: 3px;
+  border-right: 2px solid lightgray;
+}
+
+//.top-search-form {
+//  width: 50%;
+//}
+
+#top-search-form-area {
+  width: 400px;
+}
+
+#top-search-form-keyword {
+  width: 400px;
+}
+
+
+.top-search-outline {
+  //& :focus {
+  outline: none;
+  border-bottom: 2px solid orange;
+  //outline-bottom: 3px solid gray;
+      //border-right:none;
+      //border-left:none;
+      //border-top:none;
+  //}
+}
+
+.before-submit {
+  border-right: none;
+
 }
 
 .top-search-form {
-  width: 100%; /*親要素いっぱい広げる*/
-  padding: 10px 15px; /*ボックスを大きくする*/
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top-search-submit {
+  width: 100px; /*親要素いっぱい広げる*/
+  //padding: 0 15px;
   font-size: 16px;
   border-radius: 3px; /*ボックス角の丸み*/
-  //border: 2px solid #ddd; /*枠線*/
+  border: 2px solid gray; /*枠線*/
+  //border-left: ;
   box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  background-color: gray;
+  color: white;
 }
 
 /* ボディ部分（枠組み）
@@ -160,7 +244,7 @@
   width: 380px;
   height: auto;
   //border: dashed 1px #999;
-  margin: 10px 10px 10px 0px;
+  margin: 10px 5px 10px 5px;
   padding: 0 50px;
 }
 
@@ -652,31 +736,63 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* フッター部分
 ------------------------- */
 
+.footer {
+  background-color: whitesmoke;
+  width: 100%;
+  min-width: 1280px;
+  &_wrap {
+    height: 128px;
+    margin: 0 auto;
+    padding: 0 240px 0;
+    &_top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      border-bottom: solid 1px lightgray;
+      text-align: center;
+    }
+
+    &_bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50%;
+      color: gray;
+    }
+  }
+}
+
+
+
 .footer-nav {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
   margin: 0;
   padding: 0;
+  font-size: 12px;
+  & a {
+    color: blue;
+  }
 }
 
+.footer-nav-bottom {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  margin-bottom: 0rem;
+  & a {
+    color: gray;
+  }
+}
 
-  #footer01 .nav {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding: 20px 0;
-  }
-  #footer01 .nav a:hover {
-    color: #ca353b;
-  }
+.footer-copyright {
+  font-size: 10px;
+  width: 250px;
+}
