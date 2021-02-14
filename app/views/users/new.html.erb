@@ -4,7 +4,8 @@
     <h5 class="login-page-body_left_about">新規アカウントの作成</h5>
     <%= link_to "ログイン", login_path, class:'btn login-btn' %>
     <div class="test-login">※アカウント登録をせずに機能を確かめたい方は</div>
-    <%= link_to "こちら", root_path, class:'btn test-login-btn' %>
+    <%= link_to 'ゲストログイン', tops_guest_sign_in_path, method: :post, class:'btn test-login-btn'%>
+    <%#= link_to "こちら", root_path, class:'btn test-login-btn' %>
     <div class="sns-login">
       <!-- SNSログインボタン -->
       <%= render partial: 'layouts/snsLoginBtn' %>

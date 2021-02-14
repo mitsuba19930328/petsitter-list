@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   # ログインセッション登録ページ
   def new
+    @user = User.new
   end
 
   # ログインセッション登録処理
@@ -35,13 +36,26 @@ class SessionsController < ApplicationController
         render :new
       end
     end
+  end
 
+  # ゲストログイン
+  def new_guest
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   def destroy
     # user_idのセッション情報のみ削除
     session&.delete(:user_id)
     redirect_to root_path, notice: 'ログアウトしました。'
+  end
+
+  def guest_login
+    user = User.find_by(email: 'guest@example.com')
+    session[:user_id] = user.id
+    flash[:success] = 'ゲストユーザーとしてログインしました'
+    redirect_to user_path(user)
   end
 
   private

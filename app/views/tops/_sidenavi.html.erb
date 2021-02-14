@@ -33,6 +33,12 @@
       <div class="user-info-main-area">
         <div class="user-top-data">
           <%=link_to user_path(current_user.id, class:'user-top-data_link') do%>
+            <%# if current_user.image.blank? %>
+              <%#= image_tag 'default.jpg', class:'test-user' %>
+            <%# else %>
+              <%#= image_tag current_user.image.url, class:'test-user' %>
+            <%# end %>
+            <!-- TODO したのimage_tagをuserのimageにする。（現在は一律同じ画像になっている。） -->
             <%= image_tag("136x136.png", class:'user-icon') %>
             <%= current_user.name %>さん
           <% end %>

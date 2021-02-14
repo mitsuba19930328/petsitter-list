@@ -2,7 +2,6 @@ class TopsController < ApplicationController
   skip_before_action :login_required
 
   def index
-
     # 画面表示用
     @user = current_user
     # @users = User.all
@@ -32,7 +31,22 @@ class TopsController < ApplicationController
         @liked_petsitters.push(petsitter)
       end
     end
+  end
 
+  # ゲストログイン用アクション
+  def new_guest
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = 'ゲスト'
+      user.email = 'guest@example.com'
+      user.password = SecureRandom.urlsafe_base64
+      user.image = 'default.jpg'
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+    session[:user_id] = user.id
+    flash[:success] = 'ゲストユーザーとしてログインしました'
+    redirect_to root_path
+    # sign_in user
+    # redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
 end

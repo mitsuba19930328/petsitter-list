@@ -31,7 +31,7 @@
     <% if user&.image? %>
       <%= image_tag user.image.url, :size => '270x180' %>
     <% else %>
-      <%= image_tag default.jpg, :size => '270x180' %>
+      <%= image_tag 'default.jpg', :size => '270x180' %>
     <% end %>
 
 <!--    <button type="button">-->
