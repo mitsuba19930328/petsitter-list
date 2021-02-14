@@ -8,7 +8,11 @@
     <%= image_tag("greenleaves.jpg" ) %><!--ここの画像は動物の更新のような画像を入れてそれをずっと使いたい-->
   </div>
   <div class="content-container">
-    <%= image_tag current_user.image.url, class:'test-user' %>
+    <% if current_user.image.blank? %>
+      <%= image_tag 'default.jpg', class:'test-user' %>
+    <% else %>
+      <%= image_tag current_user.image.url, class:'test-user' %>
+    <% end %>
     <%#= image_tag("136x136.png", class:'image-icon') %>
     <div class="user-content-area">
       <span class="user-content-area_title"><%= current_user.name %>さんのマイページ</span>
