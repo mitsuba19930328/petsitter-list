@@ -73,3 +73,65 @@ div {
 //  line-height: 0.75em;
 //  vertical-align: -.0667em;
 //}
+
+
+//ページネーション（petsitters/indexで使用）
+
+/*ページネーション自体のデザイン*/
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+
+  & >li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  &>.disabled>span {
+    color: #777777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+  }
+
+  & >li {
+    display: inline;
+
+    & >a {
+      position: relative;
+      float: left;
+      padding: 6px 12px;
+      margin-left: -1px;
+      line-height: 1.428571429;
+      color: #337ab7;
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      &:hover {
+        z-index: 2;
+        color: #23527c;
+        background-color: #eeeeee;
+        border-color: #ddd;
+      }
+    }
+  }
+}
+
+//.pagination>li>a {
+//  border: none;     /*枠線をなくす*/
+//  color: #696969;   /*文字の色を変える*/
+//}
+//
+///* 表示しているページ番号のデザイン */
+//.pagination>.active>a {
+//  background: #93c9ff;     /*背景の色を変える*/
+//  border-radius: 15px;     /*角を丸くする*/
+//}
+//
+///*ホバー時のデザイン*/
+//.pagination>li>a:hover {
+//  border-radius: 15px;    /*角を丸くする*/
+//}
