@@ -9,7 +9,7 @@ class PetsittersController < ApplicationController
   def index
     # 検索
     @q = Petsitter.ransack(params[:q])
-    @petsitters = @q.result(distinct: true)
+    @petsitters = @q.result(distinct: true).page(params[:page]).per(5)
 
     # petsitterのrate
     # Petsitter.all[2].reviews[0].rate
