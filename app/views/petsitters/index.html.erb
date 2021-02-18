@@ -1,6 +1,8 @@
+
+<%= render partial: '/layouts/petsittersIndexHeader' %>
 <div class="petsitter-store-contents">
   <ul class="petsitter-store-content">
-    <%= paginate @petsitters %>
+    <!-- ペットシッター一覧 -->
     <% @petsitters.each do |petsitter| %>
       <%= link_to petsitter_path(petsitter.id), class:'shop-link' do %>
         <div class="top-info">
