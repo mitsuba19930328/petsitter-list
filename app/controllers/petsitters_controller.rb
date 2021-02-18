@@ -4,12 +4,13 @@ class PetsittersController < ApplicationController
   before_action :pet_type_string, only: [:create, :update]
   skip_before_action :login_required, only: [:index, :show]
   include PetsittersHelper
+  PER = 5
 
   # ペットシッター一覧表示
   def index
     # 検索
     @q = Petsitter.ransack(params[:q])
-    @petsitters = @q.result(distinct: true).page(params[:page]).per(5)
+    @petsitters = @q.result(distinct: true).page(params[:page]).per(PER)
 
     # petsitterのrate
     # Petsitter.all[2].reviews[0].rate
@@ -41,7 +42,7 @@ class PetsittersController < ApplicationController
     @reviews = Review.where(petsitter: @petsitter.id)
 
     # 自分のコメントがあるかチェックする
-    @is_my_review = @reviews.find_by(user_id: current_user.id)
+    # @is_my_review = @reviews.find_by(user_id: current_user.id)
 
     # 新規いいね用インスタンス
     @like = Like.new

@@ -1,6 +1,9 @@
 
 <!-- ペットシッター詳細の上部部分 -->
-<div class="breadcrumbs-list">ペットシッターリスト › 全てのペットシッター一覧 › たんぽぽハウス 高田馬場店</div>
+<div class="breadcrumbs-list">
+  <%# breadcrumb :petsitter_show %>
+  <%= render "shared/breadcrumbs" %>
+</div>
 <div class="shop-header">
   <div class="info-wrap">
     <div class="shop-controller">
@@ -18,9 +21,15 @@
         <% end %>
       </div>
       <div class='shop-top-info_bookmarks'>
-        <% if current_user.already_liked?(@petsitter) %>
-          <%= link_to petsitter_like_path(@petsitter.id), method: :delete do %>
-            <i class='fas fa-bookmark'></i><% if @petsitter.liked_users %><%= @petsitter.liked_users.count %><% else %>0<% end %> 件
+        <% if current_user != nil %>
+          <% if current_user.already_liked?(@petsitter) %>
+            <%= link_to petsitter_like_path(@petsitter.id), method: :delete do %>
+              <i class='fas fa-bookmark'></i><% if @petsitter.liked_users %><%= @petsitter.liked_users.count %><% else %>0<% end %> 件
+            <% end %>
+          <% else %>
+            <%= link_to petsitter_likes_path(@petsitter.id), method: :post do %>
+              <i class='fas fa-bookmark'></i><% if @petsitter.liked_users %><%= @petsitter.liked_users.count %><% else %>0<% end %> 件
+            <% end %>
           <% end %>
         <% else %>
           <%= link_to petsitter_likes_path(@petsitter.id), method: :post do %>
@@ -59,9 +68,15 @@
       </div>
       <!-- bookmark -->
       <div class='action-btn' id='testsample'>
-        <% if current_user.already_liked?(@petsitter) %>
-          <%= link_to petsitter_like_path(@petsitter.id), class:'action-link', method: :delete do %>
-            <i class='fas fa-bookmark fa-lg'></i> <span class='action-name'>保存</span>
+        <% if current_user != nil %>
+          <% if current_user.already_liked?(@petsitter) %>
+            <%= link_to petsitter_like_path(@petsitter.id), class:'action-link', method: :delete do %>
+              <i class='fas fa-bookmark fa-lg'></i> <span class='action-name'>保存</span>
+            <% end %>
+          <% else %>
+            <%= link_to petsitter_likes_path(@petsitter.id), class:'action-link', method: :post do %>
+              <i class='fas fa-bookmark fa-lg'></i> <span class='action-name'>保存</span>
+            <% end %>
           <% end %>
         <% else %>
           <%= link_to petsitter_likes_path(@petsitter.id), class:'action-link', method: :post do %>
