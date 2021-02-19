@@ -14,12 +14,6 @@ end
       parent :petsitters
     end
 
-crumb :user_edit do |user|
-  user = current_user
-  link "ユーザ情報編集", user_edit_path(user.id)
-  parent :user
-end
-
   crumb :user do |user|
     user = current_user
     link "#{user.name}さん のマイページ", user_path(user.id)
@@ -28,7 +22,7 @@ end
 
     crumb :user_edit do |user|
       user = current_user
-      link "ユーザ情報編集", user_edit_path(user.id)
+      link "ユーザ情報編集", edit_user_path(user.id)
       parent :user
     end
 
