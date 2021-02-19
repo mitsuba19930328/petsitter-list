@@ -17,7 +17,7 @@
       </div>
       <div class='shop-top-info_reviews'>
         <%= link_to petsitter_reviews_path do %>
-          <i class='fas fa-comment-dots'></i><% if @petsitter.liked_users %><%= @petsitter.liked_users.count %><% else %>0<% end %> 件
+          <i class='fas fa-comment-dots'></i><% if @petsitter&.reviews %><%= @petsitter.reviews.count %><% else %>0<% end %> 件
         <% end %>
       </div>
       <div class='shop-top-info_bookmarks'>
