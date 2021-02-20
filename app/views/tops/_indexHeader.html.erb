@@ -1,4 +1,7 @@
 
+<!-- flashメッセージの表示 -->
+<%= render partial: 'layouts/errorMessage' %>
+
 <!-- indexページ用headerHTML -->
 <div id="home" class="big-bg">
   <header class="page-header wrapper">
@@ -9,7 +12,6 @@
           <!-- ログイン中ユーザー用メニュー -->
           <li><%= link_to 'トップページ', root_path %></li>
           <li><%= link_to 'ペットシッター一覧', petsitters_path %></li>
-          <li><%= link_to 'ペットシッター新規登録', new_petsitter_path %></li>
           <li><%= link_to 'ユーザー詳細', user_path(current_user.id) %></li>
           <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
         <% else %>

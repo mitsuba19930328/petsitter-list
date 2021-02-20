@@ -15,7 +15,7 @@ end
     end
 
   crumb :user do |user|
-    user = current_user
+    user = User.find(params[:id])
     link "#{user.name}さん のマイページ", user_path(user.id)
     parent :root
   end
@@ -27,13 +27,13 @@ end
     end
 
     crumb :user_histories do |user|
-      user = current_user
+      user = User.find(params[:id])
       link "行ったお店一覧", user_histories_path(user.id)
       parent :user
     end
 
     crumb :user_clips do |user|
-      user = current_user
+      user = User.find(params[:id])
       link "保存済み一覧", user_clips_path(user.id)
       parent :user
     end

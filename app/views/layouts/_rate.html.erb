@@ -10,9 +10,9 @@
         // half: true,
         readOnly: true,
         <% if @reviews %>
-          score: "<%= @reviews.average(:rate).to_f.round(2) || 0 %>",
+        score: "<%= @reviews.average(:rate).to_f.round(2) || 0 %>",
         <% else %>
-          score: "0",
+        score: "0",
         <% end %>
     });
 </script>

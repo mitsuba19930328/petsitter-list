@@ -3,6 +3,8 @@
 
 <div class="user-body">
   <div class="user-self-info">
+    <!-- TODO descriptionカラムをユーザーで追加する。----------------------------->
+    <%#= @user&.description %>
     テストの自己紹介だよー！いろいろなことをここで表示できるように。
   </div>
 
@@ -12,7 +14,7 @@
         口コミ数
       </div>
       <div class="user-action-wrap_reviews">
-        23件
+        <%= @user&.reviews&.count %>件
       </div>
     </li>
     <li class="user-action-wrap">
@@ -20,7 +22,7 @@
         行ったお店
       </div>
       <div class="user-action-wrap_histories">
-        29件
+        <%= @user&.reviews&.count %>件
       </div>
     </li>
     <li class="user-action-wrap">
@@ -28,7 +30,7 @@
         保存したお店
       </div>
       <div class="user-action-wrap_clips">
-        32件
+        <%= @user&.likes&.count %>件
       </div>
     </li>
   </div>

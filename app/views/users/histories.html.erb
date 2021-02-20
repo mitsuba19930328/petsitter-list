@@ -13,18 +13,18 @@
           <div class="top-info_action-buttons">
             <!-- reviewのアイコン＋レビューの数 -->
             <div class="action-icon action-icon_left">
-              <% if petsitter.reviews.blank? %>
-                <i class="fas fa-user-check fa-lg user-count-0"></i>
-              <% else %>
+              <% if current_user_reviewd_this_petsitter?(petsitter.id) %>
                 <i class="fas fa-user-check fa-lg user-count-<%= petsitter.reviews.count %>"></i><span><%= petsitter.reviews.count %></span>
+              <% else %>
+                <i class="fas fa-user-check fa-lg user-count-0"></i>
               <% end %>
             </div>
             <!-- bookmarkのアイコン＋ブックマークされた数 -->
             <div class="action-icon">
-              <% if petsitter.likes.blank? %>
-                <i class="fas fa-bookmark fa-lg clip-count-0"></i>
-              <% else %>
+              <% if current_user_liked_this_petsitter?(petsitter.id) %>
                 <i class="fas fa-bookmark fa-lg clip-count-<%= petsitter.likes.count %>"></i>
+              <% else %>
+                <i class="fas fa-bookmark fa-lg clip-count-0"></i>
               <% end %>
             </div>
           </div>
@@ -47,9 +47,11 @@
                   $('#sample-star-rate-<%= petsitter.id %>').raty({
                       size: 16,
                       half: true,
-                      starOff:  '<%= asset_path('star-off.png') %>',
-                      starOn : '<%= asset_path('star-on.png') %>',
-                      starHalf: '<%= asset_path('star-half.png') %>',
+                      number:       5,
+                      numberMax:    5,
+                      starOff:  '<%= asset_path('star-off-little.png') %>',
+                      starOn : '<%= asset_path('star-on-little.png') %>',
+                      starHalf: '<%= asset_path('star-half-little.png') %>',
                       // half: true,
                       readOnly: true,
                       score: "<%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",

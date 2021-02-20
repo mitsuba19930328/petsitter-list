@@ -120,6 +120,18 @@ div {
   }
 }
 
+.flash_wrap {
+  max-width: 1600px;
+  min-width: 1280px;
+
+  &.alert {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+}
+
 //.pagination>li>a {
 //  border: none;     /*枠線をなくす*/
 //  color: #696969;   /*文字の色を変える*/

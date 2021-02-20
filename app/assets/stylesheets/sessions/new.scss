@@ -25,7 +25,6 @@
     }
   }
 
-
   &_right {
     display: flex;
     flex-direction: column;
@@ -34,17 +33,27 @@
 }
 
 .login-btn {
-  display: flex;
-  text-align: center;
-  margin: 20px 0 0;
+  color: #fff;
+  background-color: darkgray;
   font-size: 14px;
+  width: 260px;
+  //display: flex;
+  //text-align: center;
+  //margin: 20px 0 0;
+  //font-size: 14px;
 }
 
 .test-login {
   display: flex;
   margin: 20px 0 0;
   font-size: 14px;
+}
 
+.test-login-btn {
+  margin-top: 0;
+  border: none;
+  background-color: white;
+  color: #4444db;
 }
 
 .test-login-btn {
