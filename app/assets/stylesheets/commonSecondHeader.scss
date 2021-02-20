@@ -17,13 +17,10 @@
 
 .breadcrumbs {
   display: flex;
-  //flex-direction: row;
-  //justify-content: flex-start;
-  //justify-items: center;
   align-items: center;
   text-align: center;
   width: 100%;
-  height: 50px;
+  padding:  16px 0;
   margin: auto 0;
   font-size: 14px;
 }
