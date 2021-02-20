@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
+    @review = Review.find_by(user_id: current_user.id)
     @review.destroy
     redirect_to root_path, notice: "コメントを削除しました。"
   end

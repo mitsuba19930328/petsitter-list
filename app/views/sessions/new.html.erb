@@ -4,7 +4,7 @@
     <h5 class="login-page-body_left_about">登録しているユーザーでログイン</h5>
     <%= link_to "初めてご利用の方（新規会員登録）", new_user_path, class:'btn login-btn' %>
     <div class="test-login">※アカウント登録をせずに機能を確かめたい方は</div>
-    <%= link_to 'こちら', tops_guest_sign_in_path, method: :post %>
+    <%= link_to 'こちら', tops_guest_sign_in_path, class:'test-login-btn', method: :post %>
     <div class="sns-login">
       <!-- SNSログインボタン -->
       <%= render partial: 'layouts/snsLoginBtn' %>
@@ -20,7 +20,7 @@
         <%= f.label :password, class: 'field-label' %>
         <%= f.password_field :password, class: 'form-control', id:'user_password' %>
       </div>
-      <%= f.submit 'ログインする', class: 'btn btn-primary', id: 'submit_btn' %>
+      <%= f.submit 'ログインする', class: 'btn user-submit', id: 'submit_btn' %>
     <% end %>
   </div>
 </div>

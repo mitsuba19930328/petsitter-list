@@ -2,7 +2,7 @@ class PetsittersController < ApplicationController
   before_action :make_address, only: [:create, :update]
   before_action :regular_holiday_string, only: [:create, :update]
   before_action :pet_type_string, only: [:create, :update]
-  skip_before_action :login_required, only: [:index, :show]
+  skip_before_action :login_required, only: [:index, :show, :details, :reviews, :map]
   include PetsittersHelper
   PER = 5
 
@@ -68,9 +68,6 @@ class PetsittersController < ApplicationController
     # 該当のペットシッターIDで検索できるレビューを取得
     @reviews = Review.where(petsitter: @petsitter.id)
 
-    # 自分のコメントがあるかチェックする
-    @is_my_review = @reviews.find_by(user_id: current_user.id)
-
     # 新規いいね用インスタンス
     @like = Like.new
 
@@ -94,9 +91,6 @@ class PetsittersController < ApplicationController
 
     # 該当のペットシッターIDで検索できるレビューを取得
     @reviews = Review.where(petsitter: @petsitter.id)
-
-    # 自分のコメントがあるかチェックする
-    @is_my_review = @reviews.find_by(user_id: current_user.id)
 
     # 新規いいね用インスタンス
     @like = Like.new
@@ -149,9 +143,6 @@ class PetsittersController < ApplicationController
 
     # 該当のペットシッターIDで検索できるレビューを取得
     @reviews = Review.where(petsitter: @petsitter.id)
-
-    # 自分のコメントがあるかチェックする
-    @is_my_review = @reviews.find_by(user_id: current_user.id)
 
     # 新規いいね用インスタンス
     @like = Like.new

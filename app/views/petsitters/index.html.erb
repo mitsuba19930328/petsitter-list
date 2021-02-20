@@ -13,18 +13,18 @@
           <div class="top-info_action-buttons">
             <!-- reviewのアイコン＋レビューの数 -->
             <div class="action-icon action-icon_left">
-              <% if petsitter.reviews.blank? %>
-                <i class="fas fa-user-check fa-lg user-count-0"></i>
-              <% else %>
+              <% if current_user_reviewd_this_petsitter?(petsitter.id) %>
                 <i class="fas fa-user-check fa-lg user-count-<%= petsitter.reviews.count %>"></i><span><%= petsitter.reviews.count %></span>
+              <% else %>
+                <i class="fas fa-user-check fa-lg user-count-0"></i>
               <% end %>
             </div>
             <!-- bookmarkのアイコン＋ブックマークされた数 -->
             <div class="action-icon">
-              <% if petsitter.likes.blank? %>
-                <i class="fas fa-bookmark fa-lg clip-count-0"></i>
-              <% else %>
+              <% if current_user_liked_this_petsitter?(petsitter.id) %>
                 <i class="fas fa-bookmark fa-lg clip-count-<%= petsitter.likes.count %>"></i>
+              <% else %>
+                <i class="fas fa-bookmark fa-lg clip-count-0"></i>
               <% end %>
             </div>
           </div>

@@ -58,13 +58,13 @@
   </div>
 </div>
 
-<% if current_user.admin? %>
+<%# if current_user.admin? %>
 
-  <table class="table table-hover">
-    <tbody>
-    <tr>
-      <%= image_tag @petsitter.image.url unless @petsitter.image.url.nil? %>
-    </tr>
+<!--  <table class="table table-hover">-->
+<!--    <tbody>-->
+<!--    <tr>-->
+      <%#= image_tag @petsitter.image.url unless @petsitter.image.url.nil? %>
+<!--    </tr>-->
 
     <!-- いいね機能 -->
     <%#= @petsitter.liked_users.count %>
@@ -78,39 +78,39 @@
     <%# end %>
     <%# end %>
 
-    <div class="like">
+<!--    <div class="like">-->
       <!-- いいね機能 -->
-      <tr>いいね: <%= @petsitter.likes.count %>
-        <% if current_user.already_liked?(@petsitter) %>
-          <%= link_to petsitter_like_path(@petsitter.id), method: :delete do %>
-            <%= fa_icon 'heart', id: "heart__red" %>
-          <% end %>
-        <% else %>
-          <%= link_to petsitter_likes_path(@petsitter.id), method: :post do %>
-            <%= fa_icon 'heart-o', id: "heart__normal" %>
-          <% end %>
-        <% end %>
-        <p>いいねしたユーザー</p>
-        <% @petsitter.liked_users.each do |user| %>
-          <li><%= user.email %></li>
-        <% end %>
-      </tr>
-    </div>
+<!--      <tr>いいね: <%#= @petsitter.likes.count %>-->
+        <%# if current_user.already_liked?(@petsitter) %>
+          <%#= link_to petsitter_like_path(@petsitter.id), method: :delete do %>
+            <%#= fa_icon 'heart', id: "heart__red" %>
+          <%# end %>
+        <%# else %>
+          <%#= link_to petsitter_likes_path(@petsitter.id), method: :post do %>
+            <%#= fa_icon 'heart-o', id: "heart__normal" %>
+          <%# end %>
+        <%# end %>
+<!--        <p>いいねしたユーザー</p>-->
+        <%# @petsitter.liked_users.each do |user| %>
+<!--          <li><%#= user.email %></li>-->
+        <%# end %>
+<!--      </tr>-->
+<!--    </div>-->
 
-    <div class="temp_save">
+<!--    <div class="temp_save">-->
       <!-- 一時保存機能 -->
-      <tr>一時保存: <%= @petsitter.temp_save.count %>
-        <% if current_user.already_temp_saved?(@petsitter) %>
-          <%= link_to petsitter_temp_safe_path(@petsitter.id), method: :delete do %>
-            <%= fa_icon 'heart', id: "heart__red" %>
-          <% end %>
-        <% else %>
-          <%= link_to petsitter_temp_saves_path(@petsitter.id), method: :post do %>
-            <%= fa_icon 'heart-o', id: "heart__normal" %>
-          <% end %>
-        <% end %>
-      </tr>
-    </div>
+<!--      <tr>一時保存: <%#= @petsitter.temp_save.count %>-->
+        <%# if current_user.already_temp_saved?(@petsitter) %>
+          <%#= link_to petsitter_temp_safe_path(@petsitter.id), method: :delete do %>
+            <%#= fa_icon 'heart', id: "heart__red" %>
+          <%# end %>
+        <%# else %>
+          <%#= link_to petsitter_temp_saves_path(@petsitter.id), method: :post do %>
+            <%#= fa_icon 'heart-o', id: "heart__normal" %>
+          <%# end %>
+        <%# end %>
+<!--      </tr>-->
+<!--    </div>-->
 
 
 
@@ -118,15 +118,15 @@
 
 
 
-    <%= link_to "編集", edit_petsitter_path, class: 'btn btn-primary mr-3' %>
-    <%= link_to "削除", @petsitter, method: :delete, data: {confirm: "ペットシッター#{@petsitter.name}を削除します。よろしいですか？"}, class: 'btn btn-danger', id:'Petsitter_delete_btn' %>
+    <%#= link_to "編集", edit_petsitter_path, class: 'btn btn-primary mr-3' %>
+    <%#= link_to "削除", @petsitter, method: :delete, data: {confirm: "ペットシッター#{@petsitter.name}を削除します。よろしいですか？"}, class: 'btn btn-danger', id:'Petsitter_delete_btn' %>
 
-    </tbody>
-  </table>
+<!--    </tbody>-->
+<!--  </table>-->
 
   <!-- 口コミ投稿フォーム -->
-  <%= render partial: 'reviews/form', locals: { review: @review } %>
+  <%#= render partial: 'reviews/form', locals: { review: @review } %>
 
   <!-- 口コミ表示 -->
-  <%= render partial: 'reviews/show-reviews', locals: { reviews: @reviews } %>
-<% end %>
+  <%#= render partial: 'reviews/show-reviews', locals: { reviews: @reviews } %>
+<%# end %>

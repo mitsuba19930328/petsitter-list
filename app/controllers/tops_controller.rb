@@ -40,13 +40,9 @@ class TopsController < ApplicationController
       user.email = 'guest@example.com'
       user.password = SecureRandom.urlsafe_base64
       user.image = 'default.jpg'
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     session[:user_id] = user.id
-    flash[:success] = 'ゲストユーザーとしてログインしました'
-    redirect_to root_path
-    # sign_in user
-    # redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました。"
   end
 
 end
