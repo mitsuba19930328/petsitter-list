@@ -1,56 +1,27 @@
-<!--<div>-->
-  <%#= breadcrumbs separator: " &rsaquo; " %>
-<!--</div>-->
 
-<% if controller&.controller_name == "petsitters" %>
-  <% if controller&.action_name != "index" %>
-    <% breadcrumb :petsitter %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
+<!-- パンクズリスト表示部分 -->
+<div class="breadcrumbs-list">
+  <% if controller&.controller_name == "petsitters" %>
+    <% if controller&.action_name != "index" %>
+      <% breadcrumb :petsitter %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% else %>
+      <% breadcrumb :petsitters %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% end %>
   <% else %>
-    <% breadcrumb :petsitters %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
+    <% if controller&.action_name == "edit" %>
+      <% breadcrumb :user_edit %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% elsif controller&.action_name == "histories" %>
+      <% breadcrumb :user_histories %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% elsif controller&.action_name == "clips" %>
+      <% breadcrumb :user_clips %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% else %>
+      <% breadcrumb :user %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% end %>
   <% end %>
-<% else %>
-  <% if controller&.action_name == "edit" %>
-    <% breadcrumb :user_edit %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
-  <% elsif controller&.action_name == "histories" %>
-    <% breadcrumb :user_histories %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
-  <% elsif controller&.action_name == "clips" %>
-    <% breadcrumb :user_clips %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
-  <% else %>
-    <% breadcrumb :user %>
-    <%= breadcrumbs separator: " &rsaquo; " %>
-  <% end %>
-<% end %>
-
-<%# if controller.controller_name == "articles"  && controller.action_name == "index"%>
-  <%# breadcrumb :articles %>
-  <%# breadcrumbs.tap do |articles| %>
-    <%# if articles.any? %>
-<!--      <ol class='breadcrumb'>-->
-        <%# articles.each do |article| %>
-<!--          <li class='breadcrumb-item<%#= ' active' if article.current? %>'>-->
-            <%#= link_to_unless(article.current?, article.text, article.url) %>
-<!--          </li>-->
-        <%# end %>
-<!--      </ol>-->
-    <%# end %>
-  <%# end %>
-<!--  ...記事詳細、記事アーカイブ、カテゴリーは省略-->
-<%# elsif controller.controller_name == "articles" && controller.action_name == "search" %>
-  <%# breadcrumb :search, @serach %>
-  <%# breadcrumbs.tap do |search| %>
-    <%# if search.any? %>
-<!--      <ol class='breadcrumb'>-->
-        <%# search.each do |search| %>
-<!--          <li class='breadcrumb-item<%#= ' active' if search.current? %>'>-->
-            <%#= link_to_unless(search.current?, search.text, search.url) %>
-<!--          </li>-->
-        <%# end %>
-<!--      </ol>-->
-    <%# end %>
-  <%# end %>
-<%# end %>
+</div>

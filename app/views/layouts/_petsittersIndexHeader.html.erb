@@ -1,8 +1,32 @@
 
 <!-- パンクズリスト -->
-<%= render "shared/petsitter_index_breadcrumbs" %>
-<div>
-  ※ここには検索ヒット数を入れる 3件
+
+<div class="petsittersIndexHeaderWrap">
+  <%= render "shared/petsitter_index_breadcrumbs" %>
+  <div class="searched-heading-box">
+    <% if @q&.conditions&.first&.values&.first&.value&.present? || @q&.conditions&.second&.values&.first&.value&.present? %>
+
+      <!-- エリア・キーワードどちらも検索されている場合-->
+      <% if @q&.conditions&.first&.values&.first&.value&.present? && @q&.conditions&.second&.values&.first&.value&.present?  %>
+        '<%= @q&.conditions&.first&.values&.first&.value %>'の'<%= @q&.conditions&.second&.values&.first&.value %>'&nbsp;を含むペットシッター
+
+        <!-- エリア検索ワードのみある場合 -->
+      <% elsif @q&.conditions&.first&.values&.first&.value&.present? %>
+        '<%= @q&.conditions&.first&.values&.first&.value %>'&nbsp;のペットシッター
+
+        <!-- キーワード検索ワードのみある場合 -->
+      <% elsif @q&.conditions&.second&.values&.first&.value&.present?  %>
+        '<%= @q&.conditions&.second&.values&.first&.value %>'&nbsp;を含むペットシッター
+      <% end %>
+
+      &nbsp;<span class="petsitters_count"><%= @searched_petsitters_count %>件</span>
+
+    <% else %>
+      全てのペットシッター&nbsp;<span class="petsitters_count"><%= @searched_petsitters_count %>件</span>
+    <% end %>
+  </div>
+  <div class="petsitterIndexPageNation">
+    <!-- ページネーション -->
+    <%= paginate @petsitters %>
+  </div>
 </div>
-<!-- ページネーション -->
-<%= paginate @petsitters %>

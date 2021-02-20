@@ -42,7 +42,7 @@ class TopsController < ApplicationController
       user.image = 'default.jpg'
     end
     session[:user_id] = user.id
-    redirect_to root_path, notice: "ゲストユーザーとしてログインしました。"
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました"
   end
 
 end

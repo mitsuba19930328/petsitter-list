@@ -1,16 +1,13 @@
 
 <!-- petsitters/indexページで使用するパンクズリスト（rensackキーワード対応にするため、個別で作成） -->
-<ol class="breadcrumb">
-  <li class="breadcrumb-item">
-    <i class="fa fa-home" aria-hidden="true"></i><%= link_to "ペットシッターリスト", root_path %>
-  </li>
+<ol class="petsittersIndexBreadcrumb">
+<!--  <li class="breadcrumb-item">-->
+    <%= link_to "ペットシッターリスト", root_path %>&nbsp;&gt;&nbsp;
+<!--  </li>-->
 
   <% if @q&.conditions&.first&.values&.first&.value&.present? || @q&.conditions&.second&.values&.first&.value&.present? %>
-    <li class="breadcrumb-item">
-      <%= link_to "全てのペットシッター", petsitters_path %>
-    </li>
+      <%= link_to "全てのペットシッター", petsitters_path %>&nbsp;&gt;&nbsp;
 
-    <li class="breadcrumb-item active">
       <!-- エリア・キーワードどちらも検索されている場合-->
       <% if @q&.conditions&.first&.values&.first&.value&.present? && @q&.conditions&.second&.values&.first&.value&.present?  %>
         '<%= @q&.conditions&.first&.values&.first&.value %>'の'<%= @q&.conditions&.second&.values&.first&.value %>'&nbsp;を含むペットシッター
@@ -23,11 +20,8 @@
       <% elsif @q&.conditions&.second&.values&.first&.value&.present?  %>
         '<%= @q&.conditions&.second&.values&.first&.value %>'&nbsp;を含むペットシッター
       <% end %>
-    </li>
 
   <% else %>
-    <li class="breadcrumb-item">
       全てのペットシッター
-    </li>
   <% end %>
 </ol>

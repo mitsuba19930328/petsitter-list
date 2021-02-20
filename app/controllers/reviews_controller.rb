@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to petsitter_path(session[:petsitter_id])
     else
-      flash.now[:alert] = 'レビュー情報更新に失敗しました。'
+      flash.now[:alert] = 'レビュー情報更新に失敗しました'
       render petsitter_path(session[:petsitter_id])
     end
   end
@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find_by(user_id: current_user.id)
     @review.destroy
-    redirect_to root_path, notice: "コメントを削除しました。"
+    redirect_to root_path, notice: "コメントを削除しました"
   end
 
   private

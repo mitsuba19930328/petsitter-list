@@ -10,7 +10,11 @@ class PetsittersController < ApplicationController
   def index
     # 検索
     @q = Petsitter.ransack(params[:q])
+    # 検索に引っ掛かったペットシッターをページネーション加工したもの
     @petsitters = @q.result(distinct: true).page(params[:page]).per(PER)
+
+    # searched_petsitters_countは検索に引っ掛かったペットシッターの数
+    @searched_petsitters_count = @q.result(distinct: true)&.count
 
     # petsitterのrate
     # Petsitter.all[2].reviews[0].rate

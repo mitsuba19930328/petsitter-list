@@ -9,6 +9,32 @@
 /*
 ------------------------- */
 
+.petsittersIndexHeaderWrap {
+  width: 960px;
+  margin: 0 auto;
+  //background-color: #00bbdd;
+}
+
+.petsittersIndexBreadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px 0;
+  font-size: 14px;
+}
+
+.searched-heading-box {
+  text-align: left;
+  font-size: 24px;
+}
+
+.petsitters_count {
+  font-size: 14px;
+}
+
+.petsitterIndexPageNation{
+  display: flex;
+}
+
 .petsitter-store-contents {
   width: 100%;
   height: auto;
@@ -240,8 +266,6 @@ a.shop-link:hover .top-info_name-and-area_name{
   width: 960px;
   text-align: left;
   font-size: 12px;
-  padding: 16px 0;
-
 }
 
 .shop-header {
