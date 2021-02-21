@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     else
       # ユーザー登録失敗した場合
       flash.now[:alert] = 'ユーザー登録が失敗しました'
+      p "errors", @user.errors
       render :new
     end
   end

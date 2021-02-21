@@ -32,6 +32,19 @@
   }
 }
 
+.form-alert {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: mistyrose;
+  color: #d65f4c;
+  font-size: 12px;
+}
+
 .login-btn {
   color: #fff;
   background-color: darkgray;
