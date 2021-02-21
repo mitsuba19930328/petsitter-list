@@ -25,11 +25,11 @@ class User < ApplicationRecord
 
   # Validation
   # unless: :uid?はSNSログインの有無（uidありの場合は通常のログインとは異なるため、validationも変更させています）
-  validates :name, { presence: true, length: { maximum: 30 }} unless :uid?
+  validates :name, { presence: true, length: { maximum: 30 }} if Proc.new { |user| user.uid.blank? }
   validate :validate_name_not_including_comma
   validates :email, { presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
-  validates :password, presence: true unless :uid?
-  validates :password_digest, presence: true unless :uid?
+  validates :password, presence: true, length: { minimum: 6 } if Proc.new { |user| user.uid.blank? }
+  validates :password_digest, presence: true if Proc.new { |user| user.uid.blank? }
 
   # email保存前に小文字に変換処理を行う
   before_save { self.email = email.downcase }

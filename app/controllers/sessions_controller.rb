@@ -15,24 +15,24 @@ class SessionsController < ApplicationController
     if auth.present? # SNSログインありのケース
       if auth.info.email # emailある場合は新規登録かログインのどちらかへ進む
         # user情報を見つけるか、新規作成
-        user = User.find_or_create_from_auth(auth)
+        auth_user = User.find_or_create_from_auth(auth)
         # sessionにユーザーID保存
-        session[:user_id] = user.id
+        session[:user_id] = auth_user.id
         redirect_to root_path, notice: "#{provider}" + "でログインしました"
       else # emailない場合はログイン不可
-        flash.now[:alert] = "#{provider}" + "にはemail情報が保存されていません。ログインにはemail情報が必要です。"
+        flash.now[:alert] = "該当の" + "#{provider}" + "にはemail情報が保存されていません。ログインにはemail情報が必要です"
         render :new
       end
     else # 既存のログインケース
-      user = User.find_by(email: session_params[:email])
+    @user = User.find_by(email: session_params[:email])
       # emailから取得したユーザーと、bcryptによるパスワード比較が一致するか検証
-      if user&.authenticate(session_params[:password])
+      if @user&.authenticate(session_params[:password])
         # 検証成功
-        session[:user_id] = user.id
-        redirect_to root_path, notice: 'ログインしました。'
+        session[:user_id] = @user.id
+        redirect_to root_path, notice: 'ログインしました'
       else
         # 検証失敗
-        flash.now[:alert] = 'ログインに失敗しました。'
+        flash.now[:alert] = 'ログインに失敗しました'
         render :new
       end
     end
@@ -42,13 +42,13 @@ class SessionsController < ApplicationController
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
   end
 
   def destroy
     # user_idのセッション情報のみ削除
     session&.delete(:user_id)
-    redirect_to root_path, notice: 'ログアウトしました。'
+    redirect_to root_path, notice: 'ログアウトしました'
   end
 
   # def guest_login

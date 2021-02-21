@@ -12,6 +12,16 @@
   </div>
 
   <div class="login-page-body_right">
+    <%# エラーメッセージここから %>
+    <% if @user&.errors.present? %>
+      <ul class="form-alert">
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%# エラーメッセージここまで %>
+
     <%= form_with model: @user, local: true do |f| %>
       <div class="form-group">
         <%= f.label :name, class: 'field-label required' %>
