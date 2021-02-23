@@ -100,7 +100,7 @@ class UsersController < ApplicationController
   private
     # ストロングパラメーター（ユーザーパラメーター取得用）
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+      params.require(:user).permit(:name, :email, :description, :password, :password_confirmation, :image)
     end
 
     # ログイン中ユーザーがuser/editなどをしようとしてるユーザーと同じか確認する

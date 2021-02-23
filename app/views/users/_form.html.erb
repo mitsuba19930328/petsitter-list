@@ -16,6 +16,11 @@
     <%= f.email_field :email, class: 'form-control', id:'user_email', value: user&.email, required: true %>
   </div>
   <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control', id:'user_description', value: user&.description,
+                     placeholder:"こちらに簡単な自己紹介を記載することができます。" %>
+  </div>
+  <div class="form-group">
     <%= f.label :password, class: 'required' %>
     <%= f.password_field :password, class: 'form-control', id:'user_password', required: true %>
   </div>
@@ -23,19 +28,14 @@
     <%= f.label :password_confirmation, class: 'required' %>
     <%= f.password_field :password_confirmation, class: 'form-control', id:'user_password_confirmation', required: true %>
   </div>
-
   <div class="form-group">
     <%= f.label :image %>
-
     <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png',class:"image-btn", id: 'user_image' , value: user&.image %>
     <% if user&.image? %>
       <%= image_tag user.image.url, :size => '270x180' %>
     <% else %>
       <%= image_tag 'default.jpg', :size => '270x180' %>
     <% end %>
-
-<!--    <button type="button">-->
-<!--    </button>-->
   </div>
 
   <%= f.submit nil, class:'btn btn-primary user-submit', id: 'submit_btn' %>
