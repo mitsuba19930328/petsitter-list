@@ -3,16 +3,20 @@ class ReviewsController < ApplicationController
 
   def create
     # ストロングパラメーターを使用してレビューインスタンス生成
+    p current_user.id
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
       # レビュー登録成功した場合
       flash[:success] = 'コメントしました'
-      redirect_back(fallback_location: root_path)
+      redirect_to petsitter_reviews_path(@review.petsitter_id)
+      # redirect_back(fallback_location: root_path)
     else
       # レビュー登録失敗した場合
       flash[:alert] = 'コメントできませんでした'
-      redirect_back(fallback_location: root_path)
+      @petsitter = Petsitter.find(@review.petsitter_id)
+      render 'petsitters/postReviews'
+      # redirect_back(fallback_location: root_path)
     end
   end
 
@@ -28,10 +32,9 @@ class ReviewsController < ApplicationController
     # @review = Review.find()
     #
 
-
-
-    @review = Review.find(params[:id])
-    @petsitter = Petsitter.find(@review.petsitter_id)
+    @review = Review.find(params[:review_id])
+    @petsitter = Petsitter.find(params[:petsitter_id])
+    # @petsitter = Petsitter.find(@review.petsitter_id)
     # @petsitter = Petsitter.find_by(id: @review.petsitter_id, user_id: current_user.id)
     # @petsitter = Petsitter.find(session[:petsitter_id])
   end
@@ -39,10 +42,12 @@ class ReviewsController < ApplicationController
   # reviewの編集実行
   def update
     @review = Review.find(params[:id])
+    @petsitter = Petsitter.find(@review.petsitter_id)
     if @review.update(review_params)
       redirect_to petsitter_path(@review.petsitter_id), notice: '変更成功！'
     else
       flash.now[:alert] = 'レビュー情報更新に失敗しました'
+      # redirect_to root_path, notice: "コメントを削除しました"
       render :edit
     end
   end
@@ -60,7 +65,7 @@ class ReviewsController < ApplicationController
 
     # review/editにアクセスしたユーザーがコメント投稿主か確認
     def ensure_correct_user
-      review = Review.find(params[:id])
+      review = Review.find(params[:review_id])
       if current_user.id != review.user_id.to_i
         flash[:alert] = 'コメント投稿者とログイン中ユーザーが異なります。'
         redirect_to(root_path)

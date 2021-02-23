@@ -225,7 +225,7 @@ class PetsittersController < ApplicationController
   def destroy
     @petsitter = Petsitter.find(params[:id])
     @petsitter.destroy
-    redirect_to tops_index_path, notice: "ペットシッター情報を削除しました。"
+    redirect_to petsitter_reviews_path, notice: "ペットシッター情報を削除しました。"
   end
 
   # 住所作成処理

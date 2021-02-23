@@ -1,4 +1,15 @@
 <%# unless @is_my_review %>
+<% if review&.errors.present? %>
+  <ul class="form-alert">
+    <% review.errors.full_messages.each do |message| %>
+      <% if message.include? "Petsitter" %>
+        <li><%= message.delete("Petsitter") %></li>
+      <% else %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
 
 <!--エラーメッセージ-->
   <!-- 口コミ入力フォーム -->
@@ -6,7 +17,7 @@
     <div class="form-box">
       <div class="form-box_title">
         <!-- タイトル -->
-        <% if current_page?(petsitter_new_reviews_path) %>
+        <% if current_page?(petsitter_new_reviews_path(@petsitter.id)) %>
           口コミを投稿する
         <% else %>
          口コミを編集する

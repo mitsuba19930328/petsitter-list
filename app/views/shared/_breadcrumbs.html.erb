@@ -2,13 +2,22 @@
 <!-- パンクズリスト表示部分 -->
 <div class="breadcrumbs-list">
   <% if controller&.controller_name == "petsitters" %>
-    <% if controller&.action_name != "index" %>
+    <% if controller&.action_name != "index" && controller&.action_name != "reviews" && controller&.action_name != "postReviews" %>
       <% breadcrumb :petsitter %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% elsif controller&.action_name == "reviews" %>
+      <% breadcrumb :petsitter_reviews %>
+      <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
+    <% elsif controller&.action_name == "postReviews" %>
+      <% breadcrumb :petsitter_new_review %>
       <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
     <% else %>
       <% breadcrumb :petsitters %>
       <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
     <% end %>
+  <% elsif controller&.controller_name == "reviews" %>
+    <% breadcrumb :petsitter_edit_review %>
+    <%= breadcrumbs separator: " &nbsp;&gt;&nbsp; " %>
   <% else %>
     <% if controller&.action_name == "edit" %>
       <% breadcrumb :user_edit %>
