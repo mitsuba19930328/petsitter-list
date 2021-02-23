@@ -9,10 +9,38 @@ end
   end
 
     crumb :petsitter do |petsitter|
-      petsitter = Petsitter.find(params[:id])
+      if controller&.controller_name == 'reviews'
+        petsitter = Petsitter.find(params[:petsitter_id])
+      else
+        petsitter = Petsitter.find(params[:id])
+      end
+      # petsitter = Petsitter.find(params[:id])
       link petsitter.name, petsitter_path(petsitter.id)
       parent :petsitters
     end
+
+      crumb :petsitter_reviews do |petsitter|
+        if controller&.controller_name == 'reviews'
+          petsitter = Petsitter.find(params[:petsitter_id])
+        else
+          petsitter = Petsitter.find(params[:id])
+        end
+        link petsitter.name + 'の口コミ一覧', petsitter_path(petsitter.id)
+        parent :petsitter
+      end
+
+        crumb :petsitter_new_review do |petsitter|
+          petsitter = Petsitter.find(params[:id])
+          link petsitter.name + 'への口コミ投稿', petsitter_path(petsitter.id)
+          parent :petsitter
+        end
+
+      crumb :petsitter_edit_review do |petsitter, review|
+        petsitter = Petsitter.find(params[:petsitter_id])
+        review = Review.find(params[:review_id])
+        link '口コミ編集', edit_reviews_path(petsitter.id, review.id)
+        parent :petsitter_reviews
+      end
 
   crumb :user do |user|
     user = User.find(params[:id])
