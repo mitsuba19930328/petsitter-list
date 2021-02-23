@@ -754,6 +754,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   justify-content: flex-end;
 }
 
+/* サイドナビ非ログイン時
+------------------------- */
+
+.explain-title {
+  font-size: 14px;
+}
+
+.explain-login {
+  margin: 8px 0;
+  color: gray;
+  font-size: 12px;
+}
+
+.sign-up-box {
+  display: flex;
+  justify-content: center;
+}
+
+.sidenavi-box {
+  font-size: 14px;
+}
+
 
 
 /* フッター部分

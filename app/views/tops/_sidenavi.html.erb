@@ -1,30 +1,19 @@
 
 <!-- トップページ用サイドナビ -->
 <div id="sidenavi">
+  <%# サイドナビトップ部分サイト情報概略 %>
   <ul class="data-count-area">
     <li class="data-count_store">
-      <div class="data-count_store_count">
-        <%= @all_petsitters.count %>
-      </div>
-      <div class="data-count_store_text">
-        店舗
-      </div>
+      <div class="data-count_store_count"><%= @all_petsitters.count %></div>
+      <div class="data-count_store_text">店舗</div>
     </li>
     <li class="data-count_user">
-      <div class="data-count_user_count">
-        <%= @all_users.count %>
-      </div>
-      <div class="data-count_user_text">
-        ユーザー
-      </div>
+      <div class="data-count_user_count"><%= @all_users.count %></div>
+      <div class="data-count_user_text">ユーザー</div>
     </li>
     <li class="data-count_review">
-      <div class="data-count_review_count">
-        <%= @all_reviews.count %>
-      </div>
-      <div class="data-count_review_text">
-        口コミ
-      </div>
+      <div class="data-count_review_count"><%= @all_reviews.count %></div>
+      <div class="data-count_review_text">口コミ</div>
     </li>
   </ul>
   <!-- 以下、ログイン中のときは表示 -->
@@ -121,6 +110,21 @@
         </div>
       </div>
     </div>
+  <!-- 非ログインユーザー用サイドナビ -->
+  <% else %>
+    <div class="user-info-area">
+      <div class="user-info-main-area">
+          <h2 class="explain-title">新規会員登録</h2>
+        <div class="explain-login">
+          <span>ログインすると、ペットシッターリスト上でお店を保存したり、行ったお店を管理できるようになります。</span>
+        </div>
+        <div class="sign-up-box">
+          <%= link_to '会員登録', new_user_path, class: 'btn user-submit sidenavi-box' %>
+        </div>
+<!--        これはテストです<br/>-->
+<!--        これはテストです<br/>-->
+<!--        これはテストです<br/>-->
+      </div>
+    </div>
   <% end %>
 </div>
-

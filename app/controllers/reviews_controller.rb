@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit]
 
   def create
     # ストロングパラメーターを使用してレビューインスタンス生成
@@ -17,19 +18,32 @@ class ReviewsController < ApplicationController
 
   # reviewの編集
   def edit
-    @review = Review.find(params[:id])
+    #今手に入れているのは、結果的にpetsitterのIDと同一のIDのレビュー
+    # petsitter = Petsitter.find(params[:id]).reviews.each do |review|
+    #   if review.user_id == current_user.id
     #
-    @petsitter = Petsitter.find(session[:petsitter_id])
+    #   end
+    # end
+
+    # @review = Review.find()
+    #
+
+
+
+    @review = Review.find(params[:id])
+    @petsitter = Petsitter.find(@review.petsitter_id)
+    # @petsitter = Petsitter.find_by(id: @review.petsitter_id, user_id: current_user.id)
+    # @petsitter = Petsitter.find(session[:petsitter_id])
   end
 
   # reviewの編集実行
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to petsitter_path(session[:petsitter_id])
+      redirect_to petsitter_path(@review.petsitter_id), notice: '変更成功！'
     else
       flash.now[:alert] = 'レビュー情報更新に失敗しました'
-      render petsitter_path(session[:petsitter_id])
+      render :edit
     end
   end
 
@@ -42,5 +56,14 @@ class ReviewsController < ApplicationController
   private
     def review_params
       params.require(:review).permit(:title,:content,:rate,:petsitter_id)
+    end
+
+    # review/editにアクセスしたユーザーがコメント投稿主か確認
+    def ensure_correct_user
+      review = Review.find(params[:id])
+      if current_user.id != review.user_id.to_i
+        flash[:alert] = 'コメント投稿者とログイン中ユーザーが異なります。'
+        redirect_to(root_path)
+      end
     end
 end

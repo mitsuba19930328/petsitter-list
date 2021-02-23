@@ -3,35 +3,23 @@
 
 <div class="user-body">
   <div class="user-self-info">
-    <!-- TODO descriptionカラムをユーザーで追加する。----------------------------->
-    <%#= @user&.description %>
-    テストの自己紹介だよー！いろいろなことをここで表示できるように。
+    <% if @user.description %>
+      <%= dispDescriptionOrDefault(@user.description) %>
+    <% end %>
   </div>
 
   <div class="user-action-info">
     <li class="user-action-wrap">
-      <div class="user-action-wrap_title">
-        口コミ数
-      </div>
-      <div class="user-action-wrap_reviews">
-        <%= @user&.reviews&.count %>件
-      </div>
+      <div class="user-action-wrap_title">口コミ数</div>
+      <div class="user-action-wrap_reviews"><%= @user&.reviews&.count %>件</div>
     </li>
     <li class="user-action-wrap">
-      <div class="user-action-wrap_title">
-        行ったお店
-      </div>
-      <div class="user-action-wrap_histories">
-        <%= @user&.reviews&.count %>件
-      </div>
+      <div class="user-action-wrap_title">行ったお店</div>
+      <div class="user-action-wrap_histories"><%= @user&.reviews&.count %>件</div>
     </li>
     <li class="user-action-wrap">
-      <div class="user-action-wrap_title">
-        保存したお店
-      </div>
-      <div class="user-action-wrap_clips">
-        <%= @user&.likes&.count %>件
-      </div>
+      <div class="user-action-wrap_title">保存したお店</div>
+      <div class="user-action-wrap_clips"><%= @user&.likes&.count %>件</div>
     </li>
   </div>
 </div>
