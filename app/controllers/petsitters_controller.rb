@@ -2,6 +2,7 @@ class PetsittersController < ApplicationController
   before_action :make_address, only: [:create, :update]
   before_action :regular_holiday_string, only: [:create, :update]
   before_action :pet_type_string, only: [:create, :update]
+  before_action :admin_user, only:[:new, :create, :edit, :update, :destroy]
   skip_before_action :login_required, only: [:index, :show, :details, :reviews, :map]
   include PetsittersHelper
   PER = 5
@@ -225,7 +226,7 @@ class PetsittersController < ApplicationController
   def destroy
     @petsitter = Petsitter.find(params[:id])
     @petsitter.destroy
-    redirect_to petsitter_reviews_path, notice: "ペットシッター情報を削除しました。"
+    redirect_to root_path, notice: "ペットシッター情報を削除しました。"
   end
 
   # 住所作成処理
@@ -271,4 +272,13 @@ class PetsittersController < ApplicationController
                :insurance,
                :image,)
   end
+
+  def admin_user
+    @users = User.all
+    if  current_user.admin == false
+      flash[:alert] = 'この操作には管理者権限が必要です。'
+      redirect_to root_path
+    end
+  end
+
 end

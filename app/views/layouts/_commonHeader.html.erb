@@ -14,8 +14,10 @@
               <!--              ログイン中ユーザー用メニュー-->
               <li class="menu-option"><%= link_to 'トップページ', root_path %></li>
               <li class="menu-option"><%= link_to 'ペットシッター一覧', petsitters_path %></li>
-
               <li class="menu-option"><%= link_to 'ユーザー詳細', user_path(current_user.id) %></li>
+              <% if current_user.admin == true %>
+                <li class="menu-option"><%= link_to 'ペットシッター新規作成', new_petsitter_path %></li>
+              <% end %>
               <li class="menu-option"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
             <% else %>
               <!--             未ログインユーザー用メニュー -->
