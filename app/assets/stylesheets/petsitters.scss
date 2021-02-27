@@ -100,6 +100,15 @@ a.shop-link:hover .top-info_name-and-area_name{
 
   }
 
+  &.admin_user_option {
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    //text-align: center;
+    height: 50px;
+  }
+
   &_action-buttons {
     display: flex;
     justify-content: space-around;

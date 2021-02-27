@@ -10,6 +10,12 @@
             <li class= 'top-info_name-and-area_name'><%= petsitter.name %></li>
             <li class='top-info_name-and-area_area'><%= petsitter.area %>／<%= petsitter.pet_type %></li>
           </div>
+          <% if current_user.blank? != true && current_user.admin == true %>
+            <div class="admin_user_option">
+              <%= link_to "編集", edit_petsitter_path(petsitter.id) %>
+              <%= link_to "削除", petsitter_path(petsitter.id), method: :delete %>
+            </div>
+          <% end %>
           <div class="top-info_action-buttons">
             <!-- reviewのアイコン＋レビューの数 -->
             <div class="action-icon action-icon_left">
