@@ -36,10 +36,13 @@ RSpec.describe User, type: :model do
     end
 
     it "image_nameがなくても登録できる" do
-      expect(FactoryBot.build(:user, image_name: '')).to be_valid
+      expect(FactoryBot.build(:user, image: '')).to be_valid
     end
 
-    # TODO パスワードが8文字以下の場合登録が失敗する事（未実装）
+    # TODO パスワードが5文字以下の場合登録が失敗する事（未実装）
+    it "passwordが5文字以下の場合登録が失敗する事" do
+      expect(FactoryBot.build(:user, password: '12345', password_confirmation: '12345')).to_not be_valid
+    end
 
   end
 end

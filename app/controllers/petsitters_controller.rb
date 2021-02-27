@@ -234,8 +234,9 @@ class PetsittersController < ApplicationController
     # 住所加工
     prefecture = params.require(:petsitter)[:prefecture]
     town = params.require(:petsitter)[:town]
+    block = params.require(:petsitter)[:block]
     apartment = params.require(:petsitter)[:apartment]
-    params.require(:petsitter)[:address] = prefecture + town + apartment
+    params.require(:petsitter)[:address] = prefecture + town + block + apartment
   end
 
   # 定休日の配列を文字列にする（/区切り）
@@ -243,9 +244,9 @@ class PetsittersController < ApplicationController
     params[:petsitter][:regular_holiday] = params[:petsitter][:regular_holiday]&.join("/")  || "" # to string
   end
 
-  # 対応可能動物の配列を文字列にする（/区切り）
+  # 対応可能動物の配列を文字列にする（、区切り）
   def pet_type_string
-    params[:petsitter][:pet_type] = params[:petsitter][:pet_type]&.join("/")  || "" # to string
+    params[:petsitter][:pet_type] = params[:petsitter][:pet_type]&.join("、")  || "" # to string
   end
 
   private
