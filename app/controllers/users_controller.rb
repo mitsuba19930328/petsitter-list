@@ -25,10 +25,10 @@ class UsersController < ApplicationController
     if @user.save
       # ユーザー登録成功した場合
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "ユーザー登録が完了しました"
+      redirect_to root_path, notice: "ユーザー登録が完了しました。"
     else
       # ユーザー登録失敗した場合
-      flash.now[:alert] = 'ユーザー登録が失敗しました'
+      flash.now[:alert] = 'ユーザー登録が失敗しました。'
       p "errors", @user.errors
       render :new
     end
@@ -46,9 +46,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to root_path, notice: "ユーザー情報を更新しました"
+      redirect_to root_path, notice: "ユーザー情報を更新しました。"
     else
-      flash.now[:alert] = 'ユーザー情報更新に失敗しました'
+      flash.now[:alert] = 'ユーザー情報更新に失敗しました。'
       render :edit
     end
   end
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to tops_index_path, notice: "ユーザー情報を削除しました"
+    redirect_to tops_index_path, notice: "ユーザー情報を削除しました。"
   end
 
   def histories
