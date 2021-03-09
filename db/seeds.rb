@@ -2,7 +2,7 @@
 
 # 個別ユーザー
 Petsitter.create(name: "ニャンコシッター",email: "sitter1@example.com",address: "東京都府中市黒木町黒木273-13",
-                 prefecture: "東京都", town: "府中市",block: "黒木町黒木273-13",apartment: "",area: "府中市",
+                 prefecture: "東京都", town: "府中市",block: "黒木町黒木273-13",apartment: "",area: "府中市、調布市、国分寺",
                  phone: "080-0001-0001", business_hours: "08:00~18:30", regular_holiday: "水曜日",
                  pet_type: "犬、猫、うさぎ、他小動物", overview:"犬猫ウサギなんでも得意なペットシッターです。明るく元気に営業中！",
                  qualification: "認定ペットシッター", registration_number: "000001", insurance: true, image: File.open("./public/uploads/seeds/img1.jpg"))

@@ -1,11 +1,9 @@
 
 <!-- ペットシッター詳細関連画面のヘッダー下共通部分 -->
 <header class="page-header second-header-wrapper">
-<!--  <div class="breadcrumbs">-->
     <%= render "shared/breadcrumbs" %>
-<!--  </div>-->
   <div class="cover-img">
-    <%= image_tag("greenleaves.jpg" ) %><!--ここの画像は動物の更新のような画像を入れてそれをずっと使いたい-->
+    <%= image_tag("greenleaves.jpg" ) %>
   </div>
   <div class="content-container">
     <% if current_user.image.blank? %>
