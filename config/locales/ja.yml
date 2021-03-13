@@ -29,7 +29,6 @@ ja:
         id: 'ID'
         name: '名称'
         url: 'URL'
-        email: 'メールアドレス'
         address: '住所'
         prefecture: '都道府県'
         town: '市区町村'

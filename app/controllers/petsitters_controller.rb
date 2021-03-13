@@ -17,19 +17,6 @@ class PetsittersController < ApplicationController
     # searched_petsitters_countは検索に引っ掛かったペットシッターの数
     @searched_petsitters_count = @q.result(distinct: true)&.count
 
-    # petsitterのrate
-    # Petsitter.all[2].reviews[0].rate
-
-    # likeされたペットシッターを@petsitters配列に入れていく
-    # @rate = []
-    # Petsitter.all[2].reviews[0].each do |review|
-    #   # petsitter = Petsitter.find(like.petsitter_id)
-    #   @rate.push(review.rate)
-    # end
-
-
-
-
   end
 
   # ペットシッター詳細表示
@@ -45,9 +32,6 @@ class PetsittersController < ApplicationController
 
     # 該当のペットシッターIDで検索できるレビューを取得
     @reviews = Review.where(petsitter: @petsitter.id)
-
-    # 自分のコメントがあるかチェックする
-    # @is_my_review = @reviews.find_by(user_id: current_user.id)
 
     # 新規いいね用インスタンス
     @like = Like.new
@@ -256,7 +240,6 @@ class PetsittersController < ApplicationController
     params.require(:petsitter).permit(
         :name,
                :url,
-               :email,
                :address,
                :prefecture,
                :town,

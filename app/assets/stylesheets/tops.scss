@@ -11,9 +11,8 @@
 }
 
 #home {
-  background-image: url(cat-and-dog.jpg);
+  background-image: url(testcat.jpg);
   height: 500px;
-  //min-height: 100vh;
 }
 
 /* HEADER
@@ -24,6 +23,7 @@
 }
 
 .logo {
+  padding-top: 20px;
   width: 210px;
 }
 
@@ -64,7 +64,6 @@
   font-size: 2.7rem;
   font-family: 'Philosopher', serif;
   text-transform: uppercase;
-  //font-weight: normal;
   color: lightseagreen;
   font-weight: bold;
 
@@ -804,6 +803,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
       justify-content: space-between;
       height: 50%;
       color: gray;
+
     }
   }
 }
