@@ -11,7 +11,7 @@
   <div class="shop-content_top">
     <%= image_tag @petsitter.image.url, class:'top-cover-img' unless @petsitter.image.url.nil? %>
     <div class="shop-outline">
-      たんぽぽハウス 高田馬場店は高田馬場駅から徒歩3分と近く、「噂の都内最安店」として有名な古着屋です。紳士服や婦人服を始め、バッグやシューズなど、幅広い品揃えと安い価格がおすすめポイントです。
+      <%= @petsitter.overview unless @petsitter.blank? %>
     </div>
   </div>
 </div>
