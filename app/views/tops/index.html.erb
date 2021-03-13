@@ -21,8 +21,13 @@
           <% end %>
         </li>
         <li class="top-area">
-          <%= link_to petsitters_path(@q, :'q[address_cont' => "吉祥寺"), class:'pet-type-pic_link' do %>
-            吉祥寺&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%吉祥寺%').count %>件</span>
+          <%= link_to petsitters_path(@q, :'q[address_cont' => "渋谷"), class:'pet-type-pic_link' do %>
+            渋谷&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%渋谷%').count %>件</span>
+          <% end %>
+        </li>
+        <li class="top-area">
+          <%= link_to petsitters_path(@q, :'q[address_cont' => "八王子"), class:'pet-type-pic_link' do %>
+            八王子&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%八王子%').count %>件</span>
           <% end %>
         </li>
         <li class="top-area">
@@ -30,23 +35,18 @@
             立川&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%立川%').count %>件</span>
           <% end %>
         </li>
-        <li class="top-area">
-          <%= link_to petsitters_path(@q, :'q[address_cont' => "吉祥寺・三鷹"), class:'pet-type-pic_link' do %>
-            吉祥寺・三鷹&nbsp;<span class="top-area_count"><%= Petsitter.where('address like ?','%吉祥寺・三鷹%').count %>件</span>
-          <% end %>
-        </li>
       </ul>
     <ul class="area-list clearfix">
-      <li class="all-area"><%= link_to "六本木", petsitters_path(@q, :'q[address_cont' => "六本木") %></li>
+      <li class="all-area"><%= link_to "港区", petsitters_path(@q, :'q[address_cont' => "港区") %></li></li>
+      <li class="all-area"><%= link_to "千代田区", petsitters_path(@q, :'q[address_cont' => "千代田区") %></li></li>
+      <li class="all-area"><%= link_to "文京区", petsitters_path(@q, :'q[address_cont' => "文京区") %></li></li>
+      <li class="all-area"><%= link_to "板橋区", petsitters_path(@q, :'q[address_cont' => "板橋区") %></li></li>
+      <li class="all-area"><%= link_to "池袋", petsitters_path(@q, :'q[address_cont' => "池袋") %></li>
       <li class="all-area"><%= link_to "吉祥寺", petsitters_path(@q, :'q[address_cont' => "吉祥寺") %></li>
-      <li class="all-area">国立</li>
-      <li class="all-area">立川</li>
-      <li class="all-area">府中</li>
-      <li class="all-area">調布</li>
-      <li class="all-area">是政</li>
-      <li class="all-area">武蔵境</li>
-      <li class="all-area">調布</li>
-      <li class="all-area">是政</li>
+      <li class="all-area"><%= link_to "調布", petsitters_path(@q, :'q[address_cont' => "調布") %></li></li>
+      <li class="all-area"><%= link_to "国立", petsitters_path(@q, :'q[address_cont' => "国立") %></li></li>
+      <li class="all-area"><%= link_to "府中", petsitters_path(@q, :'q[address_cont' => "府中") %></li></li>
+      <li class="all-area"><%= link_to "相模原", petsitters_path(@q, :'q[address_cont' => "相模原") %></li></li>
     </ul>
   </div>
 </div>
