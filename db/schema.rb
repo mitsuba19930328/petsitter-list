@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_135701) do
+ActiveRecord::Schema.define(version: 2021_03_13_091635) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "petsitter_id", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_135701) do
 
   create_table "petsitters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.string "email", null: false
+    t.string "email"
     t.string "address", null: false
     t.string "prefecture", null: false
     t.string "town", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_135701) do
     t.string "block"
     t.string "overview"
     t.string "area"
+    t.string "url"
     t.index ["email"], name: "index_petsitters_on_email", unique: true
   end
 

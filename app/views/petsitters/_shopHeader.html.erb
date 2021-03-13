@@ -6,7 +6,11 @@
 <div class="shop-header">
   <div class="info-wrap">
     <div class="shop-controller">
-      <div class="shop-name"><%= @petsitter.name %></div>
+      <% if @petsitter.url %>
+        <div class="shop-name"><%= link_to @petsitter.name, @petsitter.url, class:'shop-name-with-link' %></div>
+      <% else %>
+        <div class="shop-name"><%= @petsitter.name %></div>
+      <% end %>
     </div>
     <div class="shop-top-info">
       <div class="shop-top-info_rate"><%= render partial: 'layouts/rate' %></div>

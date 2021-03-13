@@ -12,12 +12,15 @@
     <%= f.text_field :name, class: 'form-control', id:'petsitter_name', value: petsitter&.name, required: true %>
   </div>
   <div class="form-group">
+    <%= f.label :url %>
+    <%= f.url_field :url, class: 'form-control', id:'petsitter_url', value: petsitter&.url %>
+  </div>
+  <div class="form-group">
     <%= f.label :email, class: 'required' %>
     <%= f.email_field :email, class: 'form-control', id:'petsitter_email', value: petsitter&.email, required: true %>
   </div>
   <div class="form-group">
     <%= f.label :prefecture, class: 'required' %>
-    <%#= f.text_field :prefecture, class: 'form-control', id:'petsitter_prefecture', value: petsitter&.prefecture %>
     <%= f.select :prefecture, %w[北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県
                                  茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県
                                  新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県
