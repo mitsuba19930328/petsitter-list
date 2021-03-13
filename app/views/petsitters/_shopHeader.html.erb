@@ -42,7 +42,7 @@
       <span>エリア：</span>
       <%# TODO 、でareaの部分の文字を分裂させる %>
       <% @petsitter.area.split(/、/).each do |area| %>
-        <%= link_to area, petsitters_path(@q, :'q[address_cont' => "#{area}") %>&nbsp;
+        <%= link_to area, petsitters_path(@q, :'q[area_cont' => "#{area}") %>&nbsp;
       <% end %>
       <%#= link_to @petsitter.area, petsitters_path(@q, :'q[address_cont' => "#{@petsitter.area}") %>
       <span class="pet-type">対応可能動物種類：</span>
