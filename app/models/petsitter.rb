@@ -24,10 +24,10 @@ class Petsitter < ApplicationRecord
   # Validation
   validates :name, { presence: true, length: { maximum: 30 }}
   validate :validate_name_not_including_comma
-  validates :email, { presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
+  validates :email, format: { with: VALID_EMAIL_REGEX } unless Proc.new { |petsitter| petsitter.email.blank? }
 
   # email保存前に小文字に変換処理を行う
-  before_save { self.email = email.downcase }
+  before_save { self.email = email.downcase } unless Proc.new { |petsitter| petsitter.email.blank? }
 
   private
   def validate_name_not_including_comma

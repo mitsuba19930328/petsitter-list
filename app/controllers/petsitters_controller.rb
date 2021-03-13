@@ -255,6 +255,7 @@ class PetsittersController < ApplicationController
   def petsitter_params
     params.require(:petsitter).permit(
         :name,
+               :url,
                :email,
                :address,
                :prefecture,
