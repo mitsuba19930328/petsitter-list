@@ -38,12 +38,16 @@
 
         <div class="bottom-info">
           <div class="bottom-info_left">
-            <%= image_tag("136x136.png", class:'samplesample') %>
+            <% if petsitter&.image.blank? %>
+              <%= image_tag 'default.jpg', class:'samplesample' %>
+            <% else %>
+              <%= image_tag petsitter&.image.url, class:'samplesample' %>
+            <% end %>
           </div>
 
           <div class="bottom-info_right">
             <div class="bottom-info_right_overview">
-              <%= petsitter.overview %>
+              <%= petsitter&.overview&.truncate(90, omission: '...') %>
             </div>
             <div class="bottom-info_right_rating">
 
