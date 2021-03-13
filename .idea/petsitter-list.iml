@@ -986,6 +986,30 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="kgio (vbundled(2.11.3)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/archive" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/archive" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/archive" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="listen (vbundled(3.3.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1665,6 +1689,33 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="raindrops (vbundled(0.19.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/archive" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/examples" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/archive" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/examples" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/archive" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/examples" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rake (vbundled(13.0.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2156,6 +2207,45 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/uglifier-4.2.0/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="unicorn (vbundled(5.8.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/t" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/man" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/archive" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/examples" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/Documentation" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/t" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/man" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/archive" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/examples" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/Documentation" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/t" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/man" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/archive" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/examples" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/unicorn-5.8.0/Documentation" />
         </excluded>
       </library>
     </orderEntry>

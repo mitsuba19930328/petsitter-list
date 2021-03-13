@@ -94,3 +94,7 @@ gem 'omniauth-google-oauth2'
 
 # 環境変数を使用するためのツール（githubにあげたらまずいデータをまとめる）
 gem 'dotenv-rails'
+
+group :production, :staging do
+  gem 'unicorn'
+end
