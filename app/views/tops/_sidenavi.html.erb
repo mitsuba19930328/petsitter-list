@@ -48,7 +48,11 @@
           <% @liked_petsitters.each do |petsitter| %>
             <%= link_to petsitter_path(petsitter.id) do %>
               <li class="user-bookmark_store">
-                <%=image_tag("136x136.png", class:'store-icon') %>
+                <% if petsitter&.image.blank? %>
+                  <%= image_tag "136x136.png", class:'store-icon' %>
+                <% else %>
+                  <%= image_tag petsitter&.image.url, class:'store-icon' %>
+                <% end %>
                 <div class="bookmark_store_info">
                   <div class="bookmark_store_info_name"><%= petsitter.name %></div>
                   <div class="bookmark_store_info_area"><%= petsitter.town %></div>
