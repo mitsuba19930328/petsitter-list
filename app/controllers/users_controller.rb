@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  protect_from_forgery :except => [:create, :update, :destroy]
   skip_before_action :login_required, only: [:new, :create]
   before_action :ensure_correct_user, only: [:edit, :update]
 

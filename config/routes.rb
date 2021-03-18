@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   # ＋SNSログイン
+  get 'auth/failure', to: redirect('/')
   get 'auth/:provider/callback', to: 'sessions#create'
-  get '/auth/google_oauth2/callback', to: 'sessions#create'
+  get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'users/auth/google_oauth2/callback', to: 'sessions#create'
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
+  get '/users/auth/google_oauth2/callback', to: 'sessions#create'
 
   # user関連
   resources :users

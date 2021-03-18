@@ -1,4 +1,5 @@
 class TopsController < ApplicationController
+  protect_from_forgery :except => [:new_guest]
   skip_before_action :login_required
 
   def index
