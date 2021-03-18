@@ -37,15 +37,19 @@ PetsitterListは「後悔しないペットシッター選び」をコンセプ�
 
 # DEMO
 
-
+<img width="1385" alt="TOP画像" src="https://user-images.githubusercontent.com/58715715/111679803-e11fd900-8864-11eb-8d54-47b3faa669a5.png">
 ▲トップページ
 
+<img width="1302" alt="検索機能" src="https://user-images.githubusercontent.com/58715715/111679887-f7c63000-8864-11eb-9957-5ac8ca136165.png">
 ▲検索機能
 
+<img width="1025" alt="検索結果" src="https://user-images.githubusercontent.com/58715715/111679899-fbf24d80-8864-11eb-8f14-943bc134df5e.png">
 ▲検索結果一覧
 
+<img width="1039" alt="企業詳細" src="https://user-images.githubusercontent.com/58715715/111679969-10364a80-8865-11eb-86e0-9cd65d8e95c7.png">
 ▲企業詳細ページ
 
+<img width="991" alt="いいねや口コミなど" src="https://user-images.githubusercontent.com/58715715/111679989-15939500-8865-11eb-9bdd-827fa5dd50b6.png">
 ▲いいね機能やコメントなど
 
 # Features
