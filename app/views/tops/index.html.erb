@@ -6,7 +6,9 @@
   </div>
   <div class="search-area_area">
     <div class="top-area-name">
-      <span class="top-area-name_title">東京</span>
+      <span class="top-area-name_title">
+        <%= link_to "東京", petsitters_path(@q, :'q[area_cont' => "東京") %>
+      </span>
       <span class="top-area-name_count"><%= Petsitter.where('area like ?','%東京%').count %>件</span>
     </div>
       <ul class="top-areas">
