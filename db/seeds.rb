@@ -1,5 +1,3 @@
-
-
 Petsitter.create(name: "Tokyo Sitter麻布本店",url: "https://tokyositter.com/shop/azabu/",address: "東京都港区麻布十番一丁目8番11号 3階",prefecture: "東京都", town: "港区",block: "麻布十番一丁目8番11号",apartment: "3階",area: "東京都、六本木、麻布十番、白金高輪",phone: "03-4361-1701", business_hours: "AM9:00～PM21:00", regular_holiday: "年中無休",pet_type: "犬、猫、うさぎ、他小動物", overview:"大切な家族を預けるならTokyo Sitter。高いホスピタリティと豊富な経験を積んだプロフェッショナル集団。。スタッフ全員が獣医師入交眞巳による講義を受け、獣医行動学に基づいたワンランク上のシッティングを行います。",qualification: "有資格者多数", registration_number: "保管 20東京都保第006853号", insurance:true, image: File.open("app/assets/images/tokyositter.jpg"))
 
 Petsitter.create(name: "Tokyo Sitter 中野杉並支店",url: "https://tokyositter.com/shop/nakanosuginami/",address: "東京都中野区白鷺3-17-11",prefecture: "東京都", town: "中野区",block: "白鷺3-17-11",apartment: "",area: "東京都、鷺ノ宮、下井草",phone: "03-4361-1701", business_hours: "AM9:00～PM21:00", regular_holiday: "年中無休",pet_type: "犬、猫、うさぎ、他小動物", overview:"大切な家族を預けるならTokyo Sitter。高いホスピタリティと豊富な経験を積んだプロフェッショナル集団。。スタッフ全員が獣医師入交眞巳による講義を受け、獣医行動学に基づいたワンランク上のシッティングを行います。",qualification: "有資格者多数", registration_number: "保管 20東京都保第006144号", insurance:true, image: File.open("app/assets/images/tokyositter.jpg"))
@@ -122,4 +120,4 @@ Petsitter.create(name: "La vie en Chiroru（日本ペットシッターサービ
   User.create(name: "テストユーザー#{i+1}", email: "user#{i+1}@example.com",password: "password", password_confirmation: "password", image: File.open("./public/uploads/seeds/bird-thumbnail.jpg"))
 end
 
-user = User.create!(name:'Rui Shimazaki', email:'mitsuba19930328@gmail.com', password:'lapin_watage', password_confirmation:'lapin_watage', image:File.open("./public/uploads/seeds/bird-thumbnail.jpg"), admin:true)
+user = User.create!(name:'Rui Shimazaki', email:'mitsuba19930328@gmail.com', password:'test_sample', password_confirmation:'test_sample', image:File.open("./public/uploads/seeds/bird-thumbnail.jpg"), admin:true)
