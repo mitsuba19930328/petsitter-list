@@ -283,11 +283,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: flex;
   align-items: center;
   padding: 8px;
-  &_title {
-    margin-right: 24px;
-    font-size: 24px;
-    font-weight: bold;
-  }
 
   &_count {
     font-size: 16px;

@@ -36,7 +36,7 @@
 
           <div class="bottom-info_right">
             <div class="bottom-info_right_overview">
-              <%= petsitter.overview %>
+              <%= petsitter&.overview&.truncate(90, omission: '...') %>
             </div>
             <div class="bottom-info_right_rating">
 
@@ -46,9 +46,9 @@
                   $('#clip-star-rate-<%= petsitter.id %>').raty({
                       size: 16,
                       half: true,
-                      starOff:  '<%= asset_path('star-off.png') %>',
-                      starOn : '<%= asset_path('star-on.png') %>',
-                      starHalf: '<%= asset_path('star-half.png') %>',
+                      starOff:  '<%= asset_path('star-off-little.png') %>',
+                      starOn : '<%= asset_path('star-on-little.png') %>',
+                      starHalf: '<%= asset_path('star-half-little.png') %>',
                       // half: true,
                       readOnly: true,
                       score: "<%= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",
