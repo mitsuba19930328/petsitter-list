@@ -28,7 +28,7 @@ PetsitterListは「後悔しないペットシッター選び」をコンセプ�
 * AWS  
   ◦VPC  
   ◦EC2  
-  ◦Route53  
+  ◦Route53(独自ドメイン&SSL化)  
 * 自動化テスト:（RSpec）  
 * Google Maps API  
 * Google Sign-In(Oauth)  
