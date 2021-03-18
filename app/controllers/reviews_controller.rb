@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  protect_from_forgery :except => [:create, :update, :destroy]
   before_action :ensure_correct_user, only: [:edit]
 
   def create

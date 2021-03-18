@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  protect_from_forgery :except => [:create, :destroy, :new_guest]
   skip_before_action :login_required, only: [:new, :create]
 
   # ログインセッション登録ページ

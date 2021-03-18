@@ -36,10 +36,12 @@ end
         end
 
       crumb :petsitter_edit_review do |petsitter, review|
-        petsitter = Petsitter.find(params[:petsitter_id])
-        review = Review.find(params[:review_id])
-        link '口コミ編集', edit_reviews_path(petsitter.id, review.id)
-        parent :petsitter_reviews
+        if params[:petsitter_id].present?
+          petsitter = Petsitter.find(params[:petsitter_id])
+          review = Review.find(params[:review_id])
+          link '口コミ編集', edit_reviews_path(petsitter.id, review.id)
+          parent :petsitter_reviews
+        end
       end
 
   crumb :user do |user|

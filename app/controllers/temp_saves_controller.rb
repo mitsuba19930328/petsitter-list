@@ -1,4 +1,5 @@
 class TempSavesController < ApplicationController
+  protect_from_forgery :except => [:create, :destroy]
   before_action :login_required
 
   # temp_saveモデルの作成

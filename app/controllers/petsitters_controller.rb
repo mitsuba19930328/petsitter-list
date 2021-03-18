@@ -1,4 +1,5 @@
 class PetsittersController < ApplicationController
+  protect_from_forgery :except => [:postReviews, :create, :update, :destroy]
   before_action :make_address, only: [:create, :update]
   before_action :regular_holiday_string, only: [:create, :update]
   before_action :pet_type_string, only: [:create, :update]

@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  protect_from_forgery :except => [:create, :destroy]
   before_action :login_required
 
   # likeモデルの作成
