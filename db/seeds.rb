@@ -121,3 +121,5 @@ Petsitter.create(name: "La vie en Chiroru（日本ペットシッターサービ
 10.times do |i|
   User.create(name: "テストユーザー#{i+1}", email: "user#{i+1}@example.com",password: "password", password_confirmation: "password", image: File.open("./public/uploads/seeds/bird-thumbnail.jpg"))
 end
+
+user = User.create!(name:'Rui Shimazaki', email:'mitsuba19930328@gmail.com', password:'lapin_watage', password_confirmation:'lapin_watage', image:File.open("./public/uploads/seeds/bird-thumbnail.jpg"), admin:true)
