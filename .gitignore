@@ -33,6 +33,8 @@ config/master.key
 # TODO Comment out these rules if environment variables can be committed
 .env
 .env.*
+config/credentials.yml.enc
+config/credentials.*
 
 ## Environment normalization:
 /.bundle
@@ -79,3 +81,5 @@ yarn-debug.log*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+

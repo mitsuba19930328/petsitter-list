@@ -39,10 +39,10 @@
       <%= search_form_for(@q, url:petsitters_path, class: 'search-field') do |f| %>
         <div class="search-frame">
           <div class="search-group">
-            <%= f.search_field :address_cont, :placeholder => "エリア[例：新宿]", class: 'top-search-form', id:'top-search-form-area' %>
+            <%= f.search_field :address_or_area_cont, :placeholder => "エリア[例：新宿]", class: 'top-search-form', id:'top-search-form-area' %>
           </div>
           <div class="search-group before-submit">
-            <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ]", class: 'top-search-form', id:'top-search-form-keyword' %>
+            <%= f.search_field :name_or_pet_type_cont, :placeholder => "キーワード[例：うさぎ or 店名など]", class: 'top-search-form', id:'top-search-form-keyword' %>
           </div>
           <%= f.submit "検索", class:'top-search-submit' %>
         </div>
