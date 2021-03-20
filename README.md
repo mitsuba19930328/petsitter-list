@@ -28,7 +28,7 @@ PetsitterListは「後悔しないペットシッター選び」をコンセプ�
 * AWS  
   ◦VPC  
   ◦EC2  
-  ◦Route53  
+  ◦Route53(独自ドメイン&SSL化)  
 * 自動化テスト:（RSpec）  
 * Google Maps API  
 * Google Sign-In(Oauth)  
@@ -37,16 +37,20 @@ PetsitterListは「後悔しないペットシッター選び」をコンセプ�
 
 # DEMO
 
+<img width="800" alt="TOP画像" src="https://user-images.githubusercontent.com/58715715/111679803-e11fd900-8864-11eb-8d54-47b3faa669a5.png">
+▲トップページ  
 
-▲トップページ
+<img width="600" alt="検索機能" src="https://user-images.githubusercontent.com/58715715/111679887-f7c63000-8864-11eb-9957-5ac8ca136165.png">
+▲検索機能  
 
-▲検索機能
+<img width="600" alt="検索結果" src="https://user-images.githubusercontent.com/58715715/111679899-fbf24d80-8864-11eb-8f14-943bc134df5e.png">
+▲検索結果一覧  
 
-▲検索結果一覧
+<img width="600" alt="企業詳細" src="https://user-images.githubusercontent.com/58715715/111679969-10364a80-8865-11eb-86e0-9cd65d8e95c7.png">
+▲企業詳細ページ  
 
-▲企業詳細ページ
-
-▲いいね機能やコメントなど
+<img width="600" alt="いいねや口コミなど" src="https://user-images.githubusercontent.com/58715715/111679989-15939500-8865-11eb-9bdd-827fa5dd50b6.png">
+▲いいね機能やコメントなど  
 
 # Features
 
