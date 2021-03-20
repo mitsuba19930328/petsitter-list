@@ -7,7 +7,7 @@ PetsitterListは「後悔しないペットシッター選び」をコンセプ�
 * 新規ユーザー登録、編集機能  
 * 認証機能（ログイン機能）  
 * ゲストログイン機能  
-* SNSログイン機能（omniauth,omniauth-twitter,omniauth-facebook,omniauth-google-oauth2）  
+* SNSログイン機能（omniauth,omniauth-twitter,omniauth-google-oauth2）  
 * いいね機能  
 * 記事へのコメント投稿、編集機能  
 * マップ表示機能（geocoder,GoogleCloudPlatform）  
@@ -33,7 +33,6 @@ PetsitterListは「後悔しないペットシッター選び」をコンセプ�
 * Google Maps API  
 * Google Sign-In(Oauth)  
 * Twitter Sign-In(Oauth)  
-* Facebook Sign-In(Oauth)  
 
 # DEMO
 
