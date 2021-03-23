@@ -17,27 +17,13 @@ class ReviewsController < ApplicationController
       flash[:alert] = 'コメントできませんでした'
       @petsitter = Petsitter.find(@review.petsitter_id)
       render 'petsitters/postReviews'
-      # redirect_back(fallback_location: root_path)
     end
   end
 
   # reviewの編集
   def edit
-    #今手に入れているのは、結果的にpetsitterのIDと同一のIDのレビュー
-    # petsitter = Petsitter.find(params[:id]).reviews.each do |review|
-    #   if review.user_id == current_user.id
-    #
-    #   end
-    # end
-
-    # @review = Review.find()
-    #
-
     @review = Review.find(params[:review_id])
     @petsitter = Petsitter.find(params[:petsitter_id])
-    # @petsitter = Petsitter.find(@review.petsitter_id)
-    # @petsitter = Petsitter.find_by(id: @review.petsitter_id, user_id: current_user.id)
-    # @petsitter = Petsitter.find(session[:petsitter_id])
   end
 
   # reviewの編集実行
@@ -48,7 +34,6 @@ class ReviewsController < ApplicationController
       redirect_to petsitter_path(@review.petsitter_id), notice: '変更成功！'
     else
       flash.now[:alert] = 'レビュー情報更新に失敗しました'
-      # redirect_to root_path, notice: "コメントを削除しました"
       render :edit
     end
   end
