@@ -1,16 +1,10 @@
 /*
- //*= require_reset
  *= require_self
  *= require_tree .
  */
 
-//@import "reset";
 @import "bootstrap";
 @import "bootstrap-social";
-//@import "font-awesome";
-//@import "common.scss";
-//@import "tops.scss";
-//@import "forms.scss";
 
 @import "users/show.scss";
 @import "users/edit.scss";

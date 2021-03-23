@@ -53,10 +53,7 @@
 .home-content {
   text-align: left;
   margin: 3% 35% 4% 0%;
-  //padding-bottom: %;
-  //margin-top: 3%;
   color: #fff;
-  //margin-right: 40%;
 }
 
 /* 見出し */
@@ -69,41 +66,19 @@
 
 }
 
-///* ボタン */
-//.button {
-//  font-size: 1.2rem;
-//  background: #0bd;
-//  color: #fff;
-//  border-radius: 5px;
-//  padding: 18px 32px;
-//}
-//
-//.button:hover {
-//  background: #0090aa;
-//}
-
-//#home .page-title {
-//  text-transform: none;
-//}
 
 /* 検索エリア
 ------------------------- */
 .search-wrapper {
-  //max-width: 1472px;
-  //min-width: 960px;
-  //width: 100%;
-  //height: 96px;
   margin: 0 auto;
   padding: 0 0;
 }
-
 
 .header-bottom {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  //margin: 40px 4%;
   background-color: #fff;
   border:1px solid #bbb;
   border-radius: 4px;
@@ -112,7 +87,6 @@
   0 0 10px rgba(0, 0, 0, 0.1) inset,
   0 1px 20px rgba(0, 0, 0, 0.1);
   margin: auto 6%;
-  //width: 1400px;
   height: 100px;
   padding: 0 62px;
 }
@@ -130,11 +104,9 @@
 .search-explanation {
   display: flex;
   justify-content: center;
-  //align-content: center;
   align-items: center;
   width: 35%;
   height: 80px;
-  //background-color: #00bbdd;
 }
 
 .search-field {
@@ -145,7 +117,6 @@
   text-align: center;
   width: 100%;
   height: 80px;
-  //background-color: #f0ad4e;
 }
 
 .search-frame {
@@ -156,15 +127,10 @@
 }
 
 .search-group {
-  //width: 250px;
   width: 400px;
   border-radius: 3px;
   border-right: 2px solid lightgray;
 }
-
-//.top-search-form {
-//  width: 50%;
-//}
 
 #top-search-form-area {
   width: 400px;
@@ -176,14 +142,8 @@
 
 
 .top-search-outline {
-  //& :focus {
   outline: none;
   border-bottom: 2px solid orange;
-  //outline-bottom: 3px solid gray;
-      //border-right:none;
-      //border-left:none;
-      //border-top:none;
-  //}
 }
 
 .before-submit {
@@ -201,13 +161,11 @@
 }
 
 .top-search-submit {
-  width: 100px; /*親要素いっぱい広げる*/
-  //padding: 0 15px;
+  width: 100px;
   font-size: 16px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid gray; /*枠線*/
-  //border-left: ;
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  border-radius: 3px;
+  border: 2px solid gray;
+  box-sizing: border-box;
   background-color: gray;
   color: white;
 }
@@ -224,7 +182,6 @@
   float: left;
   width: 738px;
   height: auto;
-  //border: dashed 1px #999;
   margin: 32px;
 }
 
@@ -234,7 +191,6 @@
   text-align: center;
   width: 960px;
   height: auto;
-  //border:dashed 1px #999;
   margin: 0 auto;
 }
 
@@ -242,20 +198,17 @@
   float: right;
   width: 380px;
   height: auto;
-  //border: dashed 1px #999;
   margin: 10px 5px 10px 5px;
   padding: 0 50px;
 }
 
 footer {
   clear:both;
-  //border:dashed 1px #999;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
-
 
 /* コンテンツ部分
 ------------------------- */
@@ -272,9 +225,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     padding: 12px 24px;
     background-color: #fff;
     border-radius: 5px;
-    border: 2px solid #ddd; /*枠線*/
-    //margin: 0% 2% 5% 0;
-    //padding: 5% 0 5% 8px;
+    border: 2px solid #ddd;
     font-size: 24px;
   }
 }
@@ -319,19 +270,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     font-size: 12px;
     font-weight: normal;
   }
-
-  //display: flex;
-  //flex-direction: row;
-  //justify-content: center;
-  //text-align: center;
-  //width: 114px;
-  //height: 46px;
-  //margin: auto 10px auto auto;
-  //padding: 12px 0px;
-  //background-color: #fff;
-  //border-radius: 5px;
-  //border: 2px solid #ddd;
-  //font-size: 16px;
 }
 
 .area-list {
@@ -340,10 +278,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  //justify-content: space-between;
-  //align-content: space-between;
-  //width: 100%;
-  //height: 50px;
 }
 
 .area-list > li {
@@ -363,8 +297,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 .all-area {
-  //font-size: 12px;
-  //margin: 10px 125px 0 0;
   float: left;
   position: relative;
   width: 25%;
@@ -381,7 +313,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* 対応可能動物検索ボックス */
 .pet-type-area {
   width: 80%;
-  //height: 300px;
 
   &_title {
     margin-top: 30px;
@@ -390,8 +321,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   &_area {
     background-color: #fff;
     border-radius: 5px;
-    //margin: 5% 0 0;
-    //margin: 0 5%;
     font-size: 24px;
   }
 }
@@ -421,7 +350,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-align: center;
     position: relative;
     color: white;
-    //background-color: white;
     &:hover {
       opacity: 0.6;
       color: black;
@@ -437,7 +365,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .pet-type-img {
   object-fit: cover;
   & :hover {
-    //color: black;
     opacity: 1;
   }
 }
@@ -445,16 +372,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .pet_type_name {
   position: absolute;
   top: 60%;
-
-  //color: white;
 }
 
 .pet_type_count {
   position: absolute;
   top: 75%;
 }
-
-
 
 .testsample {
   color: white;
@@ -497,7 +420,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   &_area {
     background-color: #fff;
     border-radius: 5px;
-    //margin: 0 5%;
     font-size: 24px;
   }
 }
@@ -518,7 +440,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background-color: #fff;
   font-size: 16px;
 }
-
 
 /* サイドナビ部分
 ------------------------- */
@@ -624,7 +545,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    //background-color: #00bbdd;
     width: 204px;
 
     & .user-icon {
@@ -638,13 +558,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
       font-size: 16px;
       color: black;
     }
-
   }
 }
 
 
 .image-icon-sidenavi {
-  //background-color: #f0ad4e;
   padding: 4px;
   width: 88px;
   height: 88px;
@@ -655,30 +573,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   list-style: none;
   display: flex;
   flex-direction: column;
-  //justify-content: space-around;
   margin: 15px 0 0;
-
 }
 
 .act-data {
   display: flex;
   justify-content: space-between;
   line-height: 48px;
-  //margin: 20px 0;
   padding-right: 16px;
   border-top: dotted 1px lightgray;
   color: gray;
   font-size: 12px;
-
-  //display: flex;
-  //flex-direction: row;
-  //justify-content: space-between;
-  //text-align: center;
-  //align-items: center;
-  ////margin: 5px 0;
-  //width: 100%;
-  //height: auto;
-  //border-top: solid 1px lightgray;
 }
 
 .user-bookmark {
@@ -692,7 +597,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding: 5%;
 
   &_title {
-    //text-align: left;
   }
 
   &_stores {
@@ -719,8 +623,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .bookmark_store_info {
   display: flex;
   flex-direction: column;
-  //justify-content: flex-end;
-  //align-items: center;
   margin-left: 8px;
   font-size: 12px;
 
@@ -770,8 +672,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-size: 14px;
 }
 
-
-
 /* フッター部分
 ------------------------- */
 
@@ -798,12 +698,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
       justify-content: space-between;
       height: 50%;
       color: gray;
-
     }
   }
 }
-
-
 
 .footer-nav {
   list-style: none;
