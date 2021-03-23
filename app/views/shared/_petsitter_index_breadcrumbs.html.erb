@@ -1,9 +1,7 @@
 
 <!-- petsitters/indexページで使用するパンクズリスト（rensackキーワード対応にするため、個別で作成） -->
 <ol class="petsittersIndexBreadcrumb">
-<!--  <li class="breadcrumb-item">-->
-    <%= link_to "ペットシッターリスト", root_path %>&nbsp;&gt;&nbsp;
-<!--  </li>-->
+  <%= link_to "ペットシッターリスト", root_path %>&nbsp;&gt;&nbsp;
 
   <% if @q&.conditions&.first&.values&.first&.value&.present? || @q&.conditions&.second&.values&.first&.value&.present? %>
       <%= link_to "全てのペットシッター", petsitters_path %>&nbsp;&gt;&nbsp;

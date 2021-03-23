@@ -8,11 +8,9 @@
           <% end %>
         <% end %>
         <p class="reviews-title"><%= link_to review.user.name, review.user %></p>
-        <!--        <p class="reviews-prof"><%#= review.user.gender %> <%#= review.user.height %> <%#= review.user.weight %></p>-->
       </div>
       <div class="col-md-6 mb-3">
         <div class=" reviews-content">
-          <!--          <p><%#= simple_time(review.created_at) %></p>-->
           <h4 class="mb-3">評価：<%= review.rate %>点 | <%= review.title %></h4>
 
           <!--星評価-->
@@ -26,23 +24,13 @@
                   half: true,
                   readOnly: true,
                   score: <%= review.rate %>,
-                  // score: "reviews.average(:rate).to_f.round(1)",
               });
           </script>
           <!--/星評価-->
 
           <p><%= review.content %></p>
-          <%#= image_tag @petsitter.image.url, class:'img-fluid' if @petsitter.image? %>
         </div>
       </div>
-      <!--      <div class="col-md-4">-->
-      <%#= link_to review.product do %>
-      <!--          <div class="reviews-product">-->
-      <!--            <img src="<%#= review.product.image_url %>" alt="">-->
-      <!--            <p><%#=  review.product.title %></p>-->
-      <!--          </div>-->
-      <%#end %>
-      <!--      </div>-->
       <div class="col-md-12 edit-button">
         <% if current_user == review.user %>
           <%= link_to '口コミを編集', edit_review_path(review), method: :get, class:'btn btn-default' %>

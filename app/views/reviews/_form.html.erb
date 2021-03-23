@@ -1,4 +1,3 @@
-<%# unless @is_my_review %>
 <% if review&.errors.present? %>
   <ul class="form-alert">
     <% review.errors.full_messages.each do |message| %>
@@ -48,14 +47,12 @@
       <div class="form-box_content">
         <!-- タイトル -->
         <div class="form-group-row">
-          <%#= f.label :title, class:'form-label' %>
           <%= f.text_field :title, class: "form-group-row_title", id:'review_title', value: review&.title,
                            placeholder:'口コミのタイトルを入力してください'%>
         </div>
 
         <!-- 口コミ -->
         <div class="form-group-row">
-          <%#= f.label :content, class:'form-label' %>
           <%= f.text_area :content, class: "form-group-row_field", rows: "8", id:'review_content', value: review&.content,
                           placeholder:'口コミ本文を入力してください' %>
         </div>
@@ -71,6 +68,3 @@
     </div>
 
   <% end %>
-
-
-<%# end %>

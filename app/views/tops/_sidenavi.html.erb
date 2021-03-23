@@ -75,45 +75,18 @@
                   </div>
                   <!--/星評価-->
 
-                  <!--星評価-->
-<!--                  <div class="bookmark_store_info_rate">-->
-<!--                    <div id="star-rate-<%#= petsitter.id %>"></div>-->
-<!--                    <script>-->
-<!--                        $('#star-rate-<%#= petsitter.id %>').raty({-->
-<!--                            size: 12,-->
-<!--                            half: true,-->
-<!--                            starOff:  '<%#= asset_path('star-off-little.png') %>',-->
-<!--                            starOn : '<%#= asset_path('star-on-little.png') %>',-->
-<!--                            starHalf: '<%#= asset_path('star-half-little.png') %>',-->
-<!--                            readOnly: true,-->
-<!--                            number:       5,-->
-<!--                            numberMax:    5,-->
-<!--                            score: "<%#= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %>",-->
-<!--                        });-->
-<!--                    </script>-->
-<!--                    <div class="shop-rating_sidenavi"><%#= petsitter&.reviews.average(:rate).to_f.round(2) || 0 %></div>-->
-<!--                  </div>-->
-                  <!--/星評価-->
-                  <!--            <div class="bookmark_store_info_review"><%#= current_user.petsitters.reviews %>★★★★★ 4.5</div>-->
                 </div>
               </li>
             <% end %>
           <% end %>
         </ul>
 
-        <!--      <div class="user-bookmark-store_store">-->
-        <%#=link_to image_tag("136x136.png"), root_path, class:'store-icon'%>
-        <!--        <div class="bookmark_store_info">-->
-        <!--          <div class="bookmark_store_info_name">テスト店ABCDDOOOO</div>-->
-        <!--          <div class="bookmark_store_info_area">六本木</div>-->
-        <!--          <div class="bookmark_store_info_review">★★★★★ 4.5</div>-->
-        <!--        </div>-->
-        <!--      </div>-->
         <div class="user_bookmark-store_footer">
           <%= link_to "保存したお店一覧へ" , user_clips_path(current_user.id) %>
         </div>
       </div>
     </div>
+
   <!-- 非ログインユーザー用サイドナビ -->
   <% else %>
     <div class="user-info-area">
@@ -125,9 +98,6 @@
         <div class="sign-up-box">
           <%= link_to '会員登録', new_user_path, class: 'btn user-submit sidenavi-box' %>
         </div>
-<!--        これはテストです<br/>-->
-<!--        これはテストです<br/>-->
-<!--        これはテストです<br/>-->
       </div>
     </div>
   <% end %>

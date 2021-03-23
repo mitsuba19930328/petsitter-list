@@ -1,5 +1,4 @@
 
-
 <%= render partial: 'petsitters/shopHeader' %>
 <ul class="shop-menu-bar">
   <li class="shop-menu-link"><%= link_to "店舗トップ", petsitter_path %></li>
@@ -10,13 +9,10 @@
 <div class="shop-content">
   <!-- 地図 -->
   <div class="shop-content_map">
-    <%# if current_page?(user_path) %>
     <span class="petsitter-address"><%= @petsitter.address %></span>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
-    <%# end %>
   </div>
 </div>
-
 
 <!-- googlemapテスト -->
 <!--<h2>gmap</h2>-->
@@ -69,7 +65,6 @@
 
             // マーカー情報を確定
             let marker = new google.maps.Marker(markerOptions);
-
         });
     }
 

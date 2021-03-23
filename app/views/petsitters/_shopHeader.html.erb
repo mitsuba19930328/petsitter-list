@@ -44,7 +44,6 @@
       <% @petsitter.area.split(/、/).each do |area| %>
         <%= link_to area, petsitters_path(@q, :'q[area_cont' => "#{area}") %>&nbsp;
       <% end %>
-      <%#= link_to @petsitter.area, petsitters_path(@q, :'q[address_cont' => "#{@petsitter.area}") %>
       <span class="pet-type">対応可能動物種類：</span>
       <div class='pet-types'>
         <ul class='pet-types-list'>
@@ -61,15 +60,9 @@
       <!-- 口コミ投稿 -->
       <div class='action-btn' id='testsample'>
         <% if current_user != nil %>
-          <%# if current_user&.already_liked?(@petsitter) %>
-            <%#= link_to '/petsitters/#{@petsitter.id}/reviews/new', class:'action-link', method: :delete do %>
-<!--              <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>-->
-            <%# end %>
-          <%# else %>
             <%= link_to petsitter_new_reviews_path(@petsitter.id), class:'action-link' do %>
               <i class='fas fa-user-check fa-lg'></i> <span class='action-name'>行った</span>
             <% end %>
-          <%# end %>
         <% else %>
           <%= link_to petsitter_new_reviews_path(@petsitter.id), class:'action-link' do %>
             <i class='fas fa-bookmark fa-lg'></i> <span class='action-name'>行った</span>
@@ -97,124 +90,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  <div class="action-wrap">-->
-<!--    <div class="action-wrap_app">-->
-<!--      <div class="action-btn">-->
-<!--        <i class="fas fa-user-check fa-lg"></i>-->
-<%#= link_to "行った", root_path, class:'action-name' %>
-<!--      </div>-->
-<!--      <div class="action-btn">-->
-<!--        <i class="fas fa-bookmark fa-lg"></i>-->
-<%#= link_to "保存", root_path, class:'action-name' %>
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-
-
-
-
-
-
-
-
-<!--<div class='shop-header'>-->
-<!--  <div class='info-wrap'>-->
-<!--    <div class='shop-controller'>-->
-<!--      <div class='shop-name'>-->
-<!--        リサイクルブティックＡＢＣ 中野店-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class='shop-top-info'>-->
-<!--      <div class='shop-top-info__rate'>-->
-<!--        <div class='star-rating' id='star-rate-44'></div>-->
-<!--        <div class='shop-rating'>-->
-<!--          3.75-->
-<!--        </div>-->
-<!--        <script>-->
-<!--            $('#star-rate-44').raty({-->
-<!--                size: 36,-->
-<!--                starOff: "/assets/star-off-6aaeebdaab93d594c005d366ce0d94fba02e7a07fd03557dbee8482f04a91c22.png",-->
-<!--                starOn: "/assets/star-on-fd26bf0ea0990cfd808f7540f958eed324b86fc609bf56ec2b3a5612cdfde5f5.png",-->
-<!--                starHalf: "/assets/star-half-db15fb9b3561d5c741d8aea9ef4f0957bd9bc51aa1caa6d7a5c316e083c1abd5.png",-->
-<!--                half: true,-->
-<!--                readOnly: true,-->
-<!--                score: "3.75",-->
-<!--            });-->
-<!--        </script>-->
-<!--      </div>-->
-<!--      <div class='shop-top-info__woms'>-->
-<!--        <a href="/shops/44/woms"><i class='fas fa-comment-dots'></i>2 件-->
-<!--        </a></div>-->
-<!--      <div class='shop-top-info__bookmarks'><i class='fas fa-bookmark fa-lg'></i>4 件-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class='shop-bottom-info'>-->
-<!--      <span>エリア：</span>-->
-<!--      <a class="shop-bottom-info-show" href="/shops/search?q%5Barea_name_cont%5D=%E4%B8%AD%E9%87%8E">中野</a>-->
-<!--      <span>ジャンル：</span>-->
-<!--      <div class='shop-genre'>-->
-<!--        <ul class='genre-list'>-->
-<!--          <li>-->
-<!--            <a class="shop-bottom-info-show" href="/shops/search?q%5Bgenres_name_eq%5D=%E3%83%AA%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97">リユースショップ</a>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a class="shop-bottom-info-show" href="/shops/search?q%5Bgenres_name_eq%5D=%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89%E5%8F%A4%E7%9D%80">ブランド古着</a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class='action-wrap'>-->
-<!--    <div class='action-wrap__app'>-->
-<!--      <div class='action-btn wom-post-btn' id='woms-count-0'>-->
-<!--        <a class="action-link" href="/shops/44/woms/new"><i class='fas fa-user-check fa-lg'></i>-->
-<!--          <span class='action-name'>行った</span>-->
-<!--        </a></div>-->
-<!--      <div class='action-btn bookmark-btn' id='clip-count-1'>-->
-<!--        <a class="action-link" id="clip-delete" rel="nofollow" data-method="delete" href="/users/2/clips/%23%3CClip::ActiveRecord_Relation:0x00000000090decc0%3E?shop_id=44"><i class='fas fa-bookmark fa-lg'></i>-->
-<!--          <span class='action-name'>保存</span>-->
-<!--        </a></div>-->
-<!--    </div>-->
-<!--    <div class='action-wrap__share'>-->
-<!--      <div class='action-wrap__share__btn' id='facebook-share'>-->
-<!--        <a href='https://www.facebook.com/share.php?url=https://www.full-colle.com/shops/44/woms' rel='nofollow' target='_blank'>-->
-<!--          <i class='fab fa-facebook-square fa-lg'></i>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--      <div class='action-wrap__share__btn' id='twitter-share'>-->
-<!--        <a href='https://twitter.com/share?url=https://www.full-colle.com/shops/44/woms&amp;text=%E5%8F%A4%E7%9D%80%E5%B1%8B%E6%8E%A2%E3%81%97%E3%81%AF%E3%80%8C%E5%8F%A4%E3%82%B3%E3%83%AC%E3%80%8D%0D%0A%E3%81%84%E3%81%84%E5%8F%A4%E7%9D%80%E5%B1%8B%E8%A6%8B%E3%81%A4%E3%81%91%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%EF%BC%81%0D%0AリサイクルブティックＡＢＣ 中野店' rel='nofollow' target='_blank'>-->
-<!--          <i class='fab fa-twitter-square fa-lg'></i>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--      <div class='action-wrap__share__btn' id='line-share'>-->
-<!--        <a href='http://line.me/R/msg/text/?https://syncer.jp'>-->
-<!--          <i class='fab fa-line fa-lg'></i>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
