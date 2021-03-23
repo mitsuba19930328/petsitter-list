@@ -52,13 +52,6 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'ログアウトしました'
   end
 
-  # def guest_login
-  #   user = User.find_by(email: 'guest@example.com')
-  #   session[:user_id] = user.id
-  #   flash[:success] = 'ゲストユーザーとしてログインしました'
-  #   redirect_to user_path(user)
-  # end
-
   private
     # ストロングパラメーター（セッションパラメーター取得用）
     def session_params

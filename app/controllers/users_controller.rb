@@ -96,8 +96,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   private
     # ストロングパラメーター（ユーザーパラメーター取得用）
     def user_params
