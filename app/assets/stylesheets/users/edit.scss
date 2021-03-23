@@ -1,27 +1,19 @@
 
-
-/* users/editで使用するcssはこのページにまとめています。
+/* users/editで使用するcss
 ------------------------- */
 
-
-
-
 .account-page {
-
   &_inner {
     display: flex;
     margin: 32px auto;
     padding: 40px;
-    //background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    //height: 650px;
 
     &_left {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      //float: left;
       width: 50%;
 
       & h2 {
@@ -57,16 +49,7 @@
 
     &_right {
       display: flex;
-      //float: left;
       width: 50%;
     }
-
-    //& ::after {
-    //  display: block;
-    //  clear: both;
-    //  content: "";
-    //}
   }
 }
-
-

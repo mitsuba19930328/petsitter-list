@@ -2,9 +2,6 @@
 /* user/showページで使用するcss
 ------------------------- */
 
-/*
-------------------------- */
-
 .user-body {
   display: flex;
   flex-direction: row;
@@ -16,7 +13,6 @@
   padding: 32px;
   background-color: oldlace;
 }
-
 
 .user-self-info {
   display: flex;
@@ -45,12 +41,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  //position: relative;
   border-bottom: dotted 1px lightgray;
   height: 36px;
 
   &_title {
-
   }
 
   &_reviews {
@@ -58,11 +52,9 @@
   }
 
   &_histories {
-
   }
 
   &_clips {
-
   }
 
 }
