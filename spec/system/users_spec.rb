@@ -27,7 +27,6 @@ RSpec.describe 'User', type: :system do
           click_button 'submit_btn'
 
           # 新規登録後のテスト
-          # TODO セッションに新規登録したユーザーのIDが入っている確認
           # root_pathへ遷移することを期待する
           expect(current_path).to eq root_path
 
@@ -71,9 +70,6 @@ RSpec.describe 'User', type: :system do
           expect(page).to have_content '名称を入力してください'
           expect(page).to have_content 'パスワードを入力してください'
           expect(page).to have_content 'パスワードは6文字以上で入力してください'
-
-          # 新規失敗時、パスワード系以外はそのままフォームに値が入っていること
-          # expect(page).to have_content 'watage_image'
 
         end
 
@@ -140,8 +136,6 @@ RSpec.describe 'User', type: :system do
           fill_in 'user_password', with: 'password'
           # password_confirmationテキストフィールドに'password'を入力
           fill_in 'user_password_confirmation', with: 'password'
-          # image_nameテキストフィールドに'lapan_image'を入力
-          # fill_in 'user_image_name', with: 'lapan_image'
           # submitと記述のあるsubmitをクリックする
           click_button 'submit_btn'
 
@@ -151,10 +145,9 @@ RSpec.describe 'User', type: :system do
 
           # 遷移されたページに'ユーザー登録が完了しました。'の文字列があることを期待する
           expect(page).to have_content 'ユーザー情報を更新しました。'
-
         end
-
       end
+
       context 'フォームの入力値が不正' do
 
         # 細かなフォーム入力値チェックはmodel/user_specにて確認するため、ここでは失敗時アクションを主に確認
@@ -172,15 +165,8 @@ RSpec.describe 'User', type: :system do
           fill_in 'user_password', with: ' '
           # password_confirmationテキストフィールドに'password'を入力
           fill_in 'user_password_confirmation', with: 'password'
-          # image_nameテキストフィールドに'watage_image'を入力
-          # fill_in 'user_image_name', with: 'watage_image'
           # submitボタンをクリック
           click_button 'submit_btn'
-
-          # 更新失敗時のテスト
-          # :editのままであることを確認する
-          # TODO 一旦コメントアウト
-          # expect(current_path).to eq edit_user_path(user)
 
           # 以下、失敗時のメッセージ確認
           # 更新ページに'ユーザー情報更新に失敗しました。'の文字列があることを期待する
@@ -190,9 +176,6 @@ RSpec.describe 'User', type: :system do
           expect(page).to have_content '名称を入力してください'
           expect(page).to have_content 'パスワードを入力してください'
           expect(page).to have_content 'パスワードは6文字以上で入力してください'
-
-          # 更新失敗時、パスワード系以外はそのままフォームに値が入っていること
-          # expect(page).to have_content 'watage_image'
 
         end
 
@@ -209,15 +192,8 @@ RSpec.describe 'User', type: :system do
           fill_in 'user_password', with: 'password'
           # password_confirmationテキストフィールドに'passward'を入力
           fill_in 'user_password_confirmation', with: 'passward'
-          # image_nameテキストフィールドには何も入れません
-          # fill_in 'user_image_name', with: ''
           # submitボタンをクリック
           click_button 'submit_btn'
-
-          # 新規登録失敗時のテスト
-          # :editのままであることを確認する
-          # TODO 一旦コメントアウト
-          # expect(current_path).to eq ':edit'
 
           # 以下、失敗時のメッセージ確認
           # 更新ページに'ユーザー情報更新に失敗しました。'の文字列があることを期待する
@@ -226,43 +202,11 @@ RSpec.describe 'User', type: :system do
           # 更新ページのエラー原因が書かれていることを期待する
           expect(page).to have_content 'パスワード（確認）とパスワードの入力が一致しません'
 
-          # 更新失敗時、パスワード系以外はそのままフォームに値が入っていること
-          # expect(page).to have_content 'watage_image'
         end
       end
     end
 
     describe 'ユーザー削除' do
-
-      # before 'ログイン処理'do
-      #   visit login_path
-      #   fill_in 'user_email', with: user.email
-      #   fill_in 'user_password', with: 'password'
-      #   # submitボタンをクリック
-      #   click_button 'submit_btn'
-      # end
-      #
-      # context 'ユーザー削除' do
-      #   it 'ユーザーの削除が成功' do
-      #
-      #     # ユーザー詳細画面へ移動
-      #     visit user_path(user)
-      #
-      #     # ユーザー削除ボタンを押下する
-      #     click_on '削除'
-      #
-      #     # ユーザー削除確認をOK、削除完了メッセージ出現、ユーザー数が一人少なくなっていることを確認
-      #     expect{
-      #       expect(page.accept_confirm).to eq "ユーザー#{user.name}を削除します。よろしいですか？"
-      #       expect(page).to have_content "ユーザー情報を削除しました。"
-      #     }.to change{ User.count }.by(-1)
-      #
-      #     # 削除後のテスト
-      #     # tops_index_pathへ遷移していることを期待する
-      #     expect(current_path).to eq tops_index_path
-      #
-      #   end
-      # end
     end
   end
 end
