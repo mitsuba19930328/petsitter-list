@@ -9,6 +9,5 @@ class Review < ApplicationRecord
 
   belongs_to :user
   belongs_to :petsitter
-  validates :petsitter_id, uniqueness: {message: "同じペットシッターへの複数回投稿はできません。"}, on: :create
 
 end

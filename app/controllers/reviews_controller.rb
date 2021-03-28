@@ -4,14 +4,25 @@ class ReviewsController < ApplicationController
 
   def create
     # ストロングパラメーターを使用してレビューインスタンス生成
-    p current_user.id
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+
+    # 現在のユーザーがすでに該当のペットシッターにコメントをしているか確認
+    is_current_user_commented = Review.find_by(user_id: current_user.id, petsitter_id: @review.petsitter_id)
+
+    # 現在のユーザーがペットシッターにコメント済みの場合、エラーへ分岐させる
+    if is_current_user_commented
+      # レビュー登録失敗した場合
+      flash[:alert] = 'コメントできませんでした'
+      @petsitter = Petsitter.find(@review.petsitter_id)
+      render  template: 'petsitters/postReviews' and return
+    end
+
+    # まだコメントしていない場合は、コメントを登録させる
     if @review.save
       # レビュー登録成功した場合
       flash[:success] = 'コメントしました'
       redirect_to petsitter_reviews_path(@review.petsitter_id)
-      # redirect_back(fallback_location: root_path)
     else
       # レビュー登録失敗した場合
       flash[:alert] = 'コメントできませんでした'
@@ -31,7 +42,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @petsitter = Petsitter.find(@review.petsitter_id)
     if @review.update(review_params)
-      redirect_to petsitter_path(@review.petsitter_id), notice: '変更成功！'
+      redirect_to petsitter_path(@review.petsitter_id), notice: 'レビュー情報を修正しました'
     else
       flash.now[:alert] = 'レビュー情報更新に失敗しました'
       render :edit
@@ -41,7 +52,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find_by(user_id: current_user.id)
     @review.destroy
-    redirect_to root_path, notice: "コメントを削除しました"
+    redirect_to petsitter_path(@review.petsitter_id), notice: 'レビュー情報を削除しました'
   end
 
   private
