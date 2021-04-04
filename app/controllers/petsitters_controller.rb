@@ -71,6 +71,9 @@ class PetsittersController < ApplicationController
 
     # 新規一時保存用インスタンス
     @temp_save = TempSave.new
+
+    # 該当のペットシッターIDで検索できるレビューを取得
+    @reviews = Review.where(petsitter: @petsitter.id)
   end
 
   def details
@@ -82,6 +85,9 @@ class PetsittersController < ApplicationController
 
     # 新規一時保存用インスタンス
     @temp_save = TempSave.new
+
+    # 該当のペットシッターIDで検索できるレビューを取得
+    @reviews = Review.where(petsitter: @petsitter.id)
   end
 
   def reviews
@@ -141,6 +147,9 @@ class PetsittersController < ApplicationController
 
     # 新規一時保存用インスタンス
     @temp_save = TempSave.new
+
+    # 該当のペットシッターIDで検索できるレビューを取得
+    @reviews = Review.where(petsitter: @petsitter.id)
 
     # マップ（mapに移管する予定）
     # 以下はGoogleMapテスト
