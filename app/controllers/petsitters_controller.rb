@@ -4,6 +4,7 @@ class PetsittersController < ApplicationController
   before_action :regular_holiday_string, only: [:create, :update]
   before_action :pet_type_string, only: [:create, :update]
   before_action :admin_user, only:[:new, :create, :edit, :update, :destroy]
+  before_action :set_petsitter, only:[:show, :details, :reviews, :postReviews,:map] # 企業詳細ページの共通処理
   skip_before_action :login_required, only: [:index, :show, :details, :reviews, :map]
   include PetsittersHelper
   PER = 5
@@ -63,94 +64,32 @@ class PetsittersController < ApplicationController
 
   # ペットシッター詳細表示
   def show
-    # 該当のペットシッターを検索
-    @petsitter = Petsitter.find(params[:id])
-
-    # 新規いいね用インスタンス
-    @like = Like.new
-
-    # 新規一時保存用インスタンス
-    @temp_save = TempSave.new
-
-    # 該当のペットシッターIDで検索できるレビューを取得
-    @reviews = Review.where(petsitter: @petsitter.id)
   end
 
   def details
-    # 該当のペットシッターを検索
-    @petsitter = Petsitter.find(params[:id])
-
-    # 新規いいね用インスタンス
-    @like = Like.new
-
-    # 新規一時保存用インスタンス
-    @temp_save = TempSave.new
-
-    # 該当のペットシッターIDで検索できるレビューを取得
-    @reviews = Review.where(petsitter: @petsitter.id)
   end
 
   def reviews
-    # 該当のペットシッターを検索
-    @petsitter = Petsitter.find(params[:id])
-
     # 新規レビュー用インスタンス
     @review = Review.new
 
     # reviewコントローラーなどで使うため@petsitter.idをsessionに保存
     session[:petsitter_id] = @petsitter.id
-
-    # 該当のペットシッターIDで検索できるレビューを取得
-    @reviews = Review.where(petsitter: @petsitter.id)
-
-    # 新規いいね用インスタンス
-    @like = Like.new
-
-    # 新規一時保存用インスタンス
-    @temp_save = TempSave.new
   end
 
   def postReviews
-    # 該当のペットシッターを検索
-    @petsitter = Petsitter.find(params[:id])
-
     # 新規レビュー用インスタンス
     @review = Review.new
 
     # reviewコントローラーなどで使うため@petsitter.idをsessionに保存
     session[:petsitter_id] = @petsitter.id
 
-    # 該当のペットシッターIDで検索できるレビューを取得
-    @reviews = Review.where(petsitter: @petsitter.id)
-
     # 自分のコメントがあるかチェックする
     @is_my_review = @reviews.find_by(user_id: current_user.id)
-
-    # 新規いいね用インスタンス
-    @like = Like.new
-
-    # 新規一時保存用インスタンス
-    @temp_save = TempSave.new
-
   end
 
 
   def map
-    # 該当のペットシッターを検索
-    @petsitter = Petsitter.find(params[:id])
-
-    # 新規レビュー用インスタンス
-    @review = Review.new
-
-    # 新規いいね用インスタンス
-    @like = Like.new
-
-    # 新規一時保存用インスタンス
-    @temp_save = TempSave.new
-
-    # 該当のペットシッターIDで検索できるレビューを取得
-    @reviews = Review.where(petsitter: @petsitter.id)
-
     # マップ（mapに移管する予定）
     # 以下はGoogleMapテスト
     gon.address = @petsitter.address
@@ -200,6 +139,7 @@ class PetsittersController < ApplicationController
                :image,)
   end
 
+  # 管理者権限有無の確認
   def admin_user
     @users = User.all
     if  current_user.admin == false
@@ -207,4 +147,20 @@ class PetsittersController < ApplicationController
       redirect_to root_path
     end
   end
+
+  # 企業詳細ページの共通処理
+  def set_petsitter
+    # 該当のペットシッターを検索
+    @petsitter = Petsitter.find(params[:id])
+
+    # 新規いいね用インスタンス
+    @like = Like.new
+
+    # 新規一時保存用インスタンス
+    @temp_save = TempSave.new
+
+    # 該当のペットシッターIDで検索できるレビューを取得
+    @reviews = Review.where(petsitter: @petsitter.id)
+  end
+
 end
