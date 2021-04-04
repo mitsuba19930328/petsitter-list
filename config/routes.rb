@@ -12,10 +12,6 @@ Rails.application.routes.draw do
   # ＋SNSログイン
   get 'auth/failure', to: redirect('/')
   get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/google_oauth2/callback', to: 'sessions#create'
-  get 'users/auth/google_oauth2/callback', to: 'sessions#create'
-  get '/auth/google_oauth2/callback', to: 'sessions#create'
-  get '/users/auth/google_oauth2/callback', to: 'sessions#create'
 
   # user関連
   resources :users
@@ -35,7 +31,6 @@ Rails.application.routes.draw do
   get 'petsitters/:id/reviews/new', to: 'petsitters#postReviews', as: 'petsitter_new_reviews'
   get 'petsitters/:petsitter_id/reviews/:review_id', to: 'reviews#edit', as: 'edit_reviews'
   get 'petsitters/:id/map', to: 'petsitters#map', as: 'petsitter_map'
-  get 'petsitters/:id/reviewsample', to: 'petsitters#reviewsample', as: 'petsitter_reviewsample'
 
   # review関連
   resources :reviews, only: [:create, :update, :destroy]
