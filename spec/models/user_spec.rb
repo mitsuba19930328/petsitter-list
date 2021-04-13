@@ -12,6 +12,11 @@ RSpec.describe User, type: :model do
       expect(FactoryBot.build(:user, name:'')).to_not be_valid
     end
 
+    it "名前が重複していても登録できる" do
+      user1 = FactoryBot.create(:user, name: 'hogehoge')
+      expect(FactoryBot.build(:user, name: user1.name)).to be_valid
+    end
+
     it "メールアドレスがなければ登録できない" do
       expect(FactoryBot.build(:user, email: '')).to_not be_valid
     end
