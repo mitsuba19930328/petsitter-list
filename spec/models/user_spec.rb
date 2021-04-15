@@ -12,6 +12,12 @@ RSpec.describe User, type: :model do
       expect(FactoryBot.build(:user, name:'')).to_not be_valid
     end
 
+    it "名前なしの登録時に適切なエラーメッセージが返却されること" do
+      user = FactoryBot.build(:user, name: nil)
+      user.valid?
+      expect(user.errors[:name]).to include("を入力してください")
+    end
+
     it "名前が重複していても登録できる" do
       user1 = FactoryBot.create(:user, name: 'hogehoge')
       expect(FactoryBot.build(:user, name: user1.name)).to be_valid
@@ -21,6 +27,12 @@ RSpec.describe User, type: :model do
       expect(FactoryBot.build(:user, email: '')).to_not be_valid
     end
 
+    it "メールアドレスなしの登録時に適切なエラーメッセージが返却されること" do
+      user = FactoryBot.build(:user, email: nil)
+      user.valid?
+      expect(user.errors[:email]).to include("を入力してください")
+    end
+
     it "メールアドレスが重複していたら登録できない" do
       user1 = FactoryBot.create(:user, email: 'copy@example.com')
       expect(FactoryBot.build(:user, email: user1.email)).to_not be_valid
@@ -28,6 +40,12 @@ RSpec.describe User, type: :model do
 
     it "パスワードがなければ登録できない" do
       expect(FactoryBot.build(:user, password: '')).to_not be_valid
+    end
+
+    it "メールアドレスなしの登録時に適切なエラーメッセージが返却されること" do
+      user = FactoryBot.build(:user, password: nil)
+      user.valid?
+      expect(user.errors[:password]).to include("を入力してください")
     end
 
     it "パスワードが暗号化されているか" do
@@ -48,4 +66,21 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+  context '編集' do
+
+    # it "パスワードがなければ更新できない" do
+    #   user = FactoryBot.create(:user)
+    #   expect(user.password_digest).to_not eq "password"
+    #
+    #   # expect(FactoryBot.update(:user, name:'testman')).to_not be_valid
+    # end
+    #
+    # it "名前がなければ更新できない" do
+    #   expect(FactoryBot.update(:user, name:'', password:'password')).to_not be_valid
+    # end
+
+
+  end
+
 end
