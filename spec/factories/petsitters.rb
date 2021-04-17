@@ -3,7 +3,7 @@ FactoryBot.define do
 
     name {"sample-petsitter"}
     # sequence(:email) { |n| "petsitter#{n}@example.com"}
-    address {""}
+    address {"東京都荒川区麻布十番一丁目1番1号3階"}
     prefecture {"東京都"}
     town {"荒川区"}
     phone {"090-0000-0000"}

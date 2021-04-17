@@ -18,8 +18,17 @@ class Petsitter < ApplicationRecord
   # 画像投稿用（carrierwave使用）
   mount_uploader :image, ImageUploader
 
+  # phone用の正規表現
+  VALID_PHONE_REGEX = /\A[0-9]{2,3}[-0-9][0-9]{3,4}[-0-9][0-9]+\z/i
+
   # Validation
   validates :name, { presence: true, length: { maximum: 30 }}
+  validates :address, { presence: true}
+  validates :prefecture, { presence: true}
+  validates :town, { presence: true}
+  validates :phone, { presence: true, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }}
+  validates :pet_type, { presence: true}
+  validates :insurance, { presence: true}
   validate :validate_name_not_including_comma
 
   private
